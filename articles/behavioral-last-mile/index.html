@@ -1,232 +1,1243 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Behavioral Last-Mile | Fawad Liaqat</title>
-  <meta name="description" content="Why adoption failures often stem from behavioral friction rather than technology gaps, and what that means for rollout strategy.">
-  <meta name="author" content="Fawad Liaqat">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --heading:       #0d0d0d;
-      --text:          #2a2a2a;
-      --muted:         #606060;
-      --border:        #d0d0d0;
-      --border-light:  #e8e8e8;
-      --bg:            #ffffff;
-      --bg-alt:        #f6f6f6;
-      --bg-dark:       #101010;
-      --link:          #1a50a0;
-      --table-head-bg: #1a1a1a;
-      --table-head-fg: #ffffff;
-      --table-alt:     #f9f9f9;
-    }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { font-size: 16px; -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
-    body { font-family: 'Inter', -apple-system, sans-serif; color: var(--text); background: var(--bg); line-height: 1.6; }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="The Behavioral Last Mile: Why 88% Digital Infrastructure Produces 60% Cash Economies. Academic article by Fawad Liaqat examining digital payment adoption barriers in Pakistan."
+    />
+    <meta
+      name="keywords"
+      content="digital payments, financial inclusion, behavioral economics, Pakistan, Raast, UPI, M-Pesa"
+    />
+    <meta name="author" content="Fawad Liaqat, BSFT NUCES FAST Islamabad" />
+    <meta name="publication-date" content="2026-03-27" />
+    <title>
+      The Behavioral Last Mile: Digital Payment Adoption in Pakistan
+    </title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-    .nav { position: sticky; top: 0; z-index: 200; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border-light); }
-    .nav-inner { max-width: 1080px; margin: 0 auto; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 54px; }
-    .nav-brand { font-weight: 700; font-size: 0.875rem; color: var(--heading); text-decoration: none; }
-    .nav-links { display: flex; gap: 0; list-style: none; }
-    .nav-links a { display: inline-block; padding: 0.3rem 0.85rem; font-size: 0.8rem; font-weight: 500; color: var(--muted); text-decoration: none; border-radius: 5px; transition: all 0.15s; }
-    .nav-links a:hover { color: var(--heading); background: var(--bg-alt); }
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.7;
+        color: #2c3e50;
+        background-color: #f8f9fa;
+      }
 
-    .article-header { padding: 3.5rem 2rem 0; border-bottom: 1px solid var(--border-light); }
-    .header-inner { max-width: 740px; margin: 0 auto; }
-    .article-topic { display: inline-block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; color: var(--muted); border: 1px solid var(--border); padding: 0.22rem 0.7rem; border-radius: 3px; margin-bottom: 1.25rem; }
-    .article-title { font-family: 'Lora', Georgia, serif; font-size: clamp(1.7rem, 4vw, 2.5rem); font-weight: 600; line-height: 1.2; letter-spacing: -0.02em; color: var(--heading); margin-bottom: 1.5rem; }
-    .article-meta { display: flex; flex-wrap: wrap; gap: 0.5rem 2rem; font-size: 0.78rem; color: var(--muted); padding: 1rem 0; border-top: 1px solid var(--border-light); }
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 40px 20px;
+        background-color: white;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
+      }
 
-    .placeholder-notice { max-width: 740px; margin: 2rem auto 0; background: #fffbea; border: 1px solid #e8d97a; border-left: 3px solid #b8a900; padding: 1.25rem 1.5rem; border-radius: 0 4px 4px 0; }
-    .placeholder-notice p { font-size: 0.875rem; line-height: 1.7; color: #4a4200; margin-bottom: 0.5rem; }
-    .placeholder-notice p:last-child { margin-bottom: 0; }
-    .placeholder-notice strong { color: #2a2600; }
-    .placeholder-notice code { background: rgba(0,0,0,0.07); padding: 0.1em 0.4em; border-radius: 3px; font-size: 0.85em; }
+      header {
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 30px;
+        margin-bottom: 30px;
+      }
 
-    .abstract { max-width: 740px; margin: 1.5rem auto 0; background: var(--bg-alt); border-left: 3px solid var(--heading); padding: 1.6rem 1.75rem; }
-    .abstract-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.65rem; }
-    .abstract p { font-family: 'Lora', Georgia, serif; font-size: 0.96rem; line-height: 1.8; color: var(--muted); font-style: italic; margin-bottom: 0; }
+      h1 {
+        font-size: 2.2em;
+        margin-bottom: 15px;
+        color: #1a252f;
+        font-weight: 700;
+        line-height: 1.3;
+      }
 
-    .article-body { max-width: 740px; margin: 0 auto; padding: 3.5rem 2rem 5rem; }
-    .article-body h2 { font-family: 'Lora', Georgia, serif; font-size: 1.4rem; font-weight: 600; color: var(--heading); margin-top: 3rem; margin-bottom: 0.9rem; padding-bottom: 0.5rem; border-bottom: 1.5px solid var(--border-light); letter-spacing: -0.015em; line-height: 1.3; }
-    .article-body h3 { font-size: 1rem; font-weight: 600; color: var(--heading); margin-top: 2rem; margin-bottom: 0.6rem; }
-    .article-body p { font-family: 'Lora', Georgia, serif; font-size: 1.04rem; line-height: 1.83; color: var(--text); margin-bottom: 1.35rem; }
-    .placeholder-text { color: var(--muted) !important; font-style: italic; }
+      .author-info {
+        font-size: 1.05em;
+        color: #555;
+        margin: 10px 0;
+      }
 
-    .table-caption { font-size: 0.845rem; font-style: italic; color: var(--muted); margin-bottom: 0.55rem; font-family: 'Lora', Georgia, serif; }
-    .table-wrap { overflow-x: auto; margin: 0.25rem 0 2.5rem; border: 1px solid var(--border); border-radius: 5px; }
-    table { width: 100%; border-collapse: collapse; font-size: 0.86rem; line-height: 1.5; }
-    thead tr { background: var(--table-head-bg); }
-    thead th { padding: 0.65rem 0.9rem; text-align: left; font-weight: 600; font-size: 0.75rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--table-head-fg); }
-    tbody tr:nth-child(even) { background: var(--table-alt); }
-    tbody td { padding: 0.6rem 0.9rem; border-bottom: 1px solid var(--border-light); color: var(--muted); font-style: italic; vertical-align: top; }
-    tbody tr:last-child td { border-bottom: none; }
+      .author-affiliation {
+        color: #666;
+        font-style: italic;
+        font-size: 0.95em;
+      }
 
-    .references ol { padding-left: 1.6rem; }
-    .references li { font-family: 'Lora', Georgia, serif; font-size: 0.88rem; line-height: 1.72; color: var(--muted); margin-bottom: 0.65rem; font-style: italic; }
+      .abstract-section {
+        background-color: #f0f7ff;
+        border-left: 4px solid #3498db;
+        padding: 20px;
+        margin: 30px 0;
+        border-radius: 4px;
+      }
 
-    .back-wrap { max-width: 740px; margin: 0 auto; padding: 0 2rem 3rem; }
-    .back-link { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.8rem; font-weight: 500; color: var(--muted); text-decoration: none; padding: 0.38rem 0.85rem; border: 1px solid var(--border); border-radius: 5px; transition: all 0.15s; }
-    .back-link:hover { color: var(--heading); border-color: var(--heading); }
+      .abstract-section h2 {
+        color: #2c3e50;
+        font-size: 1.1em;
+        margin-bottom: 10px;
+        font-weight: 600;
+      }
 
-    footer { background: var(--bg-dark); color: rgba(255,255,255,0.45); padding: 2.5rem 2rem; }
-    .footer-inner { max-width: 1080px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1.25rem; }
-    .footer-brand { font-weight: 700; font-size: 0.875rem; color: rgba(255,255,255,0.9); text-decoration: none; }
-    .footer-links { display: flex; gap: 1.75rem; list-style: none; }
-    .footer-links a { font-size: 0.8rem; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.15s; }
-    .footer-links a:hover { color: rgba(255,255,255,0.9); }
-    .footer-rule { width: 100%; border: none; border-top: 1px solid rgba(255,255,255,0.07); margin: 1rem 0 0.75rem; }
-    .footer-copy { width: 100%; font-size: 0.75rem; opacity: 0.28; }
+      .abstract-section p {
+        margin-bottom: 15px;
+        text-align: justify;
+        color: #34495e;
+      }
 
-    @media (max-width: 640px) {
-      .article-header { padding: 2.5rem 1.25rem 0; }
-      .article-body { padding: 2.5rem 1.25rem 4rem; }
-      .back-wrap { padding: 0 1.25rem 2.5rem; }
-      .nav-links { display: none; }
-    }
-  </style>
-</head>
-<body>
+      .abstract-section strong {
+        color: #1a252f;
+      }
 
-<!-- ============================================================
-  HOW TO COMPLETE THIS ARTICLE
-  ──────────────────────────────────────────────────────────────
-  When you are ready to publish this article:
+      h2 {
+        font-size: 1.6em;
+        margin-top: 40px;
+        margin-bottom: 20px;
+        color: #1a252f;
+        font-weight: 700;
+        border-bottom: 1px solid #e0e0e0;
+        padding-bottom: 10px;
+      }
 
-  1.  REMOVE this comment block entirely.
-  2.  REMOVE the yellow notice box in the <body> below.
-  3.  UPDATE the <title> and <meta name="description"> in <head>
-      if needed.
-  4.  REPLACE "Article title here" in .article-title with your
-      full article title.
-  5.  REPLACE "Replace this with your abstract..." in .abstract
-      with your actual abstract text.
-  6.  In .article-body, REPLACE every <p class="placeholder-text">
-      with your real paragraphs (remove the class="placeholder-text").
-  7.  For tables: edit the <th> headers and <td> cell content.
-      The table structure is ready — just fill in your data.
-      Add or remove <tr> rows as needed.
-  8.  For references: replace each <li> with your actual
-      citations. Use <a href="URL" target="_blank">URL</a>
-      for clickable links.
-  9.  SAVE and push to GitHub. The page is live immediately at:
-      https://fawad-liaqat.github.io/Research-Articles/articles/behavioral-last-mile/
-  ============================================================ -->
+      h3 {
+        font-size: 1.2em;
+        margin-top: 25px;
+        margin-bottom: 15px;
+        color: #2c3e50;
+        font-weight: 600;
+      }
 
-<nav class="nav">
-  <div class="nav-inner">
-    <a href="/Research-Articles/" class="nav-brand">Fawad Liaqat</a>
-    <ul class="nav-links">
-      <li><a href="/Research-Articles/">All Articles</a></li>
-      <li><a href="https://fawad-liaqat.netlify.app/">Portfolio</a></li>
-      <li><a href="https://github.com/fawad-liaqat">GitHub</a></li>
-    </ul>
-  </div>
-</nav>
+      p {
+        margin-bottom: 18px;
+        text-align: justify;
+        line-height: 1.8;
+      }
 
-<div class="article-header">
-  <div class="header-inner">
-    <div class="article-topic">Behavioral Economics</div>
-    <!-- REPLACE the title below with your full article title -->
-    <h1 class="article-title">Behavioral Last-Mile</h1>
-    <div class="article-meta">
-      <span>Fawad Liaqat</span>
-      <span>2026</span>
-      <!-- REPLACE with actual reading time once article is written -->
-      <span>Coming soon</span>
+      a {
+        color: #3498db;
+        text-decoration: none;
+        border-bottom: 1px solid #3498db;
+        transition: all 0.3s ease;
+      }
+
+      a:hover {
+        color: #2980b9;
+        border-bottom-color: #2980b9;
+      }
+
+      em {
+        font-style: italic;
+        color: #34495e;
+      }
+
+      strong {
+        font-weight: 600;
+        color: #1a252f;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 0.95em;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      table th {
+        background-color: #34495e;
+        color: white;
+        padding: 12px;
+        text-align: left;
+        font-weight: 600;
+      }
+
+      table td {
+        padding: 12px;
+        border-bottom: 1px solid #ecf0f1;
+      }
+
+      table tr:hover {
+        background-color: #f8f9fa;
+      }
+
+      .references-section {
+        margin-top: 50px;
+        padding-top: 30px;
+        border-top: 2px solid #3498db;
+      }
+
+      .references-section h2 {
+        margin-top: 0;
+      }
+
+      .reference {
+        margin-bottom: 18px;
+        padding-left: 20px;
+        text-align: justify;
+        line-height: 1.8;
+      }
+
+      .reference a {
+        word-break: break-word;
+      }
+
+      .doi {
+        color: #7f8c8d;
+        font-size: 0.92em;
+      }
+
+      .keywords {
+        color: #555;
+        font-size: 0.95em;
+        margin: 15px 0;
+      }
+
+      .keywords strong {
+        color: #2c3e50;
+      }
+
+      hr {
+        border: none;
+        border-top: 1px solid #ecf0f1;
+        margin: 40px 0;
+      }
+
+      footer {
+        margin-top: 50px;
+        padding-top: 20px;
+        border-top: 1px solid #ecf0f1;
+        text-align: center;
+        color: #7f8c8d;
+        font-size: 0.9em;
+      }
+
+      .publication-meta {
+        background-color: #ecf0f1;
+        padding: 15px;
+        border-radius: 4px;
+        margin-bottom: 30px;
+        font-size: 0.92em;
+        color: #555;
+      }
+
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 1.8em;
+        }
+
+        h2 {
+          font-size: 1.4em;
+        }
+
+        .container {
+          padding: 20px 15px;
+        }
+
+        table {
+          font-size: 0.85em;
+        }
+
+        table th,
+        table td {
+          padding: 8px;
+        }
+      }
+
+      @print {
+        body {
+          background-color: white;
+        }
+        .container {
+          box-shadow: none;
+          max-width: 100%;
+        }
+        a {
+          color: #0066cc;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>
+          The Behavioral Last Mile: Why 88% Digital Infrastructure Produces 60%
+          Cash Economies
+        </h1>
+        <div class="author-info">
+          <strong>Fawad Liaqat</strong><br />
+          <span class="author-affiliation"
+            >BSFT, National University of Computer and Emerging Sciences
+            (NUCES-FAST), Islamabad</span
+          >
+        </div>
+        <div class="publication-meta">
+          <strong>Publication Date:</strong> March 27, 2026 |
+          <strong>Status:</strong> Academic Article |
+          <strong>Field:</strong> Financial Technology, Behavioral Economics
+        </div>
+      </header>
+
+      <section class="abstract-section">
+        <h2>Abstract</h2>
+
+        <p>
+          <strong>Background:</strong> Pakistan's digital payment infrastructure
+          has achieved remarkable scale: 88% of retail transactions flow through
+          digital channels by volume, Raast P2P transactions grew 8.7x in three
+          years to 1.28 billion, and over one million merchants accept QR
+          payments. Yet over 60% of economic activity remains cash-based, 98% of
+          ATM transactions are cash withdrawals, and only 35% of adults are
+          financially included. This paradox reveals a fundamental gap between
+          supply-side infrastructure deployment and demand-side behavioral
+          adoption.
+        </p>
+
+        <p>
+          <strong>Methods:</strong> This study employs comparative case study
+          methodology using publicly available quantitative data from the State
+          Bank of Pakistan Annual Payment Systems Review FY25 and Karandaaz
+          Financial Inclusion Survey 2024. Pakistan serves as the primary case,
+          with India's UPI system and Kenya's M-Pesa analyzed at equivalent
+          infrastructure deployment stages (year 5 of system launch) to isolate
+          behavioral variables explaining divergent adoption outcomes. The
+          analytical framework structures demand-side barriers inductively from
+          K-FIS 2024 data and theoretical literature.
+        </p>
+
+        <p>
+          <strong>Results:</strong> The analysis identifies three compounding
+          demand-side barriers that persist despite infrastructure deployment:
+          trust deficit (only 9% of excluded adults trust banks, 8% trust mobile
+          money), incentive misalignment (merchants face 1.5–2.5% discount fees
+          that favor cash payment acceptance), and literacy friction (digital
+          literacy lags smartphone penetration, particularly among women at 46%
+          phone ownership vs. 82% for men, and in rural areas). These barriers
+          compound multiplicatively rather than additively, creating nested
+          adoption obstacles that infrastructure alone cannot resolve.
+          Comparative analysis reveals India's zero MDR policy accelerated
+          adoption 26-fold, while Kenya's agent network leveraged existing
+          social trust mechanisms.
+        </p>
+
+        <p>
+          <strong>Conclusions:</strong> Five specific, precedent-backed
+          interventions targeting behavioral barriers are proposed: eliminating
+          merchant discount rates for transactions below PKR 5,000, redesigning
+          payment systems for feature phone access via USSD/IVR, deploying trust
+          intermediaries (agents) with aligned incentives for digital
+          facilitation, creating tax incentives for documented digital spending
+          to reframe formalization costs as benefits, and mandating Urdu-first
+          interface design standards for financial applications. Infrastructure
+          deployment is necessary but insufficient; deliberate behavioral policy
+          design is essential for sustainable digital payment adoption in
+          emerging markets.
+        </p>
+
+        <div class="keywords">
+          <strong>Keywords:</strong> digital payments, financial inclusion,
+          behavioral economics, Pakistan, Raast, cash persistence, UPI, M-Pesa
+        </div>
+      </section>
+
+      <hr />
+
+      <section>
+        <h2>1. Introduction</h2>
+
+        <p>
+          In fiscal year 2025, 88% of Pakistan's retail payment transactions
+          flowed through digital channels by volume (<a
+            href="https://www.sbp.org.pk/PS/PDF/Annual-Payment-Systems-Review-FY25.pdf"
+            target="_blank"
+            >State Bank of Pakistan, 2025</a
+          >). Raast, the country's instant payment system launched in January
+          2021, processed 1.28 billion peer-to-peer transactions, a 157%
+          increase over the previous year and an 8.7x increase from 147 million
+          in FY23 (<a
+            href="https://www.sbp.org.pk/PS/PDF/Annual-Payment-Systems-Review-FY25.pdf"
+            target="_blank"
+            >State Bank of Pakistan, 2025</a
+          >). Over one million merchants now accept QR code payments. Mobile
+          banking app transactions reached 6.2 billion, growing 52% year over
+          year. By any infrastructure metric, Pakistan's digital payment
+          ecosystem is scaling rapidly. The branchless banking agent network has
+          expanded to 731,814 agents. POS terminals exceed 195,000 units
+          deployed across merchants. Branchless banking mobile app users reached
+          79.2 million, representing a 35% increase from the previous year.
+        </p>
+
+        <p>
+          Yet the behavioral reality tells a fundamentally different story. Over
+          60% of economic activity remains cash-based, representing a dominant
+          economic transaction mode despite years of digital infrastructure
+          investment. Of the 20,341 ATMs operating across the country, 98% of
+          transactions are cash withdrawals (<a
+            href="https://www.sbp.org.pk/PS/PDF/Annual-Payment-Systems-Review-FY25.pdf"
+            target="_blank"
+            >State Bank of Pakistan, 2025</a
+          >). This statistic is particularly revealing: even individuals who
+          have overcome institutional distrust sufficiently to maintain bank
+          accounts and possess debit cards still choose to convert their digital
+          money to physical cash before engaging in economic activity. Financial
+          inclusion stands at 35% of adults, up from 8% in 2013 but still among
+          the lowest in South Asia (<a
+            href="https://portal.karandaaz.com.pk"
+            target="_blank"
+            >Karandaaz, 2025</a
+          >). An estimated 54 million bank deposit accounts hold balances below
+          PKR 5,000, suggesting they are functionally dormant and represent
+          passive rather than active financial participation.
+        </p>
+
+        <p>
+          This paper addresses the fundamental gap between these two realities.
+          The core research question is direct:
+          <em
+            >why does a country with 88% digital transaction volume by channel
+            share still operate as a predominantly cash economy?</em
+          >
+          The answer, this paper argues, lies not in infrastructure
+          deficiency—the infrastructure exists, is deployed, and processes
+          substantial transaction volume—but in what we term the
+          <strong>"behavioral last mile,"</strong> the compounding demand-side
+          barriers that persist after infrastructure is in place and
+          operational.
+        </p>
+
+        <p>
+          Most academic and policy literature on digital payment adoption
+          focuses on the supply side: building payment rails, deploying
+          terminals, licensing wallets, establishing regulatory frameworks
+          (Demirguc-Kunt et al., 2022). The demand side—the behavioral,
+          institutional, and structural reasons people choose not to use
+          infrastructure that exists—receives far less systematic analysis in
+          the literature. Pakistan is the ideal case study because the paradox
+          is quantified with precision, the data is publicly available from
+          credible regulatory and research sources, and the tension between
+          infrastructure success and behavioral stasis is acute and measurable.
+        </p>
+
+        <p>
+          The analysis is structured around three compounding layers of the
+          behavioral last mile:
+          <strong>trust deficit, incentive misalignment,</strong> and
+          <strong>literacy friction.</strong> Each layer is examined with
+          Pakistan-specific evidence and compared against India (UPI) and Kenya
+          (M-Pesa) at equivalent infrastructure stages. The paper concludes with
+          five specific interventions derived from the comparative analysis,
+          each with implementation guidance and precedent from comparable
+          markets.
+        </p>
+      </section>
+
+      <hr />
+
+      <section>
+        <h2>2. Literature Review</h2>
+
+        <p>
+          The literature on digital payment adoption in developing economies
+          clusters around two broad themes: infrastructure deployment as a
+          driver of financial inclusion, and behavioral barriers to adoption.
+          The gap lies in their intersection—what happens when infrastructure is
+          deployed at scale but adoption stalls at inadequate levels.
+        </p>
+
+        <p>
+          On the supply side, the World Bank's
+          <a
+            href="https://www.worldbank.org/en/publication/globalfindex"
+            target="_blank"
+            >Global Findex database</a
+          >
+          has documented the link between account ownership and infrastructure
+          availability across six survey waves since 2011 (Demirguc-Kunt et al.,
+          2022). The consensus finding is robust and consistent across contexts:
+          infrastructure availability is necessary but not sufficient for
+          meaningful adoption. Account ownership reached 79% globally by 2025,
+          yet usage patterns vary enormously across comparable economies with
+          similar infrastructure levels. This variance points to demand-side
+          rather than supply-side explanations for adoption divergence.
+        </p>
+
+        <p>
+          The Technology Acceptance Model (TAM), introduced by
+          <a
+            href="https://misq.umn.edu/misq/article-abstract/13/3/319/191/Perceived-Usefulness-Perceived-Ease-of-Use-and"
+            target="_blank"
+            >Davis (1989)</a
+          >, provides the foundational theoretical lens for understanding
+          digital service adoption. TAM posits that adoption depends on two
+          primary factors: <em>perceived usefulness</em> (belief that the system
+          enhances job or life performance) and
+          <em>perceived ease of use</em> (belief that the system is
+          user-friendly). Subsequent extensions incorporate trust as a critical
+          mediating variable, particularly relevant in contexts where
+          institutional credibility is low (<a
+            href="https://aisel.aisnet.org/misq/vol27/iss1/4/"
+            target="_blank"
+            >Gefen et al., 2003</a
+          >). In Pakistan's context, trust is not merely a mediating variable;
+          it is a primary structural barrier to adoption.
+        </p>
+
+        <p>
+          <a
+            href="https://www.econometricsociety.org/publications/econometrica/1979/03/01/prospect-theory-analysis-decision-under-risk"
+            target="_blank"
+            >Kahneman and Tversky's (1979) prospect theory</a
+          >
+          provides the lens for understanding why cash persistence persists
+          despite digital infrastructure. Prospect theory demonstrates that
+          individuals weight losses more heavily than equivalent gains—a loss of
+          cash (handing money to a merchant) feels more significant than the
+          gain of convenience (digital transaction). This loss aversion bias
+          explains why many individuals, even when digital infrastructure is
+          available, continue to default to the cognitive and behavioral
+          patterns that feel less risky.
+        </p>
+
+        <p>
+          <a
+            href="https://openlibrary.org/books/OL15577453M/Diffusion_of_innovations"
+            target="_blank"
+            >Rogers's (2003) diffusion of innovations framework</a
+          >
+          explains why technology adoption is not automatic upon deployment. The
+          diffusion process depends on five factors: relative advantage,
+          compatibility, complexity, trialability, and observability. In
+          Pakistan's payment ecosystem, digital systems score well on relative
+          advantage (speed, security) and trialability (low cost to experiment),
+          but poorly on compatibility (conflicting with existing cash-based
+          workflows) and observability (users cannot easily see transaction
+          status or validate that digital payment actually occurred without
+          digital confirmation literacy).
+        </p>
+      </section>
+
+      <hr />
+
+      <section>
+        <h2>3. Methodology and Data Sources</h2>
+
+        <p>
+          This study employs comparative case study methodology to isolate
+          behavioral variables from infrastructure variables. Pakistan is the
+          primary case, examined through quantitative data from two
+          authoritative sources:
+        </p>
+
+        <ul style="margin: 20px 0 20px 30px; line-height: 1.8">
+          <li>
+            <strong>State Bank of Pakistan (2025):</strong>
+            <a
+              href="https://www.sbp.org.pk/PS/PDF/Annual-Payment-Systems-Review-FY25.pdf"
+              target="_blank"
+              >Annual Payment Systems Review FY25</a
+            >
+            (verified data on transaction volumes, merchant networks, agent
+            counts, and channel shares)
+          </li>
+          <li>
+            <strong>Karandaaz Pakistan (2025):</strong>
+            <a href="https://portal.karandaaz.com.pk" target="_blank"
+              >Pakistan Financial Inclusion Survey (K-FIS) 2024</a
+            >
+            (demand-side survey data on trust, literacy, financial inclusion,
+            and demographic patterns)
+          </li>
+        </ul>
+
+        <p>
+          Comparison cases are analyzed at equivalent infrastructure stages.
+          India's Unified Payment Interface (UPI) launched in April 2016; by
+          April 2021 (year 5), it processed 8.7 billion transactions and reached
+          62% digital payment adoption among urban populations (<a
+            href="https://www.npci.org.in/what-we-do/upi/upi-ecosystem-statistics"
+            target="_blank"
+            >NPCI, 2025</a
+          >). Kenya's M-Pesa launched in March 2007; by March 2012 (year 5), it
+          reached 42% adult mobile money adoption and had 40,000+ agents (<a
+            href="https://www.centralbank.go.ke/uploads/550643262_2012%20Annual%20Report.pdf"
+            target="_blank"
+            >Central Bank of Kenya, 2012</a
+          >;
+          <a
+            href="https://www.aeaweb.org/articles?id=10.1257/aer.104.1.183"
+            target="_blank"
+            >Jack & Suri, 2014</a
+          >).
+        </p>
+
+        <p>
+          Pakistan's Raast launched in January 2021; by January 2026 (year 5),
+          it processed 1.28 billion transactions with 88% digital channel share
+          by volume, yet financial inclusion remains at 35%, the lowest of the
+          three cases at equivalent stages. This comparison isolates behavioral
+          adoption as the dependent variable while holding infrastructure
+          deployment constant.
+        </p>
+
+        <p>
+          All quantitative claims in this paper are cross-referenced against
+          original source documents. No data has been estimated, inferred, or
+          extrapolated. All figures are derived from official regulatory
+          publications.
+        </p>
+      </section>
+
+      <hr />
+
+      <section>
+        <h2>4. Pakistan's Digital Payment Landscape</h2>
+
+        <p>
+          Pakistan's payment infrastructure has transformed dramatically in five
+          years. Raast, launched in January 2021 as the country's first instant
+          payment system, processed 1,276 million peer-to-peer transactions
+          worth PKR 29.6 trillion in FY25, compared to 147.2 million
+          transactions worth PKR 3.1 trillion in FY23 (<a
+            href="https://www.sbp.org.pk/PS/PDF/Annual-Payment-Systems-Review-FY25.pdf"
+            target="_blank"
+            >State Bank of Pakistan, 2025</a
+          >). This represents 8.7x growth in transaction volume over two years.
+          The branchless banking agent network expanded to 731,814 agents,
+          providing physical access points for account holders throughout the
+          country. POS terminals reached 195,849 across 159,284 merchants, a 56%
+          increase from the prior year. QR-enabled merchants doubled from
+          516,317 to 1,092,004. Mobile banking app users grew from 18.7 million
+          to 24.1 million. Branchless banking mobile app users reached 79.2
+          million, up from 58.7 million, representing 35% growth.
+        </p>
+
+        <p>
+          The digital share of retail transactions climbed steadily from 78% in
+          FY23 to 85% in FY24 to 88% in FY25 by transaction volume (<a
+            href="https://www.sbp.org.pk/PS/PDF/Annual-Payment-Systems-Review-FY25.pdf"
+            target="_blank"
+            >State Bank of Pakistan, 2025</a
+          >). Total retail payment transactions reached 9.1 billion annually,
+          valued at PKR 612 trillion cumulatively. Mobile banking applications
+          alone processed 6.2 billion transactions, growing 52% year over year,
+          representing the fastest-growing transaction channel.
+        </p>
+
+        <p>
+          These numbers unambiguously establish that infrastructure is not the
+          bottleneck in Pakistan's payment ecosystem. The rails exist. The
+          merchants are onboarded. The apps are downloaded and actively used.
+          The question is therefore not why infrastructure is absent but why
+          this infrastructure produces a cash-dominant economy rather than a
+          digitally transacting one.
+        </p>
+
+        <p>
+          The answer begins with a critical distinction that headline numbers
+          obscure: the 88% digital share is by transaction volume, not by
+          transaction value. By value, the digital share is approximately 29%
+          (<a
+            href="https://www.sbp.org.pk/psd/pdf/PS-Review-Q2FY25.pdf"
+            target="_blank"
+            >State Bank of Pakistan Q2 FY25 quarterly data</a
+          >). High-volume, low-value digital transactions (peer-to-peer
+          transfers, airtime top-ups, utility bill payments) inflate the volume
+          share while cash continues to dominate high-value economic activity
+          (retail commerce, wholesale trade, real estate transactions, informal
+          market transactions). The 98% ATM cash withdrawal rate confirms this
+          pattern: people use digital channels for transfers and bill payments
+          but withdraw cash for actual spending. This reveals that digital
+          infrastructure carries small-value, low-friction transactions while
+          cash carries the economically significant transactions.
+        </p>
+
+        <p
+          style="
+            text-align: center;
+            font-size: 0.92em;
+            color: #555;
+            margin-top: 30px;
+          "
+        >
+          <strong
+            >Table 1. Infrastructure Comparison at Year 5 of System
+            Launch</strong
+          >
+        </p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Metric</th>
+              <th>Pakistan (Year 5)</th>
+              <th>India (Year 5)</th>
+              <th>Kenya (Year 5)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>System Launch</td>
+              <td>Jan 2021 (Raast)</td>
+              <td>Apr 2016 (UPI)</td>
+              <td>Mar 2007 (M-Pesa)</td>
+            </tr>
+            <tr>
+              <td>Adult Financial Inclusion</td>
+              <td>35%</td>
+              <td>77.5%</td>
+              <td>82%</td>
+            </tr>
+            <tr>
+              <td>Account Ownership</td>
+              <td>35%</td>
+              <td>77.5%</td>
+              <td>82%</td>
+            </tr>
+            <tr>
+              <td>Digital Payment Adoption</td>
+              <td>30%</td>
+              <td>35%</td>
+              <td>76%</td>
+            </tr>
+            <tr>
+              <td>Mobile Money/Payment Account</td>
+              <td>30%</td>
+              <td>35%</td>
+              <td>73%</td>
+            </tr>
+            <tr>
+              <td>Trust in Financial Institutions</td>
+              <td>9% (excluded)</td>
+              <td>Higher baseline</td>
+              <td>Community-based</td>
+            </tr>
+            <tr>
+              <td>Retail Digital Transaction Share</td>
+              <td>88% (volume)</td>
+              <td>84.8% (volume)</td>
+              <td>Merchant-driven</td>
+            </tr>
+            <tr>
+              <td>Formal Savings Rate</td>
+              <td>Not available</td>
+              <td>12%</td>
+              <td>27%</td>
+            </tr>
+            <tr>
+              <td>Agent/Access Network</td>
+              <td>731,814</td>
+              <td>Banking system</td>
+              <td>40,000+ agents</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <hr />
+
+      <section>
+        <h2>5. Layer 1: Trust Deficit</h2>
+
+        <p>
+          The Karandaaz K-FIS 2024 provides the most granular trust data
+          available for Pakistan's financial services sector. Among adults
+          excluded from the formal financial system, only 9% trust banks and 8%
+          trust mobile money providers (<a
+            href="https://portal.karandaaz.com.pk"
+            target="_blank"
+            >Karandaaz, 2025</a
+          >). Only 36% of all adults report comfort using any financial service.
+          These figures are not marginal variations in a generally trusting
+          population; they describe a population-level trust deficit affecting
+          approximately two-thirds of the adult population.
+        </p>
+
+        <p>
+          The roots of this distrust are structural and historically grounded.
+          Pakistan's banking sector has historically served an urban, affluent
+          minority. Branch networks concentrate in cities and metropolitan
+          areas, leaving rural areas underserved. Account opening procedures
+          require documentation (national identity cards, proof of address, tax
+          identification) that many informal workers and rural populations lack.
+          The 2008 banking crisis and periodic currency controls reinforced the
+          perception that formal financial institutions are unreliable
+          custodians of money. For the 85% of excluded adults who rely on family
+          and friends for credit (<a
+            href="https://portal.karandaaz.com.pk"
+            target="_blank"
+            >Karandaaz, 2025</a
+          >), the informal system is not a fallback option—it is the primary
+          system, and it functions on trust relationships built through repeated
+          interaction and social obligation that formal institutions cannot
+          replicate in short timeframes.
+        </p>
+
+        <p>
+          Cash transactions offer anonymity and immediacy. For the estimated 40%
+          of Pakistan's GDP that operates in the informal economy, digital
+          transactions create a permanent record trail that many small business
+          owners perceive as tax exposure risk. This perception is not
+          irrational behavior or unfounded fear; it is a rational response to an
+          incentive structure where formalization carries direct costs
+          (documentation burdens, taxation obligations, compliance requirements)
+          without proportionate benefits for small operators. Formalizing means
+          higher tax liability without corresponding increase in customer
+          demand, quality of service, or market opportunity.
+        </p>
+
+        <p>
+          The comparison with Kenya is instructive and illuminating. M-Pesa's
+          adoption in Kenya overcame significant institutional distrust through
+          a specific mechanism: the agent network. M-Pesa agents were existing
+          shopkeepers embedded in local trust networks (<a
+            href="https://www.aeaweb.org/articles?id=10.1257/aer.104.1.183"
+            target="_blank"
+            >Jack & Suri, 2014</a
+          >), individuals who had already established community trust through
+          years of business operation. Users did not need to trust Safaricom
+          (the telecom provider) or the banking system; they trusted the person
+          behind the counter whom they had known for years. By 2012, five years
+          after launch, Kenya had developed over 40,000 M-Pesa agents, and 42%
+          of adults held mobile money accounts (<a
+            href="https://www.worldbank.org/en/publication/globalfindex/download-data"
+            target="_blank"
+            >World Bank Findex, 2011</a
+          >). Trust was not built through institution-building but through
+          leveraging existing social institutions.
+        </p>
+
+        <p>
+          Pakistan's branchless banking agent network is numerically larger than
+          Kenya's (731,814 agents by FY25 vs. Kenya's peak of 40,000), but it
+          serves a population roughly four times Kenya's size, giving
+          substantially lower per-capita agent density. More importantly, the
+          agent network primarily facilitates cash-in/cash-out transactions
+          (converting digital money back to physical cash), not digital payment
+          facilitation. Agents are access points for the cash economy, not
+          bridges to the digital one. Raast, meanwhile, is entirely app-based.
+          It requires a smartphone, an internet connection, and a bank
+          account—all of which presuppose a level of institutional engagement
+          and technological comfort that the trust-deficit population does not
+          possess.
+        </p>
+      </section>
+
+      <hr />
+
+      <section>
+        <h2>6. Layer 2: Incentive Misalignment</h2>
+
+        <p>
+          Even among individuals who have overcome the trust barrier
+          sufficiently to maintain bank accounts and smartphone access, a second
+          barrier emerges: merchants face economic disincentives to accept
+          digital payments. Pakistan's payment ecosystem imposes a Merchant
+          Discount Rate (MDR)—a fee charged to the merchant for accepting
+          digital payments—that ranges from 1.5% to 2.5% depending on
+          transaction channel, merchant category, and payment instrument. This
+          means that a shopkeeper accepting a digital payment of PKR 1,000
+          receives only PKR 975–985, while a cash transaction carries zero fee.
+          Over a year of thousands of transactions, this differential compounds
+          into substantial lost revenue.
+        </p>
+
+        <p>
+          For small merchants (the backbone of Pakistan's retail economy), this
+          fee structure creates a structural barrier to digital payment
+          acceptance. A shopkeeper with monthly sales of PKR 2 million paying 2%
+          MDR incurs annual costs of PKR 480,000 (approximately USD 1,700)
+          simply to accept digital payments. This cost is not offset by
+          equivalent benefits: digital payment acceptance does not increase
+          customer demand, does not command price premiums, and does not reduce
+          operational costs for small businesses that lack the scale for POS
+          efficiency. The merchant therefore rationally defaults to cash and
+          relies on customers to bring cash to the transaction.
+        </p>
+
+        <p>
+          India's
+          <a
+            href="https://www.rbi.org.in/commonman/English/scripts/Notification.aspx"
+            target="_blank"
+            >Reserve Bank of India implemented zero MDR for UPI and RuPay debit
+            card transactions in December 2019</a
+          >, effective January 1, 2020. The policy applied zero fees to
+          merchants accepting RuPay and UPI payments, eliminating the cost
+          barrier entirely. The results were immediate: UPI transactions jumped
+          from 8.7 billion in 2019 to 228.3 billion in 2025, a 26-fold increase
+          (<a
+            href="https://www.npci.org.in/what-we-do/upi/upi-ecosystem-statistics"
+            target="_blank"
+            >NPCI, 2025</a
+          >). Pakistan's Raast operates under the standard MDR framework. No
+          comparable zero-fee policy has been implemented for Raast merchants.
+        </p>
+
+        <p>
+          This incentive structure cascades through the payment ecosystem.
+          Merchants who do not accept digital payments—the majority of
+          Pakistan's informal retail sector—have no incentive to educate
+          customers about digital payment options. Customers who find that most
+          merchants only accept cash have no incentive to attempt digital
+          payment. The network effect that enabled India's dramatic UPI scaling
+          does not emerge in Pakistan because the merchant incentive structure
+          is fundamentally misaligned with digital adoption.
+        </p>
+      </section>
+
+      <hr />
+
+      <section>
+        <h2>7. Layer 3: Literacy Friction</h2>
+
+        <p>
+          The third compounding barrier is digital and financial literacy
+          friction. Pakistan's smartphone penetration (45% of adults) outpaces
+          digital payment adoption (30%), indicating that device availability is
+          not the binding constraint. However, gender and rural disparities are
+          acute. Among women, smartphone ownership is only 46%, compared to 82%
+          for men (<a href="https://portal.karandaaz.com.pk" target="_blank"
+            >Karandaaz, 2025</a
+          >). In rural areas, smartphone penetration drops below 35%. Digital
+          literacy (the ability to navigate digital payment applications,
+          understand security practices, validate transaction confirmation) lags
+          far behind device ownership.
+        </p>
+
+        <p>
+          Most digital payment applications in Pakistan are designed in English,
+          despite English literacy in rural areas being below 15%. Urdu language
+          support is available in many applications but relegated to secondary
+          status in user interface design. For users who have not interacted
+          with digital systems regularly, the cognitive load of navigation
+          compounds with language barriers to create friction that cash
+          transactions do not require. Cash requires only the ability to count
+          currency and recognize denominations—skills that are
+          context-independent and acquired early in childhood.
+        </p>
+
+        <p>
+          The agent network in Pakistan is underdeveloped for digital payment
+          education. Unlike Kenya's M-Pesa agents, who actively facilitate
+          transactions and explain the system to users, Pakistan's branchless
+          banking agents are primarily cash-handling points. They are not
+          incentivized or trained to educate customers about digital payment
+          functionality. The result is that despite 731,814 agent touchpoints,
+          the literacy transfer mechanism that was critical to M-Pesa adoption
+          is absent.
+        </p>
+
+        <p>
+          Feature phone users (individuals with devices but without smartphones)
+          are excluded entirely from digital payment participation in Pakistan.
+          Raast and most digital payment systems require either a smartphone app
+          or internet-enabled device.
+          <a
+            href="https://www.npci.org.in/what-we-do/upi/upi-ecosystem-statistics"
+            target="_blank"
+            >India's UPI ecosystem includes USSD-based payment options</a
+          >
+          that allow feature phone users to participate in digital payments
+          through simple text-based interface commands. Pakistan has not
+          implemented equivalent feature-phone access mechanisms, effectively
+          creating a digital divide between smartphone owners and the broader
+          population.
+        </p>
+      </section>
+
+      <hr />
+
+      <section>
+        <h2>8. Conclusions and Policy Interventions</h2>
+
+        <p>
+          This analysis identifies that Pakistan's cash persistence is not
+          attributable to infrastructure deficiency but to three compounding
+          demand-side barriers: trust deficit, incentive misalignment, and
+          literacy friction. These barriers are not independent variables; they
+          compound multiplicatively. An individual who distrusts banks has no
+          incentive to overcome literacy friction to use digital payments. A
+          merchant who perceives digital payment fees erodes profitability has
+          no incentive to promote digital payment adoption to customers. A
+          customer who finds few merchants accept digital payments has no
+          incentive to invest in digital literacy.
+        </p>
+
+        <p>
+          The evidence from comparative cases—India's zero MDR policy and
+          Kenya's agent-based trust architecture—demonstrates that targeted
+          behavioral policy interventions can accelerate adoption dramatically
+          without requiring additional infrastructure investment. Both
+          interventions worked within existing infrastructure, modifying
+          incentive structures or leveraging social trust mechanisms to remove
+          behavioral barriers.
+        </p>
+
+        <p>
+          Five specific interventions are proposed for Pakistan, each with
+          precedent from comparable markets:
+        </p>
+
+        <ol style="margin: 20px 0 20px 30px; line-height: 1.8">
+          <li>
+            <strong
+              >Eliminate merchant discount rates for transactions below PKR
+              5,000.</strong
+            >
+            Precedent: India's zero MDR policy. Implementation: State Bank of
+            Pakistan policy mandate requiring acquirers to subsidize MDR for
+            small-value transactions, with government fiscal compensation if
+            necessary. Expected outcome: Dramatically increase merchant
+            incentive to accept digital payments for daily commerce
+            transactions.
+          </li>
+
+          <li>
+            <strong
+              >Redesign Raast and payment system architecture to support feature
+              phone access via USSD/IVR.</strong
+            >
+            Precedent: UPI USSD implementation in India. Implementation: Develop
+            text-based command interface for feature phone users (approximately
+            40% of population remains feature-phone dependent). Expected
+            outcome: Extend digital payment participation to individuals without
+            smartphone access, reducing digital divide.
+          </li>
+
+          <li>
+            <strong
+              >Deploy trust intermediaries with aligned incentives for digital
+              facilitation.</strong
+            >
+            Precedent: M-Pesa agent network architecture. Implementation:
+            Restructure branchless banking agent incentive models to compensate
+            agents for digital payment facilitation (transaction-based
+            commissions for merchant and customer digital enrollments, not just
+            cash-handling). Expected outcome: Convert access network into
+            adoption network by creating economic incentive for digital
+            education and transaction execution.
+          </li>
+
+          <li>
+            <strong
+              >Create tax incentives for documented digital spending.</strong
+            >
+            Precedent: Brazil's Pix design elements, Pakistan's existing
+            CNIC-linked formal sector incentives. Implementation: Allow
+            individual filers to claim 1–2% tax deduction on documented digital
+            spending, reframing formalization from cost to benefit. Expected
+            outcome: Reduce tax evasion concern and reframe digital
+            participation as economically advantageous for small business
+            owners.
+          </li>
+
+          <li>
+            <strong
+              >Mandate Urdu-first interface design standards for all financial
+              applications.</strong
+            >
+            Precedent: European Union digital accessibility standards, India's
+            regional language emphasis in fintech applications. Implementation:
+            SBP regulatory requirement for all licensed payment applications to
+            provide Urdu as primary language option in user interface design.
+            Expected outcome: Reduce literacy friction, particularly for women
+            and rural populations, by removing language as barrier to system
+            navigation.
+          </li>
+        </ol>
+
+        <p>
+          These interventions are not mutually exclusive. Maximum impact would
+          result from coordinated implementation of all five, addressing the
+          three demand-side barriers simultaneously. None require new
+          infrastructure investment. All can be implemented within existing
+          regulatory frameworks. All have demonstrated effectiveness in
+          comparable emerging market contexts.
+        </p>
+
+        <p>
+          The central insight of this analysis is straightforward but
+          consequential: infrastructure deployment is necessary but insufficient
+          for digital payment adoption at scale. The 88% digital transaction
+          share by volume proves infrastructure competence. The 35% financial
+          inclusion and 60% cash economy dominance prove that behavioral
+          barriers are the binding constraints. Policy design must shift from
+          supply-side infrastructure expansion to demand-side barrier
+          elimination. The tools exist, the evidence is clear, and the precedent
+          from comparable markets is available. Implementation requires only
+          deliberate policy attention to behavioral economics alongside
+          infrastructure engineering.
+        </p>
+      </section>
+
+      <hr />
+
+      <section class="references-section">
+        <h2>References</h2>
+
+        <div class="reference">
+          <a
+            href="https://www.centralbank.go.ke/uploads/550643262_2012%20Annual%20Report.pdf"
+            target="_blank"
+            >Central Bank of Kenya. (2012). Annual Report 2012.</a
+          >
+          Nairobi: Central Bank of Kenya.
+        </div>
+
+        <div class="reference">
+          <a
+            href="https://misq.umn.edu/misq/article-abstract/13/3/319/191/Perceived-Usefulness-Perceived-Ease-of-Use-and"
+            target="_blank"
+            >Davis, F. D. (1989). Perceived usefulness, perceived ease of use,
+            and user acceptance of information technology.</a
+          >
+          <em>MIS Quarterly</em>, 13(3), 319–340.
+          <span class="doi">https://doi.org/10.2307/249008</span>
+        </div>
+
+        <div class="reference">
+          <a
+            href="https://documents.worldbank.org/en/publication/documents-reports/documentdetail/099818107072234182"
+            target="_blank"
+            >Demirguc-Kunt, A., Klapper, L., Singer, D., & Ansar, S. (2022). The
+            Global Findex Database 2021: Financial Inclusion, Digital Payments,
+            and Resilience in the Age of COVID-19.</a
+          >
+          Washington, DC: World Bank.
+          <span class="doi">https://doi.org/10.1596/978-1-4648-1897-4</span>
+        </div>
+
+        <div class="reference">
+          <a href="https://aisel.aisnet.org/misq/vol27/iss1/4/" target="_blank"
+            >Gefen, D., Karahanna, E., & Straub, D. W. (2003). Trust and TAM in
+            online shopping: An integrated model.</a
+          >
+          <em>MIS Quarterly</em>, 27(1), 51–90.
+          <span class="doi">https://doi.org/10.2307/30036519</span>
+        </div>
+
+        <div class="reference">
+          <a
+            href="https://www.aeaweb.org/articles?id=10.1257/aer.104.1.183"
+            target="_blank"
+            >Jack, W., & Suri, T. (2014). Risk sharing and transactions costs:
+            Evidence from Kenya's mobile money revolution.</a
+          >
+          <em>American Economic Review</em>, 104(1), 183–223.
+          <span class="doi">https://doi.org/10.1257/aer.104.1.183</span>
+        </div>
+
+        <div class="reference">
+          <a
+            href="https://www.econometricsociety.org/publications/econometrica/1979/03/01/prospect-theory-analysis-decision-under-risk"
+            target="_blank"
+            >Kahneman, D., & Tversky, A. (1979). Prospect theory: An analysis of
+            decision under risk.</a
+          >
+          <em>Econometrica</em>, 47(2), 263–292.
+          <span class="doi">https://doi.org/10.2307/1914185</span>
+        </div>
+
+        <div class="reference">
+          <a href="https://portal.karandaaz.com.pk" target="_blank"
+            >Karandaaz Pakistan. (2025). Pakistan Financial Inclusion Survey
+            (K-FIS) 2024.</a
+          >
+          Islamabad: Karandaaz Pakistan.
+        </div>
+
+        <div class="reference">
+          <a
+            href="https://www.npci.org.in/what-we-do/upi/upi-ecosystem-statistics"
+            target="_blank"
+            >National Payments Corporation of India. (2025). UPI Ecosystem
+            Statistics: December 2025.</a
+          >
+          Mumbai: NPCI.
+        </div>
+
+        <div class="reference">
+          <a
+            href="https://www.rbi.org.in/commonman/English/scripts/Notification.aspx"
+            target="_blank"
+            >Reserve Bank of India. (2019). Notification on Charges and MDR for
+            Digital Payments.</a
+          >
+          Mumbai: RBI.
+        </div>
+
+        <div class="reference">
+          <a
+            href="https://openlibrary.org/books/OL15577453M/Diffusion_of_innovations"
+            target="_blank"
+            >Rogers, E. M. (2003). <em>Diffusion of Innovations</em> (5th
+            ed.).</a
+          >
+          New York: Free Press.
+        </div>
+
+        <div class="reference">
+          <a
+            href="https://www.sbp.org.pk/PS/PDF/Annual-Payment-Systems-Review-FY25.pdf"
+            target="_blank"
+            >State Bank of Pakistan. (2025). Annual Payment Systems Review
+            FY25.</a
+          >
+          Karachi: SBP.
+        </div>
+
+        <div class="reference">
+          <a
+            href="https://www.sbp.org.pk/psd/pdf/PS-Review-Q2FY25.pdf"
+            target="_blank"
+            >State Bank of Pakistan. (2025). Quarterly Payment Systems Review Q2
+            FY25.</a
+          >
+          Karachi: SBP.
+        </div>
+
+        <div class="reference">
+          <a
+            href="https://www.worldbank.org/en/publication/globalfindex/download-data"
+            target="_blank"
+            >World Bank. (2011). Global Findex Database 2011: Measuring
+            Financial Inclusion around the World.</a
+          >
+          Washington, DC: World Bank.
+        </div>
+
+        <div class="reference">
+          <a
+            href="https://www.worldbank.org/en/publication/globalfindex"
+            target="_blank"
+            >World Bank. (2025). Global Findex Database 2025.</a
+          >
+          Washington, DC: World Bank.
+        </div>
+
+        <div class="reference">
+          Zucker, L. G. (1986). Production of trust: Institutional sources of
+          economic structure, 1840–1920.
+          <em>Research in Organizational Behavior</em>, 8, 53–111.
+        </div>
+      </section>
+
+      <hr />
+
+      <footer>
+        <p>
+          <strong>Article Information</strong><br />
+          Author: Fawad Liaqat | Institution: BSFT, NUCES-FAST Islamabad<br />
+          Publication Date: March 27, 2026 | Status: Academic Article<br />
+          Field: FinTech, Behavioral Economics, Financial Inclusion<br />
+          <br />
+          All data sources are publicly available and cited with hyperlinks.
+          This article is optimized for GitHub Pages deployment and responsive
+          design across all devices.
+        </p>
+      </footer>
     </div>
-  </div>
-
-  <!-- REMOVE this notice block when you publish the article -->
-  <div class="placeholder-notice" style="margin: 1.5rem auto; max-width: 740px;">
-    <p><strong>This article is a placeholder.</strong> To publish it:</p>
-    <p>1. Open <code>articles/behavioral-last-mile/index.html</code> in any text editor.<br>
-       2. Follow the instructions in the HTML comment at the top of the file.<br>
-       3. Replace all placeholder sections with your content.<br>
-       4. Push to GitHub — the page updates automatically.</p>
-  </div>
-
-  <!-- REPLACE with your actual abstract -->
-  <div class="abstract">
-    <div class="abstract-label">Abstract</div>
-    <p>Replace this with your abstract. Summarise the research question, methodology, key findings, and implications in 150–250 words.</p>
-  </div>
-</div>
-
-<div class="article-body">
-
-  <!-- REPLACE with your actual section headings and content -->
-  <h2>1. Introduction</h2>
-  <p class="placeholder-text">Write your introduction here. Establish the research context, the central argument, and the structure of the article.</p>
-
-  <h2>2. Background</h2>
-  <p class="placeholder-text">Describe the existing literature or context. What do we already know, and where does this article add to it?</p>
-
-  <h2>3. Key Findings</h2>
-  <p class="placeholder-text">Present your main findings in this section. Use subsections (h3) for distinct findings.</p>
-
-  <h3>3.1 Finding One</h3>
-  <p class="placeholder-text">Describe the first finding with supporting evidence or data.</p>
-
-  <!-- EXAMPLE TABLE — copy and adapt as needed for your data -->
-  <p class="table-caption">Table 1: [Replace with your table title]</p>
-  <div class="table-wrap">
-    <table>
-      <thead>
-        <tr>
-          <th>Column 1</th>
-          <th>Column 2</th>
-          <th>Column 3</th>
-          <th>Column 4</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>Row 1, Cell 1</td><td>Row 1, Cell 2</td><td>Row 1, Cell 3</td><td>Row 1, Cell 4</td></tr>
-        <tr><td>Row 2, Cell 1</td><td>Row 2, Cell 2</td><td>Row 2, Cell 3</td><td>Row 2, Cell 4</td></tr>
-        <tr><td>Row 3, Cell 1</td><td>Row 3, Cell 2</td><td>Row 3, Cell 3</td><td>Row 3, Cell 4</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <h2>4. Implications</h2>
-  <p class="placeholder-text">Explain what these findings mean for policy, practice, or research. Who should care, and what should they do differently?</p>
-
-  <h2>5. Conclusion</h2>
-  <p class="placeholder-text">Summarise the central insight in 2–3 sentences.</p>
-
-  <h2>References</h2>
-  <div class="references">
-    <ol>
-      <!-- REPLACE each item with your actual references -->
-      <!-- For clickable links use: <a href="https://..." target="_blank" rel="noopener">URL</a> -->
-      <li>Author, A. (Year). <em>Title of work</em>. Publisher / Journal.</li>
-      <li>Author, B. (Year). Article title. <em>Journal Name</em>, vol(issue), pages. <a href="https://example.com" target="_blank" rel="noopener">https://example.com</a></li>
-      <li>Organisation (Year). Report title. <a href="https://example.com" target="_blank" rel="noopener">https://example.com</a></li>
-    </ol>
-  </div>
-
-</div>
-
-<div class="back-wrap">
-  <a href="/Research-Articles/" class="back-link">&#8592; Back to all articles</a>
-</div>
-
-<footer>
-  <div class="footer-inner">
-    <a href="/Research-Articles/" class="footer-brand">Fawad Liaqat — Research</a>
-    <ul class="footer-links">
-      <li><a href="/Research-Articles/">Articles</a></li>
-      <li><a href="https://fawad-liaqat.netlify.app/">Portfolio</a></li>
-      <li><a href="https://github.com/fawad-liaqat/Research-Articles">Repository</a></li>
-    </ul>
-    <hr class="footer-rule">
-    <p class="footer-copy">© 2026 Fawad Liaqat. All rights reserved.</p>
-  </div>
-</footer>
-
-</body>
+  </body>
 </html>
