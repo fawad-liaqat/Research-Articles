@@ -11,7 +11,7 @@ permalink:    /articles/agentic-ai-compliance/
 accent:       "#5c1a1a"
 accent_dark:  "#2e0d0d"
 accent_tint:  "#f8eeee"
-
+published: false
 ---
 
 <!-- ============================================================
