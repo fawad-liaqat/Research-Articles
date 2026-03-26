@@ -1,0 +1,31 @@
+# Jekyll Configuration for GitHub Pages
+
+# Site settings
+title: Research Articles
+description: Analysis on economics, technology, and policy
+author: Fawad Liaqat
+url: https://fawad-liaqat.github.io/Research-Articles
+baseurl: /Research-Articles
+
+# Jekyll settings
+theme: jekyll-theme-minimal
+markdown: kramdown
+highlighter: rouge
+
+# Collections
+collections:
+  articles:
+    output: true
+    permalink: /articles/:path/
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - .git
+  - .gitignore
