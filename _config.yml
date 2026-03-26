@@ -1,31 +1,44 @@
-# Jekyll Configuration for GitHub Pages
+# Jekyll Configuration — Research Articles
+# GitHub Pages: https://fawad-liaqat.github.io/Research-Articles/
 
-# Site settings
-title: Research Articles
-description: Analysis on economics, technology, and policy
-author: Fawad Liaqat
-url: https://fawad-liaqat.github.io/Research-Articles
-baseurl: /Research-Articles
+# ── Site Identity ──────────────────────────────────────────
+title:       "Research Articles"
+description: "Analysis on economics, technology, and human behavior."
+author:      "Fawad Liaqat"
+email:       "fawadliaqat666@gmail.com"
 
-# Jekyll settings
-theme: jekyll-theme-minimal
-markdown: kramdown
+# ── URLs ───────────────────────────────────────────────────
+url:         "https://fawad-liaqat.github.io"
+baseurl:     "/Research-Articles"
+
+# ── Portfolio link (update this once you have your URL) ────
+portfolio_url: "https://fawad-liaqat.netlify.app/"
+
+# ── Build Settings ─────────────────────────────────────────
+# No external theme — custom layouts in _layouts/ are used
+markdown:    kramdown
 highlighter: rouge
 
-# Collections
-collections:
-  articles:
-    output: true
-    permalink: /articles/:path/
+kramdown:
+  input:           GFM
+  hard_wrap:       false
+  syntax_highlighter: rouge
 
-# Exclude from processing
+# ── Defaults ───────────────────────────────────────────────
+defaults:
+  - scope:
+      path: "articles"
+      type: "pages"
+    values:
+      layout: article
+
+# ── Exclude from build ─────────────────────────────────────
 exclude:
+  - README.md
+  - DEPLOYMENT.md
   - Gemfile
   - Gemfile.lock
-  - node_modules
-  - vendor/bundle/
-  - vendor/cache/
-  - vendor/gems/
-  - vendor/ruby/
-  - .git
+  - node_modules/
+  - vendor/
+  - .git/
   - .gitignore

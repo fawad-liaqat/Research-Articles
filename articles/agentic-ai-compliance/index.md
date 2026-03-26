@@ -1,72 +1,99 @@
 ---
-layout: default
-title: Agentic AI Compliance
-description: Regulatory and operational challenges in deploying autonomous AI systems at scale
-permalink: /articles/agentic-ai-compliance/
----
+layout: article
+title:        "Agentic AI Compliance"
+description:  "The regulatory and operational gaps exposed when autonomous AI systems act on behalf of institutions — and why existing compliance frameworks are structurally unequipped."
+topic:        "AI Governance & Regulation"
+date:         2026-03-01
+reading_time: "11 min read"
+permalink:    /articles/agentic-ai-compliance/
 
-# Agentic AI Compliance
-
-*Regulatory and operational challenges in deploying autonomous AI systems at scale.*
-
----
-
-## How to Add Content to This Article
-
-1. **Replace the placeholder sections below** with your actual research content
-2. **Keep the frontmatter** (the section between `---` at the top)—it controls the page metadata and URL
-3. **Use Markdown formatting**:
-   - `# Heading 1` for main sections
-   - `## Heading 2` for subsections
-   - `**bold**` for emphasis
-   - `- bullet points` for lists
-   - `[link text](url)` for links
-4. **For images/assets**: Place files in the `assets/` folder and reference as `../assets/image-name.png`
-5. **Save and push** to GitHub—the page will deploy automatically
+# Accent color for this article — deep crimson
+accent:       "#5c1a1a"
+accent_dark:  "#2e0d0d"
+accent_tint:  "#f8eeee"
 
 ---
+
+<!-- ============================================================
+  HOW TO FILL IN THIS ARTICLE
+  ─────────────────────────────────────────────────────────────
+  1. Replace each placeholder section below with your content.
+     Keep all headings (##, ###) as-is — they render as styled
+     section headers in the layout.
+
+  2. The frontmatter above controls:
+     - title / description  → shown in the hero
+     - topic                → shown as the badge label
+     - reading_time         → optional, shown in hero meta
+     - accent / accent_dark / accent_tint → page color scheme
+
+  3. To add images:
+     - Place your file in /assets/
+     - Reference it: ![Alt text](../../assets/your-image.png)
+
+  4. To add a PDF link:
+     [Download PDF](../../assets/agentic-ai-compliance.pdf)
+
+  5. When done, delete this comment block and the notice below.
+  ============================================================ -->
+
+> **Placeholder article.** Replace the sections below with your research content, then delete this notice.
 
 ## Introduction
 
-*Replace this paragraph with your introduction. Set context for why this topic matters, what problem it addresses, and what insight the article provides.*
+*Write your introduction here. Establish what distinguishes agentic AI from prior automation — autonomous decision-making, multi-step task execution, access to external systems — and why this breaks existing compliance logic.*
 
 ---
 
 ## Background
 
-*Describe the landscape, existing understanding, and any gaps in current knowledge that your research addresses.*
+*Describe the current regulatory landscape for AI systems. Where do frameworks like the EU AI Act, SEC guidance, or financial regulator advisories apply? What do they miss about agentic behavior?*
 
 ---
 
-## Key Findings
+## Where Compliance Frameworks Break Down
 
-*Present your main research findings. Use subheadings to organize distinct insights.*
+*Specific structural failures when existing rules are applied to autonomous agents.*
 
-### Finding 1
-*Detail the first major finding with supporting evidence or data.*
+### Accountability Attribution
 
-### Finding 2
-*Detail the second major finding.*
+*Traditional compliance assumes a human decision-maker. When an agent acts across multiple steps without human review, who is liable?*
+
+### Audit and Explainability Requirements
+
+*How agentic systems resist the kind of post-hoc explainability regulators currently require.*
+
+### Scope Creep and Emergent Behavior
+
+*Agents that are authorized for narrow tasks but acquire broader access or take consequential side-actions.*
 
 ---
 
-## Implications
+## Sector-Specific Risks
 
-*Explain what these findings mean for policy, business strategy, or broader understanding. Who should care, and why?*
+*How these gaps manifest in specific domains — financial services, healthcare, legal, government procurement.*
+
+---
+
+## Toward a Workable Framework
+
+*What would compliance for agentic AI actually look like? Scope controls, logging standards, human checkpoints, liability allocation.*
 
 ---
 
 ## Conclusion
 
-*Summarize the core insight and its significance.*
+*Summarize the central insight in 2–3 sentences. What should the reader take away?*
 
 ---
 
 ## References
 
-*List your sources, data references, or further reading here.*
+*List your sources here. Example format:*
+
+- Author, A. (Year). *Title of Work*. Publisher / Journal.
+- Regulatory document: [Source Name](https://example.com)
 
 ---
 
-**Published**: March 2026
-**Author**: Fawad Liaqat
+**Published:** March 2026 · **Author:** Fawad Liaqat

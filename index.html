@@ -1,0 +1,416 @@
+---
+layout: null
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Research Articles | Fawad Liaqat</title>
+  <meta name="description" content="Research on economics, technology, and human behavior. Analysis that helps people understand better.">
+  <meta name="author" content="Fawad Liaqat">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: #16161e;
+      background: #f7f7fc;
+      line-height: 1.6;
+    }
+
+    /* ── NAV ────────────────────────────────────────────── */
+    .nav {
+      position: sticky; top: 0; z-index: 200;
+      background: rgba(255,255,255,0.93);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid #e4e4ee;
+    }
+    .nav-inner {
+      max-width: 1080px; margin: 0 auto; padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 58px;
+    }
+    .nav-brand {
+      font-weight: 700; font-size: 0.9rem;
+      color: #16161e; text-decoration: none;
+      display: flex; align-items: center; gap: 0.45rem;
+    }
+    .nav-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: #1e3a5f; display: inline-block;
+    }
+    .nav-links { display: flex; gap: 0; list-style: none; }
+    .nav-links a {
+      display: inline-block; padding: 0.35rem 0.9rem;
+      font-size: 0.82rem; font-weight: 500;
+      color: #6b6b85; text-decoration: none;
+      border-radius: 6px; transition: all 0.15s;
+    }
+    .nav-links a:hover { color: #1e3a5f; background: #eef2f8; }
+
+    /* ── HERO ───────────────────────────────────────────── */
+    .hero {
+      background: linear-gradient(140deg, #0d0d16 0%, #1a1a2e 100%);
+      padding: 5.5rem 2rem 5rem;
+      color: #fff;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M50 50v-6h-3v6h-6v3h6v6h3v-6h6v-3h-6zm0-43V0h-3v7h-6v3h6v6h3v-6h6V7h-6zm-43 43v-6H4v6H-2v3h6v6h3v-6h6v-3H7zM7 7V0H4v7H-2v3h6v6h3v-6h6V7H7z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .hero-inner { max-width: 700px; margin: 0 auto; position: relative; }
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 1.25rem;
+    }
+    .hero h1 {
+      font-family: 'Lora', Georgia, serif;
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      font-weight: 600; line-height: 1.18;
+      letter-spacing: -0.025em;
+      margin-bottom: 1.25rem;
+    }
+    .hero p {
+      font-size: 1.1rem; line-height: 1.72;
+      color: rgba(255,255,255,0.65);
+      max-width: 560px;
+    }
+
+    /* ── ARTICLES SECTION ───────────────────────────────── */
+    .section {
+      max-width: 1080px; margin: 0 auto;
+      padding: 4.5rem 2rem 6rem;
+    }
+    .section-header {
+      display: flex; align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 2.25rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #e4e4ee;
+    }
+    .section-title {
+      font-size: 0.75rem; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: #6b6b85;
+    }
+    .section-count {
+      font-size: 0.78rem; color: #9999b3;
+    }
+
+    /* Grid */
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+      gap: 1.5rem;
+    }
+
+    /* Card */
+    .card {
+      display: flex; flex-direction: column;
+      background: #fff;
+      border: 1px solid #e4e4ee;
+      border-radius: 14px;
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+      border-color: transparent;
+    }
+    .card-accent {
+      height: 5px;
+    }
+    .card-body {
+      padding: 1.6rem 1.75rem 1.4rem;
+      flex: 1; display: flex; flex-direction: column;
+    }
+    .card-topic {
+      font-size: 0.7rem; font-weight: 600;
+      letter-spacing: 0.07em; text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+    .card-title {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 1.25rem; font-weight: 600;
+      line-height: 1.3; letter-spacing: -0.015em;
+      color: #16161e;
+      margin-bottom: 0.75rem;
+    }
+    .card-desc {
+      font-size: 0.875rem; line-height: 1.65;
+      color: #6b6b85;
+      flex: 1;
+      margin-bottom: 1.5rem;
+    }
+    .card-footer {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-top: 1rem;
+      border-top: 1px solid #f0f0f8;
+    }
+    .card-meta {
+      font-size: 0.78rem; color: #9999b3;
+    }
+    .card-cta {
+      display: inline-flex; align-items: center; gap: 0.3rem;
+      font-size: 0.8rem; font-weight: 600;
+      padding: 0.35rem 0.85rem;
+      border-radius: 6px;
+      transition: all 0.15s;
+    }
+    .card-cta svg { width: 13px; height: 13px; transition: transform 0.15s; }
+    .card:hover .card-cta svg { transform: translateX(2px); }
+
+    /* ── ABOUT ──────────────────────────────────────────── */
+    .about-strip {
+      background: #fff;
+      border-top: 1px solid #e4e4ee;
+      border-bottom: 1px solid #e4e4ee;
+      padding: 3rem 2rem;
+    }
+    .about-inner {
+      max-width: 700px; margin: 0 auto;
+      display: flex; gap: 2rem; align-items: flex-start;
+    }
+    .about-line {
+      width: 3px; min-height: 60px;
+      background: linear-gradient(180deg, #1e3a5f 0%, #3b1f6b 100%);
+      border-radius: 3px; flex-shrink: 0;
+      margin-top: 4px;
+    }
+    .about-text h2 {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 1.3rem; font-weight: 600;
+      margin-bottom: 0.6rem; letter-spacing: -0.015em;
+    }
+    .about-text p {
+      font-size: 0.94rem; line-height: 1.75; color: #5a5a72;
+    }
+
+    /* ── FOOTER ─────────────────────────────────────────── */
+    footer {
+      background: #0d0d16;
+      color: rgba(255,255,255,0.55);
+      padding: 3rem 2rem;
+    }
+    .footer-inner {
+      max-width: 1080px; margin: 0 auto;
+      display: flex; flex-wrap: wrap;
+      justify-content: space-between; align-items: center; gap: 1.5rem;
+    }
+    .footer-brand {
+      font-weight: 700; font-size: 0.9rem;
+      color: rgba(255,255,255,0.9);
+      text-decoration: none;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .footer-brand-dot { width: 7px; height: 7px; border-radius: 50%; background: #4a8ccc; display: inline-block; }
+    .footer-links { display: flex; gap: 1.75rem; list-style: none; }
+    .footer-links a {
+      font-size: 0.82rem; color: rgba(255,255,255,0.4);
+      text-decoration: none; transition: color 0.15s;
+    }
+    .footer-links a:hover { color: rgba(255,255,255,0.9); }
+    .footer-divider { width: 100%; border: none; border-top: 1px solid rgba(255,255,255,0.07); margin: 1.25rem 0 1rem; }
+    .footer-copy { width: 100%; font-size: 0.78rem; opacity: 0.3; }
+
+    /* ── RESPONSIVE ─────────────────────────────────────── */
+    @media (max-width: 640px) {
+      .hero { padding: 4rem 1.25rem 3.5rem; }
+      .section { padding: 3rem 1.25rem 4rem; }
+      .articles-grid { grid-template-columns: 1fr; }
+      .about-strip { padding: 2.5rem 1.25rem; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/Research-Articles/" class="nav-brand">
+      <span class="nav-dot"></span>Fawad Liaqat
+    </a>
+    <ul class="nav-links">
+      <li><a href="/Research-Articles/">Articles</a></li>
+      <li><a href="https://fawad-liaqat.netlify.app/">Portfolio</a></li>
+      <li><a href="https://github.com/fawad-liaqat/Research-Articles">GitHub</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Research &amp; Analysis</div>
+    <h1>Understanding the forces that shape our world</h1>
+    <p>
+      Five research articles spanning trade economics, digital finance, behavioral adoption, and AI governance—each aimed at making complex ideas legible and actionable.
+    </p>
+  </div>
+</section>
+
+<!-- Articles -->
+<main>
+  <div class="section">
+    <div class="section-header">
+      <span class="section-title">Published Articles</span>
+      <span class="section-count">5 articles</span>
+    </div>
+
+    <div class="articles-grid">
+
+      <!-- 1. Tariff Cascades -->
+      <a class="card" href="/Research-Articles/articles/tariff-cascades/">
+        <div class="card-accent" style="background: linear-gradient(90deg, #1e3a5f, #2d5a8e);"></div>
+        <div class="card-body">
+          <div class="card-topic" style="color: #1e3a5f;">Economics &amp; Trade Policy</div>
+          <div class="card-title">Tariff Cascades</div>
+          <p class="card-desc">
+            How tariffs propagate through supply chains and amplify economic friction well beyond the initial levy — with implications for pricing, sourcing, and policy design.
+          </p>
+          <div class="card-footer">
+            <span class="card-meta">March 2026</span>
+            <span class="card-cta" style="color: #1e3a5f; background: #eef2f8;">
+              Read
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 8h10M9 4l4 4-4 4"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 2. Behavioral Last-Mile -->
+      <a class="card" href="/Research-Articles/articles/behavioral-last-mile/">
+        <div class="card-accent" style="background: linear-gradient(90deg, #1b4332, #2d6a4f);"></div>
+        <div class="card-body">
+          <div class="card-topic" style="color: #1b4332;">Behavioral Economics</div>
+          <div class="card-title">Behavioral Last-Mile</div>
+          <p class="card-desc">
+            Why adoption failures often stem from behavioral friction rather than technology gaps — and what that means for rollout strategy in financial and public-sector programs.
+          </p>
+          <div class="card-footer">
+            <span class="card-meta">March 2026</span>
+            <span class="card-cta" style="color: #1b4332; background: #eaf2ee;">
+              Read
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 8h10M9 4l4 4-4 4"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 3. CBDC Low Literacy -->
+      <a class="card" href="/Research-Articles/articles/cbdc-low-literacy/">
+        <div class="card-accent" style="background: linear-gradient(90deg, #3b1f6b, #6b3fa0);"></div>
+        <div class="card-body">
+          <div class="card-topic" style="color: #3b1f6b;">Digital Finance &amp; Inclusion</div>
+          <div class="card-title">CBDC and Low Literacy</div>
+          <p class="card-desc">
+            Designing digital currency systems for populations with limited financial literacy or digital access — where interface design and trust architecture determine real-world uptake.
+          </p>
+          <div class="card-footer">
+            <span class="card-meta">March 2026</span>
+            <span class="card-cta" style="color: #3b1f6b; background: #f0ecf8;">
+              Read
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 8h10M9 4l4 4-4 4"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 4. Agentic AI Compliance -->
+      <a class="card" href="/Research-Articles/articles/agentic-ai-compliance/">
+        <div class="card-accent" style="background: linear-gradient(90deg, #5c1a1a, #8b2e2e);"></div>
+        <div class="card-body">
+          <div class="card-topic" style="color: #5c1a1a;">AI Governance &amp; Regulation</div>
+          <div class="card-title">Agentic AI Compliance</div>
+          <p class="card-desc">
+            The regulatory and operational gaps exposed when autonomous AI systems act on behalf of institutions — and why existing compliance frameworks are structurally unequipped.
+          </p>
+          <div class="card-footer">
+            <span class="card-meta">March 2026</span>
+            <span class="card-cta" style="color: #5c1a1a; background: #f8eeee;">
+              Read
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 8h10M9 4l4 4-4 4"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 5. Tokenized Remittances -->
+      <a class="card" href="/Research-Articles/articles/tokenized-remittances/">
+        <div class="card-accent" style="background: linear-gradient(90deg, #1a4a5c, #2d7a8e);"></div>
+        <div class="card-body">
+          <div class="card-topic" style="color: #1a4a5c;">Fintech &amp; Cross-Border Finance</div>
+          <div class="card-title">Tokenized Remittances</div>
+          <p class="card-desc">
+            How tokenization could reduce friction and cost in cross-border transfers for diaspora communities — assessing the infrastructure requirements, regulatory barriers, and adoption curves.
+          </p>
+          <div class="card-footer">
+            <span class="card-meta">March 2026</span>
+            <span class="card-cta" style="color: #1a4a5c; background: #eef5f7;">
+              Read
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 8h10M9 4l4 4-4 4"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</main>
+
+<!-- About strip -->
+<div class="about-strip">
+  <div class="about-inner">
+    <div class="about-line"></div>
+    <div class="about-text">
+      <h2>About this research</h2>
+      <p>
+        These articles sit at the intersection of economics, technology, and human behavior. The goal is clarity — not summarizing debates, but building the kind of understanding that changes how you see a problem. Each piece is self-contained and intended to stand on its own.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-inner">
+    <a href="/Research-Articles/" class="footer-brand">
+      <span class="footer-brand-dot"></span>Fawad Liaqat — Research
+    </a>
+    <ul class="footer-links">
+      <li><a href="https://fawad-liaqat.netlify.app/">Portfolio</a></li>
+      <li><a href="https://github.com/fawad-liaqat">GitHub</a></li>
+      <li><a href="https://github.com/fawad-liaqat/Research-Articles">Repository</a></li>
+    </ul>
+    <hr class="footer-divider">
+    <p class="footer-copy">© 2026 Fawad Liaqat. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
