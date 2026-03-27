@@ -22,7 +22,7 @@ Each article combines empirical research, real-world context, and practical impl
 
 ## Quick Links
 
-- **Portfolio**: [fawad-liaqat.com](https://fawad-liaqat.com)
+- **Portfolio**: [fawad-liaqat](https://fawad-liaqat.netlify.app/)
 - **GitHub**: [github.com/fawad-liaqat](https://github.com/fawad-liaqat)
 
 ---
