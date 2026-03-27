@@ -1,602 +1,480 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      Why CBDCs Fail at the Interface: Design Lessons from the eNaira and Sand
-      Dollar for Pakistan's Digital Rupee
-    </title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        font-family:
-          -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
-          "Helvetica Neue", Arial, sans-serif;
-        line-height: 1.7;
-        color: #333;
-        background-color: #f9f9f9;
-        padding: 20px;
-      }
-
-      .container {
-        max-width: 900px;
-        margin: 0 auto;
-        background-color: white;
-        padding: 60px 50px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-        border-radius: 4px;
-      }
-
-      h1 {
-        font-size: 2.2em;
-        font-weight: 700;
-        color: #1a1a1a;
-        margin-bottom: 12px;
-        line-height: 1.3;
-      }
-
-      .byline {
-        font-size: 0.95em;
-        color: #666;
-        margin-bottom: 40px;
-        padding-bottom: 20px;
-        border-bottom: 2px solid #e0e0e0;
-      }
-
-      hr {
-        border: none;
-        height: 1px;
-        background-color: #ddd;
-        margin: 40px 0;
-      }
-
-      h2 {
-        font-size: 1.6em;
-        font-weight: 700;
-        color: #1a1a1a;
-        margin-top: 50px;
-        margin-bottom: 25px;
-        padding-bottom: 10px;
-        border-bottom: 2px solid #007bff;
-      }
-
-      h3 {
-        font-size: 1.15em;
-        font-weight: 600;
-        color: #222;
-        margin-top: 30px;
-        margin-bottom: 15px;
-      }
-
-      p {
-        margin-bottom: 18px;
-        text-align: justify;
-      }
-
-      strong {
-        font-weight: 600;
-        color: #222;
-      }
-
-      em {
-        font-style: italic;
-        color: #555;
-      }
-
-      a {
-        color: #007bff;
-        text-decoration: none;
-        border-bottom: 1px dotted #007bff;
-        transition: color 0.2s;
-      }
-
-      a:hover {
-        color: #0056b3;
-        border-bottom-color: #0056b3;
-      }
-
-      ul,
-      ol {
-        margin-left: 30px;
-        margin-bottom: 18px;
-      }
-
-      li {
-        margin-bottom: 10px;
-      }
-
-      .sources {
-        margin-top: 50px;
-        padding-top: 30px;
-        border-top: 2px solid #e0e0e0;
-      }
-
-      .sources h2 {
-        border-bottom: 2px solid #007bff;
-      }
-
-      .source-list {
-        list-style: decimal;
-        margin-left: 20px;
-      }
-
-      .source-list li {
-        margin-bottom: 15px;
-        text-align: justify;
-        color: #444;
-      }
-
-      .source-list a {
-        word-break: break-all;
-      }
-
-      .footnote {
-        font-size: 0.9em;
-        color: #666;
-        font-style: italic;
-        margin-top: 30px;
-        padding-top: 20px;
-        border-top: 1px solid #ddd;
-      }
-
-      @media (max-width: 768px) {
-        .container {
-          padding: 30px 20px;
-        }
-
-        h1 {
-          font-size: 1.8em;
-        }
-
-        h2 {
-          font-size: 1.3em;
-        }
-
-        body {
-          padding: 10px;
-        }
-
-        p {
-          text-align: left;
-        }
-
-        .source-list li {
-          text-align: left;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <h1>
-        Why CBDCs Fail at the Interface: Design Lessons from the eNaira and Sand
-        Dollar for Pakistan's Digital Rupee
-      </h1>
-
-      <div class="byline">
-        <em>Fawad Liaqat | March 2026</em>
-      </div>
-
-      <hr />
-
-      <h2>Introduction</h2>
-
-      <p>
-        Ninety-eight point five percent. That is the share of eNaira wallets
-        that went unused within one year of Nigeria's central bank digital
-        currency launch, according to IMF Working Paper WP/23/104 published in
-        May 2023. The Central Bank of Nigeria had spent years designing the
-        architecture, selecting a technology partner (Bitt Inc.), building a
-        tiered KYC framework, and marketing the product to 38 million unbanked
-        Nigerians. The policy rationale was sound. The macroeconomic case was
-        defensible. The technology worked.
-      </p>
-
-      <p>The users never came.</p>
-
-      <p>
-        This article argues that the eNaira's failure and the Sand Dollar's
-        stalled adoption in the Bahamas are not policy failures or technology
-        failures. They are design failures. Specifically, they are failures of
-        user experience: onboarding friction, language barriers, absent offline
-        capability, opaque error handling, and a fundamental disconnection
-        between the product and the habits of its intended users. The pattern
-        matters for Pakistan because the State Bank of Pakistan entered its own
-        CBDC pilot in September 2025, partnering with Soramitsu to build a
-        Digital Rupee targeting over 100 million unbanked adults. If SBP treats
-        the interface as an afterthought — as Nigeria and the Bahamas did — the
-        outcome is predictable.
-      </p>
-
-      <p>
-        This analysis conducts a structured UX audit of the eNaira and Sand
-        Dollar across five design dimensions, then derives a set of requirements
-        for the Digital Rupee that are grounded in Pakistani demographic data
-        from PBS, Karandaaz, and PTA. The goal is specificity: not generic CBDC
-        recommendations, but requirements that embed Pakistan's particular
-        constraints; 39% illiteracy, 91% institutional distrust among the
-        excluded, 36.5% rural internet penetration into the product design
-        itself.
-      </p>
-
-      <h2>Methodology Note</h2>
-
-      <p>
-        The audit relies entirely on observable evidence. Neither the Central
-        Bank of Nigeria nor the Central Bank of the Bahamas publishes internal
-        UX design documentation, and no institutional access was available for
-        this analysis. The evidence base consists of: the IMF's independent
-        evaluation of the eNaira (WP/23/104); academic text mining and sentiment
-        analysis of eNaira Speed Wallet app reviews (SSRN, Obiora et al.;
-        African Journal of Science, Technology, Innovation and Development,
-        2024); BIS publications (Papers No. 128, 147, and the CGIDE Report);
-        Central Bank of the Bahamas press releases and documentation;
-        journalistic and third-party analysis from CoinDesk, Carnegie Endowment,
-        The Conversation, and others; and demographic data from the Pakistan
-        Bureau of Statistics (2023 Census), Karandaaz K-FIS 2024, and PTA Annual
-        Report 2024-25.
-      </p>
-
-      <p>
-        This evidence base is sufficient to identify systematic design failures
-        but insufficient to evaluate internal decision-making processes or to
-        assess unreleased design iterations. The Sand Dollar evidence is thinner
-        than the eNaira's — partly because the Bahamas has a population of
-        400,000 compared to Nigeria's 220 million, producing less academic and
-        journalistic attention. Where evidence is unavailable, the audit says so
-        rather than speculating.
-      </p>
-
-      <h2>The eNaira Audit</h2>
-
-      <h3>Onboarding friction</h3>
-
-      <p>
-        <strong>Onboarding friction</strong> was the eNaira's most immediate
-        failure. The Speed Wallet app required email verification, BVN or NIN
-        authentication, and Terms & Conditions acceptance before any transaction
-        was possible. Academic analysis of app reviews identified onboarding as
-        the most frequent complaint category: email verification locked users
-        out; BVN authentication returned errors for valid credentials; and NIN
-        verification through NIMC (Nigeria's identity authority) was
-        systemically unreliable. The severity of this last point cannot be
-        overstated: 7.5 million MTN subscribers were disconnected due to NIN
-        verification failures, indicating that the identity infrastructure the
-        eNaira depended on was itself broken. The app was removed from Google
-        Play 36 hours after launch with a 1.9-star initial rating. CBN had
-        designed a Tier 0 wallet (phone-only, N20,000 daily limit) to bypass
-        identity verification, but user reports indicate NIN or BVN was still
-        required in practice. The theoretical inclusion pathway never reached
-        the population it was designed for.
-      </p>
-
-      <h3>Language and localization</h3>
-
-      <p>
-        <strong>Language and localization</strong> compounded the onboarding
-        problem. The eNaira was available exclusively in English in a country
-        with over 500 languages and three major lingua francas (Hausa, Yoruba,
-        Igbo) beyond English. The interface was text-heavy rather than
-        icon-driven. A financial inclusion product available only in the former
-        colonial language, in a country where the unbanked population
-        predominantly speaks indigenous languages, fails the localization test
-        categorically.
-      </p>
-
-      <h3>Offline capability</h3>
-
-      <p>
-        <strong>Offline capability</strong> was nominal. The USSD code *997#
-        provided feature-phone access, but USSD requires cellular signal — it is
-        not true offline. Users in areas without cellular coverage could not
-        transact at all. No stored-value or NFC mechanism was deployed. In a
-        country with unreliable electricity and significant data costs, the
-        product was unavailable precisely when and where users needed it most.
-      </p>
-
-      <h3>Error handling</h3>
-
-      <p>
-        <strong>Error handling</strong> was destructive. App review analysis
-        reveals transaction failures with no explanation, registration errors
-        that were permanently marked in the system (blocking retry), excessive
-        customer support wait times, and no confirmation that funds were safe
-        during failed transactions. For a population that already distrusted
-        digital finance, a single unexplained error was sufficient cause for
-        permanent abandonment. The data confirms this: 90% of users who created
-        wallets never completed more than a handful of transactions.
-      </p>
-
-      <h3>Integration with existing habits</h3>
-
-      <p>
-        <strong>Integration with existing habits</strong> was absent. The eNaira
-        required downloading a standalone app, creating a new account, and
-        verifying identity through a separate system — all to access a payment
-        channel that competed with existing apps (OPay, PalmPay, bank apps)
-        offering identical or superior functionality. A Springer study found
-        that 49% of participants stated they would not use the eNaira because
-        existing alternatives were sufficient. India's Digital Rupee, by
-        contrast, distributed through Google Pay and PhonePe — apps people
-        already had — and achieved 6 million users with 334% year-over-year
-        circulation growth.
-      </p>
-
-      <h2>The Sand Dollar Audit</h2>
-
-      <p>
-        The Sand Dollar presents a more nuanced picture. Its consumer onboarding
-        is the lowest-friction in any CBDC: Tier 1 wallets require no identity
-        documents at all, up to a $500 balance and $1,500 monthly transaction
-        limit. This design decision is correct for inclusion purposes. However,
-        merchant onboarding failed — businesses rejected separate POS devices
-        and demanded compatibility with existing terminals. The authorized
-        financial institutions that were supposed to implement ACH wallet
-        integration never fully did so. The result is a product with easy entry
-        and nowhere useful to go.
-      </p>
-
-      <p>
-        The Sand Dollar's offline capability is the comparison's standout.
-        Pre-loaded value from ATMs allows transactions without network
-        connectivity, with deferred reconciliation upon reconnection. This
-        mechanism was built because hurricanes routinely destroy Bahamian
-        telecommunications infrastructure. It is the only production-tested
-        offline CBDC mechanism in existence, and it demonstrates that the
-        feature is technically feasible without exotic hardware.
-      </p>
-
-      <p>
-        Language is not a barrier (English is the Bahamas' sole language), and
-        error handling evidence is insufficient for assessment. The integration
-        problem is similar to Nigeria's but less severe: the physical payment
-        card maps to existing habits, even though the wallet apps are
-        standalone. Adoption metrics remain poor — 138,000 wallets in a 400,000
-        population, less than 1% of currency in circulation — and digital wallet
-        top-up transactions declined 78% year-over-year in 2024. The Sand Dollar
-        is not a catastrophic failure like the eNaira, but it is a stalled
-        product with a merchant acceptance problem it has not solved.
-      </p>
-
-      <h2>Pakistan's Demographic Context</h2>
-
-      <p>
-        The Digital Rupee's target user is not an abstraction. PBS 2023 Census
-        data, Karandaaz K-FIS 2024, and PTA's Annual Report allow us to
-        construct a realistic profile.
-      </p>
-
-      <p>
-        Pakistan has 241.5 million people. Sixty-one percent live in rural
-        areas. National literacy is 60.65%, but drops to 51.56% in rural areas
-        and lower still for rural women (approximately 40%). The median age is
-        19 — this is a young population, but youth does not automatically mean
-        digital fluency in a country where rural internet penetration is 36.5%.
-      </p>
-
-      <p>
-        K-FIS 2024 reports 35% financial inclusion; a fourfold increase from 8%
-        in 2013, driven almost entirely by mobile money (JazzCash, Easypaisa).
-        But the gender gap is severe: 56% of men hold accounts versus 14% of
-        women, a 42 percentage point difference. More critically, only 9% of
-        financially excluded adults trust banks, and 8% trust mobile money
-        providers. This is not apathy. It is active distrust of the institutions
-        the Digital Rupee would operate through.
-      </p>
-
-      <p>
-        PTA data shows 200 million mobile subscriptions and 81% 3G/4G coverage
-        nationally. But these national figures obscure regional realities:
-        Balochistan and rural Sindh have significantly lower coverage, and
-        Pakistan experiences frequent power outages that render connectivity
-        statistics meaningless during blackouts. The branchless banking agent
-        network (763,000 registered, 287,000 active) is the physical
-        distribution infrastructure that reaches beyond connectivity
-        constraints.
-      </p>
-
-      <p>
-        The profile of the hardest adoption case; a rural woman aged 20-35, with
-        approximately 52% probability of literacy, 14% probability of holding
-        any financial account, and 91% probability of distrusting banks — is the
-        population SBP claims to target. Every design requirement must be tested
-        against this profile.
-      </p>
-
-      <h2>Requirements for the Digital Rupee</h2>
-
-      <p>
-        The requirements table derives each specification from a specific
-        failure (eNaira or Sand Dollar) combined with a specific Pakistani
-        constraint. Four of five requirements are rated Critical — meaning that
-        without them, the Digital Rupee will replicate eNaira's outcome.
-      </p>
-
-      <h3>Onboarding</h3>
-
-      <p>
-        <strong>Onboarding</strong> must bypass NADRA verification for the
-        lowest wallet tier, exactly as Nigeria's Tier 0 was supposed to bypass
-        NIMC — except it must actually work. The zero-KYC wallet should have a
-        daily limit calibrated to Pakistani daily wages (PKR 800-1,500) and
-        register via USSD or SMS on a feature phone, not through an app
-        download. Identity escalation should be incentive-driven, not mandatory.
-      </p>
-
-      <h3>Language and localization</h3>
-
-      <p>
-        <strong>Language and localization</strong> demands Urdu plus at least
-        Punjabi, Sindhi, and Pashto at launch, with additional languages within
-        six months. Navigation must be icon-driven so that every critical action
-        — send, receive, check balance — can be completed by an illiterate user.
-        This is not a "nice to have." With 39% of the population illiterate, a
-        text-dependent interface excludes nearly 95 million people.
-      </p>
-
-      <h3>Offline capability</h3>
-
-      <p>
-        <strong>Offline capability</strong> must go beyond the Sand Dollar
-        model. Pakistan's agent network (287,000 active agents) should serve as
-        offline loading points — not just ATMs, which are sparse in rural areas.
-        The mechanism must work on 2G and feature phones, with a visual
-        confirmation on reconnection that the transaction completed. A
-        reasonable offline limit is PKR 25,000 (approximately one month of rural
-        household spending).
-      </p>
-
-      <h3>Error handling</h3>
-
-      <p>
-        <strong>Error handling</strong> must treat the first transaction as the
-        product's only chance. Every failure must display the reason in the
-        user's language, confirm fund safety explicitly, and offer a one-tap
-        retry. The system must never permanently block a user after a
-        verification failure. Agent-mediated support — modeled on JazzCash's
-        existing resolution channel — should be the primary support path.
-      </p>
-
-      <h3>Integration with existing habits</h3>
-
-      <p>
-        <strong>Integration with existing habits</strong> is the requirement
-        that subsumes all others. The Digital Rupee must not launch as a
-        standalone app. It must live inside JazzCash and Easypaisa, whose
-        combined 83 million accounts represent the largest existing digital
-        payment user base in Pakistan. RAAST's 838,000 P2M merchants should
-        accept Digital Rupee transactions through existing integration. For
-        non-smartphone users, access must be through existing USSD short codes.
-        And the product must offer at least one capability that existing mobile
-        money cannot — programmable government transfers or reduced remittance
-        corridor costs — to justify its existence.
-      </p>
-
-      <h2>Conclusion</h2>
-
-      <p>
-        The eNaira and Sand Dollar provide the same lesson through different
-        failure modes. Nigeria failed on execution: the design was theoretically
-        inclusive but operationally hostile. The Bahamas failed on integration:
-        the product was easy to enter but impossible to use at merchants. Both
-        treated the user interface as subordinate to the monetary architecture.
-        Both achieved adoption rates below 2% of their target populations.
-      </p>
-
-      <p>
-        Pakistan's Digital Rupee has structural advantages that neither Nigeria
-        nor the Bahamas had: 83 million existing mobile money accounts, 287,000
-        active agents, RAAST with 1.9 billion lifetime transactions, and a young
-        population with rising digital familiarity. The infrastructure exists.
-        The question is whether SBP will design a product that earns trust from
-        a population that has not given it yet — or whether the Digital Rupee
-        will become another architecturally sound CBDC that nobody uses.
-      </p>
-
-      <p>
-        The evidence from five global pilots is unambiguous. Privacy design
-        predicts adoption. Embedding in existing apps predicts adoption. Offline
-        capability predicts relevance in low-connectivity markets. Standalone
-        launches with surveillance architectures predict failure. SBP has the
-        data. The choice is a design decision, not a policy mystery.
-      </p>
-
-      <hr />
-
-      <div class="sources">
-        <h2>Sources</h2>
-        <ol class="source-list">
-          <li>
-            IMF Working Paper WP/23/104, "Nigeria's eNaira, One Year After,"
-            Jookyung Ree, May 2023.
-            <a
-              href="https://www.imf.org/en/publications/wp/issues/2023/05/16/nigerias-enaira-one-year-after-533487"
-              target="_blank"
-              >https://www.imf.org/en/publications/wp/issues/2023/05/16/nigerias-enaira-one-year-after-533487</a
-            >
-          </li>
-          <li>
-            BIS Papers No. 128, "Central Bank Digital Currencies in Africa,"
-            2023.
-            <a
-              href="https://www.bis.org/publ/bppdf/bispap128.pdf"
-              target="_blank"
-              >https://www.bis.org/publ/bppdf/bispap128.pdf</a
-            >
-          </li>
-          <li>
-            BIS Papers No. 147, "Embracing Diversity, Advancing Together," 2024.
-            <a
-              href="https://www.bis.org/publ/bppdf/bispap147.pdf"
-              target="_blank"
-              >https://www.bis.org/publ/bppdf/bispap147.pdf</a
-            >
-          </li>
-          <li>
-            BIS CGIDE Report (othp89).
-            <a href="https://www.bis.org/publ/othp89.pdf" target="_blank"
-              >https://www.bis.org/publ/othp89.pdf</a
-            >
-          </li>
-          <li>
-            CBN eNaira Regulatory Guidelines.
-            <a
-              href="https://www.cbn.gov.ng/Out/2021/FPRD/eNairaCircularAndGuidelines%20FINAL.pdf"
-              target="_blank"
-              >https://www.cbn.gov.ng/Out/2021/FPRD/eNairaCircularAndGuidelines%20FINAL.pdf</a
-            >
-          </li>
-          <li>
-            SSRN, "eNaira Adoption: A Text Mining Analysis of User Experience,"
-            Obiora et al.
-            <a
-              href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4543840"
-              target="_blank"
-              >https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4543840</a
-            >
-          </li>
-          <li>
-            African Journal of Science, Technology, Innovation and Development,
-            Vol 16 No 5, 2024.
-            <a
-              href="https://www.tandfonline.com/doi/full/10.1080/20421338.2024.2353934"
-              target="_blank"
-              >https://www.tandfonline.com/doi/full/10.1080/20421338.2024.2353934</a
-            >
-          </li>
-          <li>
-            Central Bank of the Bahamas, Sand Dollar documentation.
-            <a href="https://www.sanddollar.bs/about" target="_blank"
-              >https://www.sanddollar.bs/about</a
-            >
-          </li>
-          <li>Pakistan Bureau of Statistics, 2023 Census.</li>
-          <li>Karandaaz K-FIS 2024.</li>
-          <li>PTA Annual Report 2024-25.</li>
-          <li>SBP Branchless Banking Data.</li>
-          <li>
-            Springer, eNaira adoption study.
-            <a
-              href="https://link.springer.com/article/10.1007/s42979-024-02882-6"
-              target="_blank"
-              >https://link.springer.com/article/10.1007/s42979-024-02882-6</a
-            >
-          </li>
-          <li>
-            CoinDesk, Carnegie Endowment, The Conversation — eNaira coverage
-            (2023-2024).
-          </li>
-          <li>
-            Profit Pakistan Today, "SBP Partners with Soramitsu," August 2025.
-          </li>
-        </ol>
-      </div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why CBDCs Fail at the Interface | Fawad Liaqat</title>
+  <meta name="description" content="Design lessons from the eNaira and Sand Dollar for Pakistan's Digital Rupee. A structured UX audit across five design dimensions.">
+  <meta name="author" content="Fawad Liaqat">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --heading:       #0d0d0d;
+      --text:          #2a2a2a;
+      --muted:         #606060;
+      --border:        #d0d0d0;
+      --border-light:  #e8e8e8;
+      --bg:            #ffffff;
+      --bg-alt:        #f6f6f6;
+      --bg-dark:       #101010;
+      --link:          #1a50a0;
+      --table-head-bg: #1a1a1a;
+      --table-head-fg: #ffffff;
+      --table-alt:     #f9f9f9;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+    body { font-family: 'Inter', -apple-system, sans-serif; color: var(--text); background: var(--bg); line-height: 1.6; }
+
+    .nav { position: sticky; top: 0; z-index: 200; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border-light); }
+    .nav-inner { max-width: 1080px; margin: 0 auto; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 54px; }
+    .nav-brand { font-weight: 700; font-size: 0.875rem; color: var(--heading); text-decoration: none; }
+    .nav-links { display: flex; gap: 0; list-style: none; }
+    .nav-links a { display: inline-block; padding: 0.3rem 0.85rem; font-size: 0.8rem; font-weight: 500; color: var(--muted); text-decoration: none; border-radius: 5px; transition: all 0.15s; }
+    .nav-links a:hover { color: var(--heading); background: var(--bg-alt); }
+
+    .article-header { padding: 3.5rem 2rem 0; border-bottom: 1px solid var(--border-light); }
+    .header-inner { max-width: 740px; margin: 0 auto; }
+    .article-topic { display: inline-block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; color: var(--muted); border: 1px solid var(--border); padding: 0.22rem 0.7rem; border-radius: 3px; margin-bottom: 1.25rem; }
+    .article-title { font-family: 'Lora', Georgia, serif; font-size: clamp(1.7rem, 4vw, 2.5rem); font-weight: 600; line-height: 1.2; letter-spacing: -0.02em; color: var(--heading); margin-bottom: 1.5rem; }
+    .article-meta { display: flex; flex-wrap: wrap; gap: 0.5rem 2rem; font-size: 0.78rem; color: var(--muted); padding: 1rem 0; border-top: 1px solid var(--border-light); }
+
+    .abstract { max-width: 740px; margin: 1.5rem auto 0; background: var(--bg-alt); border-left: 3px solid var(--heading); padding: 1.6rem 1.75rem; }
+    .abstract-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.65rem; }
+    .abstract p { font-family: 'Lora', Georgia, serif; font-size: 0.96rem; line-height: 1.8; color: var(--muted); font-style: italic; margin-bottom: 0; }
+
+    .article-body { max-width: 740px; margin: 0 auto; padding: 3.5rem 2rem 5rem; }
+    .article-body h2 { font-family: 'Lora', Georgia, serif; font-size: 1.4rem; font-weight: 600; color: var(--heading); margin-top: 3rem; margin-bottom: 0.9rem; padding-bottom: 0.5rem; border-bottom: 1.5px solid var(--border-light); letter-spacing: -0.015em; line-height: 1.3; }
+    .article-body h3 { font-size: 1rem; font-weight: 600; color: var(--heading); margin-top: 2rem; margin-bottom: 0.6rem; }
+    .article-body p { font-family: 'Lora', Georgia, serif; font-size: 1.04rem; line-height: 1.83; color: var(--text); margin-bottom: 1.35rem; }
+    .article-body a { color: var(--link); text-underline-offset: 3px; }
+    .article-body a:hover { opacity: 0.8; }
+    .article-body ul, .article-body ol { font-family: 'Lora', Georgia, serif; font-size: 1.04rem; line-height: 1.8; color: var(--text); padding-left: 1.5rem; margin: 0.75rem 0 1.35rem; }
+    .article-body li { margin-bottom: 0.45rem; }
+    .article-body hr { border: none; border-top: 1px solid var(--border-light); margin: 2.5rem 0; }
+    .article-body strong { font-weight: 600; color: var(--heading); }
+
+    .references { margin-top: 3rem; }
+    .references ol { padding-left: 1.6rem; }
+    .references li { font-family: 'Lora', Georgia, serif; font-size: 0.88rem; line-height: 1.72; color: var(--muted); margin-bottom: 0.65rem; font-style: italic; }
+    .references a { color: var(--link); word-break: break-all; text-decoration: underline; text-underline-offset: 2px; }
+
+    .back-wrap { max-width: 740px; margin: 0 auto; padding: 0 2rem 3rem; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.8rem; font-weight: 500; color: var(--muted); text-decoration: none; padding: 0.38rem 0.85rem; border: 1px solid var(--border); border-radius: 5px; transition: all 0.15s; }
+    .back-link:hover { color: var(--heading); border-color: var(--heading); }
+
+    footer { background: var(--bg-dark); color: rgba(255,255,255,0.45); padding: 2.5rem 2rem; }
+    .footer-inner { max-width: 1080px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1.25rem; }
+    .footer-brand { font-weight: 700; font-size: 0.875rem; color: rgba(255,255,255,0.9); text-decoration: none; }
+    .footer-links { display: flex; gap: 1.75rem; list-style: none; }
+    .footer-links a { font-size: 0.8rem; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.15s; }
+    .footer-links a:hover { color: rgba(255,255,255,0.9); }
+    .footer-rule { width: 100%; border: none; border-top: 1px solid rgba(255,255,255,0.07); margin: 1rem 0 0.75rem; }
+    .footer-copy { width: 100%; font-size: 0.75rem; opacity: 0.28; }
+
+    @media (max-width: 640px) {
+      .article-header { padding: 2.5rem 1.25rem 0; }
+      .article-body { padding: 2.5rem 1.25rem 4rem; }
+      .back-wrap { padding: 0 1.25rem 2.5rem; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/Research-Articles/" class="nav-brand">Fawad Liaqat</a>
+    <ul class="nav-links">
+      <li><a href="/Research-Articles/">All Articles</a></li>
+      <li><a href="https://fawad-liaqat.netlify.app/">Portfolio</a></li>
+      <li><a href="https://github.com/fawad-liaqat">GitHub</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="article-header">
+  <div class="header-inner">
+    <div class="article-topic">Digital Finance &amp; Inclusion</div>
+    <h1 class="article-title">Why CBDCs Fail at the Interface: Design Lessons from the eNaira and Sand Dollar for Pakistan's Digital Rupee</h1>
+    <div class="article-meta">
+      <span>Fawad Liaqat</span>
+      <span>March 2026</span>
+      <span>~18 min read</span>
     </div>
-  </body>
+  </div>
+
+  <div class="abstract">
+    <div class="abstract-label">Abstract</div>
+    <p>The eNaira's 98.5% wallet abandonment rate and the Sand Dollar's stalled adoption are not policy failures or technology failures — they are design failures. This article conducts a structured UX audit of both CBDCs across five dimensions: onboarding friction, language and localization, offline capability, error handling, and integration with existing habits. Each failure is mapped to a specific design requirement for Pakistan's Digital Rupee pilot, grounded in PBS 2023 Census data, Karandaaz K-FIS 2024, and PTA figures. The goal is specificity: not generic CBDC recommendations, but requirements that embed Pakistan's particular constraints — 39% illiteracy, 91% institutional distrust among the excluded, 36.5% rural internet penetration — into the product design itself.</p>
+  </div>
+</div>
+
+<div class="article-body">
+
+  <h2>Introduction</h2>
+
+  <p>
+    Ninety-eight point five percent. That is the share of eNaira wallets
+    that went unused within one year of Nigeria's central bank digital
+    currency launch, according to IMF Working Paper WP/23/104 published in
+    May 2023. The Central Bank of Nigeria had spent years designing the
+    architecture, selecting a technology partner (Bitt Inc.), building a
+    tiered KYC framework, and marketing the product to 38 million unbanked
+    Nigerians. The policy rationale was sound. The macroeconomic case was
+    defensible. The technology worked.
+  </p>
+
+  <p>The users never came.</p>
+
+  <p>
+    This article argues that the eNaira's failure and the Sand Dollar's
+    stalled adoption in the Bahamas are not policy failures or technology
+    failures. They are design failures. Specifically, they are failures of
+    user experience: onboarding friction, language barriers, absent offline
+    capability, opaque error handling, and a fundamental disconnection
+    between the product and the habits of its intended users. The pattern
+    matters for Pakistan because the State Bank of Pakistan entered its own
+    CBDC pilot in September 2025, partnering with Soramitsu to build a
+    Digital Rupee targeting over 100 million unbanked adults. If SBP treats
+    the interface as an afterthought — as Nigeria and the Bahamas did — the
+    outcome is predictable.
+  </p>
+
+  <p>
+    This analysis conducts a structured UX audit of the eNaira and Sand
+    Dollar across five design dimensions, then derives a set of requirements
+    for the Digital Rupee that are grounded in Pakistani demographic data
+    from PBS, Karandaaz, and PTA. The goal is specificity: not generic CBDC
+    recommendations, but requirements that embed Pakistan's particular
+    constraints — 39% illiteracy, 91% institutional distrust among the
+    excluded, 36.5% rural internet penetration — into the product design
+    itself.
+  </p>
+
+  <h2>Methodology Note</h2>
+
+  <p>
+    The audit relies entirely on observable evidence. Neither the Central
+    Bank of Nigeria nor the Central Bank of the Bahamas publishes internal
+    UX design documentation, and no institutional access was available for
+    this analysis. The evidence base consists of: the IMF's independent
+    evaluation of the eNaira (WP/23/104); academic text mining and sentiment
+    analysis of eNaira Speed Wallet app reviews (SSRN, Obiora et al.;
+    African Journal of Science, Technology, Innovation and Development,
+    2024); BIS publications (Papers No. 128, 147, and the CGIDE Report);
+    Central Bank of the Bahamas press releases and documentation;
+    journalistic and third-party analysis from CoinDesk, Carnegie Endowment,
+    The Conversation, and others; and demographic data from the Pakistan
+    Bureau of Statistics (2023 Census), Karandaaz K-FIS 2024, and PTA Annual
+    Report 2024-25.
+  </p>
+
+  <p>
+    This evidence base is sufficient to identify systematic design failures
+    but insufficient to evaluate internal decision-making processes or to
+    assess unreleased design iterations. The Sand Dollar evidence is thinner
+    than the eNaira's — partly because the Bahamas has a population of
+    400,000 compared to Nigeria's 220 million, producing less academic and
+    journalistic attention. Where evidence is unavailable, the audit says so
+    rather than speculating.
+  </p>
+
+  <h2>The eNaira Audit</h2>
+
+  <h3>Onboarding friction</h3>
+
+  <p>
+    <strong>Onboarding friction</strong> was the eNaira's most immediate
+    failure. The Speed Wallet app required email verification, BVN or NIN
+    authentication, and Terms &amp; Conditions acceptance before any transaction
+    was possible. Academic analysis of app reviews identified onboarding as
+    the most frequent complaint category: email verification locked users
+    out; BVN authentication returned errors for valid credentials; and NIN
+    verification through NIMC (Nigeria's identity authority) was
+    systemically unreliable. The severity of this last point cannot be
+    overstated: 7.5 million MTN subscribers were disconnected due to NIN
+    verification failures, indicating that the identity infrastructure the
+    eNaira depended on was itself broken. The app was removed from Google
+    Play 36 hours after launch with a 1.9-star initial rating. CBN had
+    designed a Tier 0 wallet (phone-only, N20,000 daily limit) to bypass
+    identity verification, but user reports indicate NIN or BVN was still
+    required in practice. The theoretical inclusion pathway never reached
+    the population it was designed for.
+  </p>
+
+  <h3>Language and localization</h3>
+
+  <p>
+    <strong>Language and localization</strong> compounded the onboarding
+    problem. The eNaira was available exclusively in English in a country
+    with over 500 languages and three major lingua francas (Hausa, Yoruba,
+    Igbo) beyond English. The interface was text-heavy rather than
+    icon-driven. A financial inclusion product available only in the former
+    colonial language, in a country where the unbanked population
+    predominantly speaks indigenous languages, fails the localization test
+    categorically.
+  </p>
+
+  <h3>Offline capability</h3>
+
+  <p>
+    <strong>Offline capability</strong> was nominal. The USSD code *997#
+    provided feature-phone access, but USSD requires cellular signal — it is
+    not true offline. Users in areas without cellular coverage could not
+    transact at all. No stored-value or NFC mechanism was deployed. In a
+    country with unreliable electricity and significant data costs, the
+    product was unavailable precisely when and where users needed it most.
+  </p>
+
+  <h3>Error handling</h3>
+
+  <p>
+    <strong>Error handling</strong> was destructive. App review analysis
+    reveals transaction failures with no explanation, registration errors
+    that were permanently marked in the system (blocking retry), excessive
+    customer support wait times, and no confirmation that funds were safe
+    during failed transactions. For a population that already distrusted
+    digital finance, a single unexplained error was sufficient cause for
+    permanent abandonment. The data confirms this: 90% of users who created
+    wallets never completed more than a handful of transactions.
+  </p>
+
+  <h3>Integration with existing habits</h3>
+
+  <p>
+    <strong>Integration with existing habits</strong> was absent. The eNaira
+    required downloading a standalone app, creating a new account, and
+    verifying identity through a separate system — all to access a payment
+    channel that competed with existing apps (OPay, PalmPay, bank apps)
+    offering identical or superior functionality. A Springer study found
+    that 49% of participants stated they would not use the eNaira because
+    existing alternatives were sufficient. India's Digital Rupee, by
+    contrast, distributed through Google Pay and PhonePe — apps people
+    already had — and achieved 6 million users with 334% year-over-year
+    circulation growth.
+  </p>
+
+  <h2>The Sand Dollar Audit</h2>
+
+  <p>
+    The Sand Dollar presents a more nuanced picture. Its consumer onboarding
+    is the lowest-friction in any CBDC: Tier 1 wallets require no identity
+    documents at all, up to a $500 balance and $1,500 monthly transaction
+    limit. This design decision is correct for inclusion purposes. However,
+    merchant onboarding failed. Businesses rejected separate POS devices and
+    demanded compatibility with existing terminals. The authorized financial
+    institutions that were supposed to implement ACH wallet integration
+    never fully did so. The result is a product with easy entry and nowhere
+    useful to go.
+  </p>
+
+  <p>
+    The Sand Dollar's offline capability is the comparison's standout.
+    Pre-loaded value from ATMs allows transactions without network
+    connectivity, with deferred reconciliation upon reconnection. This
+    mechanism was built because hurricanes routinely destroy Bahamian
+    telecommunications infrastructure. It is the only production-tested
+    offline CBDC mechanism in existence, and it demonstrates that the
+    feature is technically feasible without exotic hardware.
+  </p>
+
+  <p>
+    Language is not a barrier (English is the Bahamas' sole language), and
+    error handling evidence is insufficient for assessment. The integration
+    problem is similar to Nigeria's but less severe: the physical payment
+    card maps to existing habits, even though the wallet apps are
+    standalone. Adoption metrics remain poor — 138,000 wallets in a 400,000
+    population, less than 1% of currency in circulation — and digital wallet
+    top-up transactions declined 78% year-over-year in 2024. The Sand Dollar
+    is not a catastrophic failure like the eNaira, but it is a stalled
+    product with a merchant acceptance problem it has not solved.
+  </p>
+
+  <h2>Pakistan's Demographic Context</h2>
+
+  <p>
+    The Digital Rupee's target user is not an abstraction. PBS 2023 Census
+    data, Karandaaz K-FIS 2024, and PTA's Annual Report allow us to
+    construct a realistic profile.
+  </p>
+
+  <p>
+    Pakistan has 241.5 million people. Sixty-one percent live in rural
+    areas. National literacy is 60.65%, but drops to 51.56% in rural areas
+    and lower still for rural women (approximately 40%). The median age is
+    19 — this is a young population, but youth does not automatically mean
+    digital fluency in a country where rural internet penetration is 36.5%.
+  </p>
+
+  <p>
+    K-FIS 2024 reports 35% financial inclusion — a fourfold increase from 8%
+    in 2013, driven almost entirely by mobile money (JazzCash, Easypaisa).
+    But the gender gap is severe: 56% of men hold accounts versus 14% of
+    women, a 42 percentage point difference. More critically, only 9% of
+    financially excluded adults trust banks, and 8% trust mobile money
+    providers. This is not apathy. It is active distrust of the institutions
+    the Digital Rupee would operate through.
+  </p>
+
+  <p>
+    PTA data shows 200 million mobile subscriptions and 81% 3G/4G coverage
+    nationally. But these national figures obscure regional realities:
+    Balochistan and rural Sindh have significantly lower coverage, and
+    Pakistan experiences frequent power outages that render connectivity
+    statistics meaningless during blackouts. The branchless banking agent
+    network (763,000 registered, 287,000 active) is the physical
+    distribution infrastructure that reaches beyond connectivity
+    constraints.
+  </p>
+
+  <p>
+    The profile of the hardest adoption case — a rural woman aged 20–35, with
+    approximately 52% probability of literacy, 14% probability of holding
+    any financial account, and 91% probability of distrusting banks — is the
+    population SBP claims to target. Every design requirement must be tested
+    against this profile.
+  </p>
+
+  <h2>Requirements for the Digital Rupee</h2>
+
+  <p>
+    The requirements table derives each specification from a specific
+    failure (eNaira or Sand Dollar) combined with a specific Pakistani
+    constraint. Four of five requirements are rated Critical — meaning that
+    without them, the Digital Rupee will replicate eNaira's outcome.
+  </p>
+
+  <h3>Onboarding</h3>
+
+  <p>
+    <strong>Onboarding</strong> must bypass NADRA verification for the
+    lowest wallet tier, exactly as Nigeria's Tier 0 was supposed to bypass
+    NIMC — except it must actually work. The zero-KYC wallet should have a
+    daily limit calibrated to Pakistani daily wages (PKR 800–1,500) and
+    register via USSD or SMS on a feature phone, not through an app
+    download. Identity escalation should be incentive-driven, not mandatory.
+  </p>
+
+  <h3>Language and localization</h3>
+
+  <p>
+    <strong>Language and localization</strong> demands Urdu plus at least
+    Punjabi, Sindhi, and Pashto at launch, with additional languages within
+    six months. Navigation must be icon-driven so that every critical action —
+    send, receive, check balance — can be completed by an illiterate user.
+    This is not a "nice to have." With 39% of the population illiterate, a
+    text-dependent interface excludes nearly 95 million people.
+  </p>
+
+  <h3>Offline capability</h3>
+
+  <p>
+    <strong>Offline capability</strong> must go beyond the Sand Dollar
+    model. Pakistan's agent network (287,000 active agents) should serve as
+    offline loading points — not just ATMs, which are sparse in rural areas.
+    The mechanism must work on 2G and feature phones, with a visual
+    confirmation on reconnection that the transaction completed. A
+    reasonable offline limit is PKR 25,000 (approximately one month of rural
+    household spending).
+  </p>
+
+  <h3>Error handling</h3>
+
+  <p>
+    <strong>Error handling</strong> must treat the first transaction as the
+    product's only chance. Every failure must display the reason in the
+    user's language, confirm fund safety explicitly, and offer a one-tap
+    retry. The system must never permanently block a user after a
+    verification failure. Agent-mediated support — modeled on JazzCash's
+    existing resolution channel — should be the primary support path.
+  </p>
+
+  <h3>Integration with existing habits</h3>
+
+  <p>
+    <strong>Integration with existing habits</strong> is the requirement
+    that subsumes all others. The Digital Rupee must not launch as a
+    standalone app. It must live inside JazzCash and Easypaisa, whose
+    combined 83 million accounts represent the largest existing digital
+    payment user base in Pakistan. RAAST's 838,000 P2M merchants should
+    accept Digital Rupee transactions through existing integration. For
+    non-smartphone users, access must be through existing USSD short codes.
+    And the product must offer at least one capability that existing mobile
+    money cannot — programmable government transfers or reduced remittance
+    corridor costs — to justify its existence.
+  </p>
+
+  <h2>Conclusion</h2>
+
+  <p>
+    The eNaira and Sand Dollar provide the same lesson through different
+    failure modes. Nigeria failed on execution: the design was theoretically
+    inclusive but operationally hostile. The Bahamas failed on integration:
+    the product was easy to enter but impossible to use at merchants. Both
+    treated the user interface as subordinate to the monetary architecture.
+    Both achieved adoption rates below 2% of their target populations.
+  </p>
+
+  <p>
+    Pakistan's Digital Rupee has structural advantages that neither Nigeria
+    nor the Bahamas had: 83 million existing mobile money accounts, 287,000
+    active agents, RAAST with 1.9 billion lifetime transactions, and a young
+    population with rising digital familiarity. The infrastructure exists.
+    The question is whether SBP will design a product that earns trust from
+    a population that has not given it yet — or whether the Digital Rupee will
+    become another architecturally sound CBDC that nobody uses.
+  </p>
+
+  <p>
+    The evidence from five global pilots is unambiguous. Privacy design
+    predicts adoption. Embedding in existing apps predicts adoption. Offline
+    capability predicts relevance in low-connectivity markets. Standalone
+    launches with surveillance architectures predict failure. SBP has the
+    data. The choice is a design decision, not a policy mystery.
+  </p>
+
+  <div class="references">
+    <h2>Sources</h2>
+    <ol>
+      <li>IMF Working Paper WP/23/104, "Nigeria's eNaira, One Year After," Jookyung Ree, May 2023. <a href="https://www.imf.org/en/publications/wp/issues/2023/05/16/nigerias-enaira-one-year-after-533487" target="_blank" rel="noopener">https://www.imf.org/en/publications/wp/issues/2023/05/16/nigerias-enaira-one-year-after-533487</a></li>
+      <li>BIS Papers No. 128, "Central Bank Digital Currencies in Africa," 2023. <a href="https://www.bis.org/publ/bppdf/bispap128.pdf" target="_blank" rel="noopener">https://www.bis.org/publ/bppdf/bispap128.pdf</a></li>
+      <li>BIS Papers No. 147, "Embracing Diversity, Advancing Together," 2024. <a href="https://www.bis.org/publ/bppdf/bispap147.pdf" target="_blank" rel="noopener">https://www.bis.org/publ/bppdf/bispap147.pdf</a></li>
+      <li>BIS CGIDE Report (othp89). <a href="https://www.bis.org/publ/othp89.pdf" target="_blank" rel="noopener">https://www.bis.org/publ/othp89.pdf</a></li>
+      <li>CBN eNaira Regulatory Guidelines. <a href="https://www.cbn.gov.ng/Out/2021/FPRD/eNairaCircularAndGuidelines%20FINAL.pdf" target="_blank" rel="noopener">https://www.cbn.gov.ng/Out/2021/FPRD/eNairaCircularAndGuidelines%20FINAL.pdf</a></li>
+      <li>SSRN, "eNaira Adoption: A Text Mining Analysis of User Experience," Obiora et al. <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4543840" target="_blank" rel="noopener">https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4543840</a></li>
+      <li>African Journal of Science, Technology, Innovation and Development, Vol 16 No 5, 2024. <a href="https://www.tandfonline.com/doi/full/10.1080/20421338.2024.2353934" target="_blank" rel="noopener">https://www.tandfonline.com/doi/full/10.1080/20421338.2024.2353934</a></li>
+      <li>Central Bank of the Bahamas, Sand Dollar documentation. <a href="https://www.sanddollar.bs/about" target="_blank" rel="noopener">https://www.sanddollar.bs/about</a></li>
+      <li>Pakistan Bureau of Statistics, 2023 Census.</li>
+      <li>Karandaaz K-FIS 2024.</li>
+      <li>PTA Annual Report 2024-25.</li>
+      <li>SBP Branchless Banking Data.</li>
+      <li>Springer, eNaira adoption study. <a href="https://link.springer.com/article/10.1007/s42979-024-02882-6" target="_blank" rel="noopener">https://link.springer.com/article/10.1007/s42979-024-02882-6</a></li>
+      <li>CoinDesk, Carnegie Endowment, The Conversation — eNaira coverage (2023-2024).</li>
+      <li>Profit Pakistan Today, "SBP Partners with Soramitsu," August 2025.</li>
+    </ol>
+  </div>
+
+</div>
+
+<div class="back-wrap">
+  <a href="/Research-Articles/" class="back-link">&#8592; Back to all articles</a>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <a href="/Research-Articles/" class="footer-brand">Fawad Liaqat — Research</a>
+    <ul class="footer-links">
+      <li><a href="/Research-Articles/">Articles</a></li>
+      <li><a href="https://fawad-liaqat.netlify.app/">Portfolio</a></li>
+      <li><a href="https://github.com/fawad-liaqat/Research-Articles">Repository</a></li>
+    </ul>
+    <hr class="footer-rule">
+    <p class="footer-copy">© 2026 Fawad Liaqat. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
 </html>

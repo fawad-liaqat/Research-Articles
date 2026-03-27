@@ -1,350 +1,134 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="The Behavioral Last Mile: Why 88% Digital Infrastructure Produces 60% Cash Economies. Academic article by Fawad Liaqat examining digital payment adoption barriers in Pakistan."
-    />
-    <meta
-      name="keywords"
-      content="digital payments, financial inclusion, behavioral economics, Pakistan, Raast, UPI, M-Pesa"
-    />
-    <meta name="author" content="Fawad Liaqat, BSFT NUCES FAST Islamabad" />
-    <meta name="publication-date" content="2026-03-27" />
-    <title>
-      The Behavioral Last Mile: Digital Payment Adoption in Pakistan
-    </title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Behavioral Last Mile | Fawad Liaqat</title>
+  <meta name="description" content="Why 88% digital infrastructure produces 60% cash economies. An analysis of behavioral barriers to digital payment adoption in Pakistan.">
+  <meta name="author" content="Fawad Liaqat">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --heading:       #0d0d0d;
+      --text:          #2a2a2a;
+      --muted:         #606060;
+      --border:        #d0d0d0;
+      --border-light:  #e8e8e8;
+      --bg:            #ffffff;
+      --bg-alt:        #f6f6f6;
+      --bg-dark:       #101010;
+      --link:          #1a50a0;
+      --table-head-bg: #1a1a1a;
+      --table-head-fg: #ffffff;
+      --table-alt:     #f9f9f9;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+    body { font-family: 'Inter', -apple-system, sans-serif; color: var(--text); background: var(--bg); line-height: 1.6; }
 
-      body {
-        font-family:
-          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-          "Helvetica Neue", Arial, sans-serif;
-        line-height: 1.7;
-        color: #2c3e50;
-        background-color: #f8f9fa;
-      }
+    .nav { position: sticky; top: 0; z-index: 200; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border-light); }
+    .nav-inner { max-width: 1080px; margin: 0 auto; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 54px; }
+    .nav-brand { font-weight: 700; font-size: 0.875rem; color: var(--heading); text-decoration: none; }
+    .nav-links { display: flex; gap: 0; list-style: none; }
+    .nav-links a { display: inline-block; padding: 0.3rem 0.85rem; font-size: 0.8rem; font-weight: 500; color: var(--muted); text-decoration: none; border-radius: 5px; transition: all 0.15s; }
+    .nav-links a:hover { color: var(--heading); background: var(--bg-alt); }
 
-      .container {
-        max-width: 900px;
-        margin: 0 auto;
-        padding: 40px 20px;
-        background-color: white;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
-      }
+    .article-header { padding: 3.5rem 2rem 0; border-bottom: 1px solid var(--border-light); }
+    .header-inner { max-width: 740px; margin: 0 auto; }
+    .article-topic { display: inline-block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; color: var(--muted); border: 1px solid var(--border); padding: 0.22rem 0.7rem; border-radius: 3px; margin-bottom: 1.25rem; }
+    .article-title { font-family: 'Lora', Georgia, serif; font-size: clamp(1.7rem, 4vw, 2.5rem); font-weight: 600; line-height: 1.2; letter-spacing: -0.02em; color: var(--heading); margin-bottom: 1.5rem; }
+    .article-meta { display: flex; flex-wrap: wrap; gap: 0.5rem 2rem; font-size: 0.78rem; color: var(--muted); padding: 1rem 0; border-top: 1px solid var(--border-light); }
 
-      header {
-        border-bottom: 2px solid #3498db;
-        padding-bottom: 30px;
-        margin-bottom: 30px;
-      }
+    .abstract { max-width: 740px; margin: 1.5rem auto 0; background: var(--bg-alt); border-left: 3px solid var(--heading); padding: 1.6rem 1.75rem; }
+    .abstract-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.65rem; }
+    .abstract p { font-family: 'Lora', Georgia, serif; font-size: 0.93rem; line-height: 1.8; color: var(--muted); font-style: italic; margin-bottom: 0.75rem; }
+    .abstract p:last-child { margin-bottom: 0; }
+    .abstract strong { color: var(--heading); font-style: normal; }
+    .abstract .keywords { font-family: 'Inter', sans-serif; font-size: 0.78rem; color: var(--muted); margin-top: 1rem; font-style: normal; }
 
-      h1 {
-        font-size: 2.2em;
-        margin-bottom: 15px;
-        color: #1a252f;
-        font-weight: 700;
-        line-height: 1.3;
-      }
+    .article-body { max-width: 740px; margin: 0 auto; padding: 3.5rem 2rem 5rem; }
+    .article-body section { margin: 0; }
+    .article-body h2 { font-family: 'Lora', Georgia, serif; font-size: 1.4rem; font-weight: 600; color: var(--heading); margin-top: 3rem; margin-bottom: 0.9rem; padding-bottom: 0.5rem; border-bottom: 1.5px solid var(--border-light); letter-spacing: -0.015em; line-height: 1.3; }
+    .article-body h3 { font-size: 1rem; font-weight: 600; color: var(--heading); margin-top: 2rem; margin-bottom: 0.6rem; }
+    .article-body p { font-family: 'Lora', Georgia, serif; font-size: 1.04rem; line-height: 1.83; color: var(--text); margin-bottom: 1.35rem; }
+    .article-body a { color: var(--link); text-underline-offset: 3px; }
+    .article-body a:hover { opacity: 0.8; }
+    .article-body ul, .article-body ol { font-family: 'Lora', Georgia, serif; font-size: 1.04rem; line-height: 1.8; color: var(--text); padding-left: 1.5rem; margin: 0.75rem 0 1.35rem; }
+    .article-body li { margin-bottom: 0.45rem; }
+    .article-body hr { border: none; border-top: 1px solid var(--border-light); margin: 2.5rem 0; }
+    .article-body strong { font-weight: 600; color: var(--heading); }
+    .article-body em { font-style: italic; }
 
-      .author-info {
-        font-size: 1.05em;
-        color: #555;
-        margin: 10px 0;
-      }
+    .article-body table { width: 100%; border-collapse: collapse; font-size: 0.86rem; line-height: 1.5; margin: 1rem 0 2rem; border: 1px solid var(--border); border-radius: 5px; overflow: hidden; }
+    .article-body thead tr { background: var(--table-head-bg); }
+    .article-body thead th { padding: 0.65rem 0.9rem; text-align: left; font-weight: 600; font-size: 0.75rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--table-head-fg); }
+    .article-body tbody tr:nth-child(even) { background: var(--table-alt); }
+    .article-body tbody td { padding: 0.6rem 0.9rem; border-bottom: 1px solid var(--border-light); color: var(--muted); vertical-align: top; font-family: 'Lora', Georgia, serif; font-size: 0.9rem; }
+    .article-body tbody tr:last-child td { border-bottom: none; }
 
-      .author-affiliation {
-        color: #666;
-        font-style: italic;
-        font-size: 0.95em;
-      }
+    .article-body .reference { font-family: 'Lora', Georgia, serif; font-size: 0.88rem; line-height: 1.72; color: var(--muted); margin-bottom: 0.75rem; font-style: italic; }
+    .article-body .reference a { color: var(--link); word-break: break-all; }
 
-      .abstract-section {
-        background-color: #f0f7ff;
-        border-left: 4px solid #3498db;
-        padding: 20px;
-        margin: 30px 0;
-        border-radius: 4px;
-      }
+    .back-wrap { max-width: 740px; margin: 0 auto; padding: 0 2rem 3rem; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.8rem; font-weight: 500; color: var(--muted); text-decoration: none; padding: 0.38rem 0.85rem; border: 1px solid var(--border); border-radius: 5px; transition: all 0.15s; }
+    .back-link:hover { color: var(--heading); border-color: var(--heading); }
 
-      .abstract-section h2 {
-        color: #2c3e50;
-        font-size: 1.1em;
-        margin-bottom: 10px;
-        font-weight: 600;
-      }
+    footer { background: var(--bg-dark); color: rgba(255,255,255,0.45); padding: 2.5rem 2rem; }
+    .footer-inner { max-width: 1080px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1.25rem; }
+    .footer-brand { font-weight: 700; font-size: 0.875rem; color: rgba(255,255,255,0.9); text-decoration: none; }
+    .footer-links { display: flex; gap: 1.75rem; list-style: none; }
+    .footer-links a { font-size: 0.8rem; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.15s; }
+    .footer-links a:hover { color: rgba(255,255,255,0.9); }
+    .footer-rule { width: 100%; border: none; border-top: 1px solid rgba(255,255,255,0.07); margin: 1rem 0 0.75rem; }
+    .footer-copy { width: 100%; font-size: 0.75rem; opacity: 0.28; }
 
-      .abstract-section p {
-        margin-bottom: 15px;
-        text-align: justify;
-        color: #34495e;
-      }
+    @media (max-width: 640px) {
+      .article-header { padding: 2.5rem 1.25rem 0; }
+      .article-body { padding: 2.5rem 1.25rem 4rem; }
+      .back-wrap { padding: 0 1.25rem 2.5rem; }
+      .nav-links { display: none; }
+      .article-body table { font-size: 0.78rem; }
+    }
+  </style>
+</head>
+<body>
 
-      .abstract-section strong {
-        color: #1a252f;
-      }
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/Research-Articles/" class="nav-brand">Fawad Liaqat</a>
+    <ul class="nav-links">
+      <li><a href="/Research-Articles/">All Articles</a></li>
+      <li><a href="https://fawad-liaqat.netlify.app/">Portfolio</a></li>
+      <li><a href="https://github.com/fawad-liaqat">GitHub</a></li>
+    </ul>
+  </div>
+</nav>
 
-      h2 {
-        font-size: 1.6em;
-        margin-top: 40px;
-        margin-bottom: 20px;
-        color: #1a252f;
-        font-weight: 700;
-        border-bottom: 1px solid #e0e0e0;
-        padding-bottom: 10px;
-      }
+<div class="article-header">
+  <div class="header-inner">
+    <div class="article-topic">Behavioral Economics</div>
+    <h1 class="article-title">The Behavioral Last Mile: Why 88% Digital Infrastructure Produces 60% Cash Economies</h1>
+    <div class="article-meta">
+      <span>Fawad Liaqat</span>
+      <span>March 2026</span>
+      <span>~22 min read</span>
+    </div>
+  </div>
 
-      h3 {
-        font-size: 1.2em;
-        margin-top: 25px;
-        margin-bottom: 15px;
-        color: #2c3e50;
-        font-weight: 600;
-      }
+  <div class="abstract">
+    <div class="abstract-label">Abstract</div>
+    <p><strong>Background:</strong> Pakistan&#39;s digital payment infrastructure has achieved remarkable scale: 88% of retail transactions flow through digital channels by volume, Raast P2P transactions grew 8.7x in three years to 1.28 billion, and over one million merchants accept QR payments. Yet over 60% of economic activity remains cash-based, 98% of ATM transactions are cash withdrawals, and only 35% of adults are financially included. This paradox reveals a fundamental gap between supply-side infrastructure deployment and demand-side behavioral adoption.</p>
+    <p><strong>Methods:</strong> This study employs comparative case study methodology using publicly available quantitative data from the State Bank of Pakistan Annual Payment Systems Review FY25 and Karandaaz Financial Inclusion Survey 2024. Pakistan serves as the primary case, with India&#39;s UPI system and Kenya&#39;s M-Pesa analyzed at equivalent infrastructure deployment stages (year 5 of system launch) to isolate behavioral variables explaining divergent adoption outcomes.</p>
+    <p><strong>Results:</strong> The analysis identifies three compounding demand-side barriers that persist despite infrastructure deployment: trust deficit (only 9% of excluded adults trust banks, 8% trust mobile money), incentive misalignment (merchants face 1.5&#8211;2.5% discount fees that favor cash payment acceptance), and literacy friction (digital literacy lags smartphone penetration, particularly among women at 46% phone ownership vs. 82% for men, and in rural areas). These barriers compound multiplicatively rather than additively.</p>
+    <p><strong>Conclusions:</strong> Five specific, precedent-backed interventions targeting behavioral barriers are proposed: eliminating merchant discount rates for transactions below PKR 5,000, redesigning payment systems for feature phone access via USSD/IVR, deploying trust intermediaries (agents) with aligned incentives, creating tax incentives for documented digital spending, and mandating Urdu-first interface design standards for financial applications.</p>
+    <div class="keywords"><strong>Keywords:</strong> digital payments, financial inclusion, behavioral economics, Pakistan, Raast, cash persistence, UPI, M-Pesa</div>
+  </div>
+</div>
 
-      p {
-        margin-bottom: 18px;
-        text-align: justify;
-        line-height: 1.8;
-      }
-
-      a {
-        color: #3498db;
-        text-decoration: none;
-        border-bottom: 1px solid #3498db;
-        transition: all 0.3s ease;
-      }
-
-      a:hover {
-        color: #2980b9;
-        border-bottom-color: #2980b9;
-      }
-
-      em {
-        font-style: italic;
-        color: #34495e;
-      }
-
-      strong {
-        font-weight: 600;
-        color: #1a252f;
-      }
-
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        margin: 25px 0;
-        font-size: 0.95em;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      }
-
-      table th {
-        background-color: #34495e;
-        color: white;
-        padding: 12px;
-        text-align: left;
-        font-weight: 600;
-      }
-
-      table td {
-        padding: 12px;
-        border-bottom: 1px solid #ecf0f1;
-      }
-
-      table tr:hover {
-        background-color: #f8f9fa;
-      }
-
-      .references-section {
-        margin-top: 50px;
-        padding-top: 30px;
-        border-top: 2px solid #3498db;
-      }
-
-      .references-section h2 {
-        margin-top: 0;
-      }
-
-      .reference {
-        margin-bottom: 18px;
-        padding-left: 20px;
-        text-align: justify;
-        line-height: 1.8;
-      }
-
-      .reference a {
-        word-break: break-word;
-      }
-
-      .doi {
-        color: #7f8c8d;
-        font-size: 0.92em;
-      }
-
-      .keywords {
-        color: #555;
-        font-size: 0.95em;
-        margin: 15px 0;
-      }
-
-      .keywords strong {
-        color: #2c3e50;
-      }
-
-      hr {
-        border: none;
-        border-top: 1px solid #ecf0f1;
-        margin: 40px 0;
-      }
-
-      footer {
-        margin-top: 50px;
-        padding-top: 20px;
-        border-top: 1px solid #ecf0f1;
-        text-align: center;
-        color: #7f8c8d;
-        font-size: 0.9em;
-      }
-
-      .publication-meta {
-        background-color: #ecf0f1;
-        padding: 15px;
-        border-radius: 4px;
-        margin-bottom: 30px;
-        font-size: 0.92em;
-        color: #555;
-      }
-
-      @media (max-width: 768px) {
-        h1 {
-          font-size: 1.8em;
-        }
-
-        h2 {
-          font-size: 1.4em;
-        }
-
-        .container {
-          padding: 20px 15px;
-        }
-
-        table {
-          font-size: 0.85em;
-        }
-
-        table th,
-        table td {
-          padding: 8px;
-        }
-      }
-
-      @media print {
-        body {
-          background-color: white;
-        }
-        .container {
-          box-shadow: none;
-          max-width: 100%;
-        }
-        a {
-          color: #0066cc;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <header>
-        <h1>
-          The Behavioral Last Mile: Why 88% Digital Infrastructure Produces 60%
-          Cash Economies
-        </h1>
-        <div class="author-info">
-          <strong>Fawad Liaqat</strong><br />
-          <span class="author-affiliation"
-            >BSFT, National University of Computer and Emerging Sciences
-            (NUCES-FAST), Islamabad</span
-          >
-        </div>
-        <div class="publication-meta">
-          <strong>Publication Date:</strong> March 27, 2026 |
-          <strong>Status:</strong> Academic Article |
-          <strong>Field:</strong> Financial Technology, Behavioral Economics
-        </div>
-      </header>
-
-      <section class="abstract-section">
-        <h2>Abstract</h2>
-
-        <p>
-          <strong>Background:</strong> Pakistan's digital payment infrastructure
-          has achieved remarkable scale: 88% of retail transactions flow through
-          digital channels by volume, Raast P2P transactions grew 8.7x in three
-          years to 1.28 billion, and over one million merchants accept QR
-          payments. Yet over 60% of economic activity remains cash-based, 98% of
-          ATM transactions are cash withdrawals, and only 35% of adults are
-          financially included. This paradox reveals a fundamental gap between
-          supply-side infrastructure deployment and demand-side behavioral
-          adoption.
-        </p>
-
-        <p>
-          <strong>Methods:</strong> This study employs comparative case study
-          methodology using publicly available quantitative data from the State
-          Bank of Pakistan Annual Payment Systems Review FY25 and Karandaaz
-          Financial Inclusion Survey 2024. Pakistan serves as the primary case,
-          with India's UPI system and Kenya's M-Pesa analyzed at equivalent
-          infrastructure deployment stages (year 5 of system launch) to isolate
-          behavioral variables explaining divergent adoption outcomes. The
-          analytical framework structures demand-side barriers inductively from
-          K-FIS 2024 data and theoretical literature.
-        </p>
-
-        <p>
-          <strong>Results:</strong> The analysis identifies three compounding
-          demand-side barriers that persist despite infrastructure deployment:
-          trust deficit (only 9% of excluded adults trust banks, 8% trust mobile
-          money), incentive misalignment (merchants face 1.5–2.5% discount fees
-          that favor cash payment acceptance), and literacy friction (digital
-          literacy lags smartphone penetration, particularly among women at 46%
-          phone ownership vs. 82% for men, and in rural areas). These barriers
-          compound multiplicatively rather than additively, creating nested
-          adoption obstacles that infrastructure alone cannot resolve.
-          Comparative analysis reveals India's zero MDR policy accelerated
-          adoption 26-fold, while Kenya's agent network leveraged existing
-          social trust mechanisms.
-        </p>
-
-        <p>
-          <strong>Conclusions:</strong> Five specific, precedent-backed
-          interventions targeting behavioral barriers are proposed: eliminating
-          merchant discount rates for transactions below PKR 5,000, redesigning
-          payment systems for feature phone access via USSD/IVR, deploying trust
-          intermediaries (agents) with aligned incentives for digital
-          facilitation, creating tax incentives for documented digital spending
-          to reframe formalization costs as benefits, and mandating Urdu-first
-          interface design standards for financial applications. Infrastructure
-          deployment is necessary but insufficient; deliberate behavioral policy
-          design is essential for sustainable digital payment adoption in
-          emerging markets.
-        </p>
-
-        <div class="keywords">
-          <strong>Keywords:</strong> digital payments, financial inclusion,
-          behavioral economics, Pakistan, Raast, cash persistence, UPI, M-Pesa
-        </div>
-      </section>
-
-      <hr />
-
-      <section>
+<div class="article-body">
+<section>
         <h2>1. Introduction</h2>
 
         <p>
@@ -818,7 +602,7 @@
           facilitation. Agents are access points for the cash economy, not
           bridges to the digital one. Raast, meanwhile, is entirely app-based.
           It requires a smartphone, an internet connection, and a bank
-          account—all of which presuppose a level of institutional engagement
+          account;all of which presuppose a level of institutional engagement
           and technological comfort that the trust-deficit population does not
           possess.
         </p>
@@ -834,7 +618,7 @@
           sufficiently to maintain bank accounts and smartphone access, a second
           barrier emerges: merchants face economic disincentives to accept
           digital payments. Pakistan's payment ecosystem imposes a Merchant
-          Discount Rate (MDR)—a fee charged to the merchant for accepting
+          Discount Rate (MDR); a fee charged to the merchant for accepting
           digital payments—that ranges from 1.5% to 2.5% depending on
           transaction channel, merchant category, and payment instrument. This
           means that a shopkeeper accepting a digital payment of PKR 1,000
@@ -967,7 +751,7 @@
 
         <p>
           The evidence from comparative cases—India's zero MDR policy and
-          Kenya's agent-based trust architecture—demonstrates that targeted
+          Kenya's agent-based trust architecture demonstrates that targeted
           behavioral policy interventions can accelerate adoption dramatically
           without requiring additional infrastructure investment. Both
           interventions worked within existing infrastructure, modifying
@@ -1223,21 +1007,24 @@
           <em>Research in Organizational Behavior</em>, 8, 53–111.
         </div>
       </section>
+</div>
 
-      <hr />
+<div class="back-wrap">
+  <a href="/Research-Articles/" class="back-link">&#8592; Back to all articles</a>
+</div>
 
-      <footer>
-        <p>
-          <strong>Article Information</strong><br />
-          Author: Fawad Liaqat | Institution: BSFT, NUCES-FAST Islamabad<br />
-          Publication Date: March 27, 2026 | Status: Academic Article<br />
-          Field: FinTech, Behavioral Economics, Financial Inclusion<br />
-          <br />
-          All data sources are publicly available and cited with hyperlinks.
-          This article is optimized for GitHub Pages deployment and responsive
-          design across all devices.
-        </p>
-      </footer>
-    </div>
-  </body>
+<footer>
+  <div class="footer-inner">
+    <a href="/Research-Articles/" class="footer-brand">Fawad Liaqat &mdash; Research</a>
+    <ul class="footer-links">
+      <li><a href="/Research-Articles/">Articles</a></li>
+      <li><a href="https://fawad-liaqat.netlify.app/">Portfolio</a></li>
+      <li><a href="https://github.com/fawad-liaqat/Research-Articles">Repository</a></li>
+    </ul>
+    <hr class="footer-rule">
+    <p class="footer-copy">&copy; 2026 Fawad Liaqat. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
 </html>
