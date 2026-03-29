@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Agentic AI Compliance | Fawad Liaqat</title>
-  <meta name="description" content="Regulatory and operational gaps exposed when autonomous AI systems act on behalf of institutions.">
+  <title>Agentic AI in Financial Compliance: Pakistan's Regulatory Vacuum | Fawad Liaqat</title>
+  <meta name="description" content="A policy analysis mapping regulatory gaps when autonomous AI systems make compliance decisions in Pakistani financial services, compared against the EU AI Act, Singapore MAS FEAT, and UK FCA frameworks.">
   <meta name="author" content="Fawad Liaqat">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,12 +41,6 @@
     .article-title { font-family: 'Lora', Georgia, serif; font-size: clamp(1.7rem, 4vw, 2.5rem); font-weight: 600; line-height: 1.2; letter-spacing: -0.02em; color: var(--heading); margin-bottom: 1.5rem; }
     .article-meta { display: flex; flex-wrap: wrap; gap: 0.5rem 2rem; font-size: 0.78rem; color: var(--muted); padding: 1rem 0; border-top: 1px solid var(--border-light); }
 
-    .placeholder-notice { max-width: 740px; margin: 2rem auto 0; background: #fffbea; border: 1px solid #e8d97a; border-left: 3px solid #b8a900; padding: 1.25rem 1.5rem; border-radius: 0 4px 4px 0; }
-    .placeholder-notice p { font-size: 0.875rem; line-height: 1.7; color: #4a4200; margin-bottom: 0.5rem; }
-    .placeholder-notice p:last-child { margin-bottom: 0; }
-    .placeholder-notice strong { color: #2a2600; }
-    .placeholder-notice code { background: rgba(0,0,0,0.07); padding: 0.1em 0.4em; border-radius: 3px; font-size: 0.85em; }
-
     .abstract { max-width: 740px; margin: 1.5rem auto 0; background: var(--bg-alt); border-left: 3px solid var(--heading); padding: 1.6rem 1.75rem; }
     .abstract-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.65rem; }
     .abstract p { font-family: 'Lora', Georgia, serif; font-size: 0.96rem; line-height: 1.8; color: var(--muted); font-style: italic; margin-bottom: 0; }
@@ -55,7 +49,8 @@
     .article-body h2 { font-family: 'Lora', Georgia, serif; font-size: 1.4rem; font-weight: 600; color: var(--heading); margin-top: 3rem; margin-bottom: 0.9rem; padding-bottom: 0.5rem; border-bottom: 1.5px solid var(--border-light); letter-spacing: -0.015em; line-height: 1.3; }
     .article-body h3 { font-size: 1rem; font-weight: 600; color: var(--heading); margin-top: 2rem; margin-bottom: 0.6rem; }
     .article-body p { font-family: 'Lora', Georgia, serif; font-size: 1.04rem; line-height: 1.83; color: var(--text); margin-bottom: 1.35rem; }
-    .placeholder-text { color: var(--muted) !important; font-style: italic; }
+    .article-body a { color: var(--link); text-decoration: underline; text-underline-offset: 2px; }
+    .article-body a:hover { color: var(--heading); }
 
     .table-caption { font-size: 0.845rem; font-style: italic; color: var(--muted); margin-bottom: 0.55rem; font-family: 'Lora', Georgia, serif; }
     .table-wrap { overflow-x: auto; margin: 0.25rem 0 2.5rem; border: 1px solid var(--border); border-radius: 5px; }
@@ -63,11 +58,13 @@
     thead tr { background: var(--table-head-bg); }
     thead th { padding: 0.65rem 0.9rem; text-align: left; font-weight: 600; font-size: 0.75rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--table-head-fg); }
     tbody tr:nth-child(even) { background: var(--table-alt); }
-    tbody td { padding: 0.6rem 0.9rem; border-bottom: 1px solid var(--border-light); color: var(--muted); font-style: italic; vertical-align: top; }
+    tbody td { padding: 0.6rem 0.9rem; border-bottom: 1px solid var(--border-light); color: var(--text); vertical-align: top; }
+    tbody td:first-child { font-weight: 500; color: var(--heading); }
     tbody tr:last-child td { border-bottom: none; }
 
     .references ol { padding-left: 1.6rem; }
-    .references li { font-family: 'Lora', Georgia, serif; font-size: 0.88rem; line-height: 1.72; color: var(--muted); margin-bottom: 0.65rem; font-style: italic; }
+    .references li { font-family: 'Lora', Georgia, serif; font-size: 0.88rem; line-height: 1.72; color: var(--muted); margin-bottom: 0.65rem; }
+    .references a { color: var(--link); word-break: break-all; }
 
     .back-wrap { max-width: 740px; margin: 0 auto; padding: 0 2rem 3rem; }
     .back-link { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.8rem; font-weight: 500; color: var(--muted); text-decoration: none; padding: 0.38rem 0.85rem; border: 1px solid var(--border); border-radius: 5px; transition: all 0.15s; }
@@ -92,31 +89,6 @@
 </head>
 <body>
 
-<!-- ============================================================
-  HOW TO COMPLETE THIS ARTICLE
-  ──────────────────────────────────────────────────────────────
-  When you are ready to publish this article:
-
-  1.  REMOVE this comment block entirely.
-  2.  REMOVE the yellow notice box in the <body> below.
-  3.  UPDATE the <title> and <meta name="description"> in <head>
-      if needed.
-  4.  REPLACE "Article title here" in .article-title with your
-      full article title.
-  5.  REPLACE "Replace this with your abstract..." in .abstract
-      with your actual abstract text.
-  6.  In .article-body, REPLACE every <p class="placeholder-text">
-      with your real paragraphs (remove the class="placeholder-text").
-  7.  For tables: edit the <th> headers and <td> cell content.
-      The table structure is ready — just fill in your data.
-      Add or remove <tr> rows as needed.
-  8.  For references: replace each <li> with your actual
-      citations. Use <a href="URL" target="_blank">URL</a>
-      for clickable links.
-  9.  SAVE and push to GitHub. The page is live immediately at:
-      https://fawad-liaqat.github.io/Research-Articles/articles/agentic-ai-compliance/
-  ============================================================ -->
-
 <nav class="nav">
   <div class="nav-inner">
     <a href="/Research-Articles/" class="nav-brand">Fawad Liaqat</a>
@@ -131,81 +103,188 @@
 <div class="article-header">
   <div class="header-inner">
     <div class="article-topic">AI Governance &amp; Regulation</div>
-    <!-- REPLACE the title below with your full article title -->
-    <h1 class="article-title">Agentic AI Compliance</h1>
+    <h1 class="article-title">Agentic AI in Financial Compliance: Mapping the Regulatory Vacuum in Pakistan</h1>
     <div class="article-meta">
       <span>Fawad Liaqat</span>
-      <span>2026</span>
-      <!-- REPLACE with actual reading time once article is written -->
-      <span>Coming soon</span>
+      <span>March 2026</span>
+      <span>14 min read</span>
     </div>
   </div>
 
-  <!-- REMOVE this notice block when you publish the article -->
-  <div class="placeholder-notice" style="margin: 1.5rem auto; max-width: 740px;">
-    <p><strong>This article is a placeholder.</strong> To publish it:</p>
-    <p>1. Open <code>articles/agentic-ai-compliance/index.html</code> in any text editor.<br>
-       2. Follow the instructions in the HTML comment at the top of the file.<br>
-       3. Replace all placeholder sections with your content.<br>
-       4. Push to GitHub — the page updates automatically.</p>
-  </div>
-
-  <!-- REPLACE with your actual abstract -->
   <div class="abstract">
     <div class="abstract-label">Abstract</div>
-    <p>Replace this with your abstract. Summarise the research question, methodology, key findings, and implications in 150–250 words.</p>
+    <p>Agentic AI systems that autonomously execute compliance decisions are entering financial services worldwide. Unlike conventional machine learning models that recommend actions for human review, agentic systems perceive context, make decisions, and take actions without human intervention. This policy analysis examines how Pakistan's financial regulatory framework addresses this shift and finds that it does not. A systematic review of publications from the State Bank of Pakistan, the Securities and Exchange Commission of Pakistan, and the Pakistan Telecommunication Authority reveals no published guidance on autonomous AI in compliance, fraud detection, or transaction approval. This article compares Pakistan's position against three international frameworks: the EU AI Act (Regulation 2024/1689), the Monetary Authority of Singapore's FEAT principles and 2025 AI Risk Management consultation, and the UK Financial Conduct Authority's principles based approach. A regulatory gap matrix across five dimensions (risk classification, explainability, liability, auditability, and human oversight) exposes specific deficiencies in Pakistan's regulatory posture. The analysis concludes with recommendations for a phased regulatory framework suited to Pakistan's institutional capacity and fintech growth trajectory.</p>
   </div>
 </div>
 
 <div class="article-body">
 
-  <!-- REPLACE with your actual section headings and content -->
   <h2>1. Introduction</h2>
-  <p class="placeholder-text">Write your introduction here. Establish the research context, the central argument, and the structure of the article.</p>
+  <p>A compliance officer at a Pakistani fintech receives an alert: the system has autonomously frozen a customer's account, flagged three transactions as suspicious, and filed a regulatory report. No human reviewed the decision before it executed. The system is an agentic AI, a class of artificial intelligence that does not merely predict or recommend but perceives its environment, reasons about objectives, and takes actions independently.</p>
 
-  <h2>2. Background</h2>
-  <p class="placeholder-text">Describe the existing literature or context. What do we already know, and where does this article add to it?</p>
+  <p>This is not a hypothetical scenario. Agentic AI is already being deployed for compliance monitoring, fraud detection, and automated transaction approval across global financial services. The distinction from earlier generations of AI matters. Traditional machine learning models produce a risk score; a human decides what to do with it. Rule based automation follows predetermined logic: if X, then Y. Agentic AI operates differently. It interprets context, weighs competing objectives, selects from a range of possible actions, and executes, all without waiting for human approval. In compliance terms, the system is not advising. It is deciding.</p>
 
-  <h2>3. Key Findings</h2>
-  <p class="placeholder-text">Present your main findings in this section. Use subsections (h3) for distinct findings.</p>
+  <p>This creates regulatory questions that existing frameworks were never designed to answer. Who bears liability when an autonomous system incorrectly freezes a legitimate account? What explainability standards apply when a machine, not a person, made the compliance decision? Can an agentic system satisfy regulatory requirements that implicitly assume a human decision maker?</p>
 
-  <h3>3.1 Finding One</h3>
-  <p class="placeholder-text">Describe the first finding with supporting evidence or data.</p>
+  <p>This article maps the current state of AI regulation in Pakistani financial services, documents the absence of guidance addressing agentic systems, and compares Pakistan's position against three leading international frameworks: the European Union's AI Act, Singapore's MAS FEAT principles and AI Risk Management guidelines, and the United Kingdom's FCA approach. The analysis produces a regulatory gap matrix across five dimensions and concludes with specific recommendations for Pakistan's path forward.</p>
 
-  <!-- EXAMPLE TABLE — copy and adapt as needed for your data -->
-  <p class="table-caption">Table 1: [Replace with your table title]</p>
+  <h2>2. The Regulatory Landscape in Pakistan: Documenting the Absence</h2>
+  <p>The most important finding of this research is a negative one. As of March 2026, no Pakistani financial regulator has published guidance, circular, or framework that addresses autonomous AI systems in compliance, fraud detection, or transaction approval.</p>
+
+  <h3>2.1 State Bank of Pakistan</h3>
+  <p>A systematic review of the SBP Banking Policy and Regulation Department (<a href="https://www.sbp.org.pk/bprd/bprd.htm" target="_blank" rel="noopener">BPRD circular archive</a>) for the terms "artificial intelligence," "machine learning," "autonomous," "algorithmic," and "agentic" returned no circulars addressing AI governance in financial services. SBP has issued guidance on digital banking operations and maintains a fintech regulatory sandbox, but neither instrument addresses AI decision making, model risk management, or the accountability structures required when machines act autonomously.</p>
+
+  <p>This gap exists despite evidence that Pakistani financial institutions are actively adopting AI. The <a href="https://www.sbp.org.pk/reports/annual/Gov-AR/pdf/2025/Gov-AR.pdf" target="_blank" rel="noopener">SBP Annual Report 2025</a> indicates over 55 financial institutions reporting AI usage, primarily in fraud detection and customer service automation. These systems operate without sector specific AI governance requirements.</p>
+
+  <h3>2.2 Securities and Exchange Commission of Pakistan</h3>
+  <p>SECP has taken a limited step. In May 2025, it released a <a href="https://www.secp.gov.pk/" target="_blank" rel="noopener">Concept Paper on Algorithmic Trading</a>, which addresses automated order execution in securities markets. However, the scope is narrowly confined to trading algorithms. It does not extend to autonomous compliance systems, credit decision engines, or fraud detection AI. A compliance system that autonomously reports suspicious transactions and an algorithm that executes trades operate on fundamentally different risk profiles. The former involves regulatory judgment; the latter involves market execution. SECP's guidance covers the latter and is silent on the former.</p>
+
+  <h3>2.3 National AI Policy</h3>
+  <p>Pakistan approved a <a href="https://moitt.gov.pk/SiteImage/Misc/files/National%20AI%20Policy.pdf" target="_blank" rel="noopener">National AI Policy</a> in July 2025, establishing an AI Council and an AI Regulatory Directorate. The policy articulates general principles around responsible AI development. However, as of March 2026, the policy has not been operationalized into sector specific requirements. No implementing regulations, guidelines, or standards have been published for financial services. The gap between policy aspiration and regulatory reality remains wide.</p>
+
+  <p>The Pakistan Telecommunication Authority has not published AI specific guidance relevant to financial services infrastructure.</p>
+
+  <p>The pattern is clear. Pakistani fintechs deploying agentic AI for compliance functions are operating in a regulatory vacuum. The absence is not merely a lag in policy development. It represents a structural gap: existing regulations implicitly assume that compliance decisions are made by humans, and no framework has been established to govern what happens when they are not.</p>
+
+  <h2>3. International Frameworks: Three Models for Governing Agentic AI</h2>
+  <p>Three jurisdictions offer instructive, and markedly different, approaches to regulating AI in financial services. Each addresses the five regulatory dimensions that matter most for agentic compliance systems: risk classification, explainability, liability, auditability, and human oversight.</p>
+
+  <h3>3.1 European Union: The EU AI Act (Regulation 2024/1689)</h3>
+  <p>The EU AI Act, formally <a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj" target="_blank" rel="noopener">Regulation (EU) 2024/1689</a>, represents the most prescriptive approach globally. It classifies AI systems by risk level and imposes graduated requirements.</p>
+
+  <p>For financial services, the classification is explicit. Annex III designates AI systems used for creditworthiness assessment as high risk, triggering the full suite of obligations under Articles 9 through 15. Notably, fraud detection AI is specifically exempted from the high risk classification (Recital 58), though it remains subject to general transparency requirements under Article 50.</p>
+
+  <p>The Act's human oversight requirements (Article 14) are particularly relevant to agentic AI. High risk systems must be designed so that human overseers can understand system capabilities and limitations, remain aware of automation bias, correctly interpret outputs, override or reverse any system decision, and intervene through a stop mechanism. This is not retrospective review. Article 14(4)(e) explicitly requires real time intervention capability, though the requirement is qualified by proportionality to the risk context.</p>
+
+  <p>On explainability, Article 13 requires that high risk systems be "sufficiently transparent to enable deployers to interpret a system's output and use it appropriately." Article 12 mandates automatic event logging, creating an audit trail of every inference, input, output, and system modification. The compliance deadline for high risk financial services AI is August 2, 2026.</p>
+
+  <p>The liability framework operates through a provider/deployer model. Providers (those who develop AI systems) bear obligations for risk management, data governance, and conformity assessment. Deployers (financial institutions using the systems) must ensure human oversight, maintain logs, and verify provider compliance. Importantly, these obligations are role based and cannot be contracted away (Articles 25 and 26).</p>
+
+  <p>The Act does not use the term "agentic AI," but its framework applies. Systems that make autonomous decisions with operational consequences are presumed high risk. The technology neutral drafting ensures that agentic systems fall within scope regardless of architectural approach.</p>
+
+  <h3>3.2 Singapore: MAS FEAT and AI Risk Management Guidelines</h3>
+  <p>Singapore's approach, led by the Monetary Authority of Singapore, contrasts with the EU's prescriptive model. The <a href="https://www.mas.gov.sg/publications/monographs-or-information-paper/2018/feat" target="_blank" rel="noopener">FEAT principles</a> (Fairness, Ethics, Accountability, Transparency), published in 2018, established a principles based foundation. Since then, MAS has progressively built implementation infrastructure without prescriptive legislation.</p>
+
+  <p>The evolution is significant. The <a href="https://www.mas.gov.sg/schemes-and-initiatives/veritas" target="_blank" rel="noopener">Veritas initiative</a> (2022) produced open source assessment methodologies for each FEAT principle. <a href="https://www.mas.gov.sg/schemes-and-initiatives/project-mindforge" target="_blank" rel="noopener">Project Mindforge</a> (2023 onward) extended the framework to generative AI and, critically, to agentic AI in its Phase 2 expansion (2024 to 2026). The December 2024 <a href="https://www.mas.gov.sg/publications/monographs-or-information-paper/2024/artificial-intelligence-model-risk-management" target="_blank" rel="noopener">Information Paper on AI Model Risk Management</a> set detailed expectations for governance structures, including designated model owners, independent validators, and board level oversight.</p>
+
+  <p>Most relevant is the November 2025 <a href="https://www.mas.gov.sg/publications/consultations/2025/consultation-paper-on-guidelines-on-artificial-intelligence-risk-management" target="_blank" rel="noopener">Consultation Paper on AI Risk Management Guidelines</a>, which explicitly addresses agentic AI. MAS recognizes autonomous AI systems that "independently perceive, reason, act and learn without constant human guidance" and requires that autonomy levels be explicitly defined, controlled, and subject to clear intervention points.</p>
+
+  <p>MAS does not draw a binary line between advisory and autonomous AI. Instead, it applies a risk materiality assessment where governance intensity scales with decision impact and autonomy level. High materiality systems (those making autonomous financial decisions) face the most exacting standards for explainability, fairness, and human oversight. Lower materiality systems face proportionally reduced but still mandatory controls.</p>
+
+  <p>On explainability, MAS emphasizes outcome level explanation: the ability to explain specific decisions to affected stakeholders. Model level interpretability is required for internal governance but is not the primary standard for customer facing accountability. This pragmatic distinction acknowledges that requiring full model interpretability of complex systems may be technically infeasible while still demanding meaningful accountability.</p>
+
+  <h3>3.3 United Kingdom: FCA Principles Based Supervision</h3>
+  <p>The UK has taken a deliberately different path. The FCA's position, articulated through <a href="https://www.bankofengland.co.uk/prudential-regulation/publication/2022/october/artificial-intelligence" target="_blank" rel="noopener">Discussion Paper DP5/22</a> (jointly with the Bank of England and PRA) and the subsequent <a href="https://www.fca.org.uk/publications/feedback-statements/fs23-6-artifical-intelligence-machine-learning" target="_blank" rel="noopener">Feedback Statement FS23/6</a> (October 2023), is that existing regulatory frameworks are sufficient to govern AI, provided firms apply them rigorously.</p>
+
+  <p>The FCA will not introduce AI specific rules. Instead, it embeds AI oversight within three existing mechanisms: the <a href="https://www.fca.org.uk/firms/senior-managers-certification-regime" target="_blank" rel="noopener">Senior Managers and Certification Regime (SM&CR)</a>, which ensures personal accountability for AI governance; the Consumer Duty, which requires fair outcomes from AI driven decisions; and operational resilience rules, which address systemic risk from AI dependencies.</p>
+
+  <p>Under SM&CR, senior managers remain personally liable for AI related outcomes. Delegation to algorithms does not dilute this accountability. If an agentic system takes a decision that harms consumers, the senior manager responsible for that function faces potential regulatory action. This is a powerful accountability mechanism, but it depends on senior managers understanding systems they may lack the technical expertise to evaluate.</p>
+
+  <p>The FCA's April 2024 <a href="https://www.fca.org.uk/publication/corporate/ai-update.pdf" target="_blank" rel="noopener">AI Update</a> confirmed this approach, while acknowledging "live issues" around audit trails and human in the loop protocols that require further guidance. More recently, the <a href="https://www.fca.org.uk/publications/calls-input/review-long-term-impact-ai-retail-financial-services-mills-review" target="_blank" rel="noopener">Mills Review</a>, launched in January 2026, is examining the long term impact of AI on retail financial services, with specific attention to agentic AI systems. Its recommendations are expected by summer 2026.</p>
+
+  <p>The UK approach has strengths: it avoids premature prescriptive regulation that might stifle innovation, and SM&CR provides clear personal accountability. But it also has gaps. Explainability requirements are not specified. Auditability standards for AI systems remain under development. The framework assumes that existing governance structures can absorb the challenge of autonomous decision making, an assumption that the Mills Review itself appears to be questioning.</p>
+
+  <h2>4. Regulatory Gap Matrix</h2>
+  <p>The following matrix compares Pakistan's regulatory position against the three international frameworks across five dimensions critical to governing agentic AI in financial compliance.</p>
+
+  <p class="table-caption">Table 1: Regulatory Gap Matrix &mdash; Agentic AI in Financial Compliance</p>
   <div class="table-wrap">
     <table>
       <thead>
         <tr>
-          <th>Column 1</th>
-          <th>Column 2</th>
-          <th>Column 3</th>
-          <th>Column 4</th>
+          <th>Dimension</th>
+          <th>Pakistan</th>
+          <th>EU (AI Act)</th>
+          <th>Singapore (MAS)</th>
+          <th>UK (FCA)</th>
         </tr>
       </thead>
       <tbody>
-        <tr><td>Row 1, Cell 1</td><td>Row 1, Cell 2</td><td>Row 1, Cell 3</td><td>Row 1, Cell 4</td></tr>
-        <tr><td>Row 2, Cell 1</td><td>Row 2, Cell 2</td><td>Row 2, Cell 3</td><td>Row 2, Cell 4</td></tr>
-        <tr><td>Row 3, Cell 1</td><td>Row 3, Cell 2</td><td>Row 3, Cell 3</td><td>Row 3, Cell 4</td></tr>
+        <tr>
+          <td>Risk Classification &amp; Tiering</td>
+          <td>No AI classification framework exists. No distinction between advisory and autonomous systems. SECP algorithmic trading guidance is limited to securities execution.</td>
+          <td>Explicit risk tiering in Annex III. Creditworthiness AI is high risk. Fraud detection exempted. Agentic systems presumed high risk due to autonomous operation.</td>
+          <td>Risk materiality assessment scales governance to decision impact and autonomy level. No rigid tiers, but high materiality systems face the strictest standards.</td>
+          <td>No formal AI classification. Existing risk categorization (low, medium, high materiality) applied through supervisory assessment. 75% of UK financial firms already using AI per Bank of England 2024 survey.</td>
+        </tr>
+        <tr>
+          <td>Explainability Requirements</td>
+          <td>No published explainability standard for AI decisions. No requirement for financial institutions to explain automated compliance decisions to customers or regulators.</td>
+          <td>Article 13 requires high risk systems be "sufficiently transparent" for deployers to interpret outputs. Article 50 mandates disclosure when humans interact with AI.</td>
+          <td>Outcome level explainability for customer facing decisions. Model level interpretability for internal governance. Veritas toolkit provides assessment methodology.</td>
+          <td>No specific AI explainability standard. SM&CR requires senior managers to justify decisions. Consumer Duty implies fair explanation but does not define AI specific requirements.</td>
+        </tr>
+        <tr>
+          <td>Liability Assignment</td>
+          <td>No guidance on liability for autonomous AI decisions. Unclear whether fintech, model vendor, or deploying bank bears responsibility for erroneous AI actions.</td>
+          <td>Role based liability: providers (developers) and deployers (users) bear defined obligations. Cannot be contracted away (Articles 25-26). Role transforms if deployer modifies system.</td>
+          <td>Financial institutions accountable under existing supervisory framework. MAS can take enforcement action for inadequate AI governance. Consumers retain civil and administrative redress.</td>
+          <td>SM&CR assigns personal liability to senior managers. Delegation to algorithms does not dilute accountability. Consumer Duty breach if AI causes unfair outcomes.</td>
+        </tr>
+        <tr>
+          <td>Auditability Standards</td>
+          <td>Current SBP audit requirements assume human decision makers. No requirements for AI event logging, model monitoring, or automated decision documentation.</td>
+          <td>Article 12 mandates automatic event logging: every inference, input, output, and system modification. ISO/IEC 24970 provides implementation standard. Full compliance by August 2026.</td>
+          <td>December 2024 Information Paper sets expectations for documentation, validation, and monitoring. Proportionate records required. Performance monitoring for bias, drift, and errors.</td>
+          <td>Firms must retain proportionate governance records, testing outcomes, and performance monitoring. Audit trails flagged as "live issue" requiring further 2026 guidance.</td>
+        </tr>
+        <tr>
+          <td>Human Oversight Requirements</td>
+          <td>Regulations implicitly assume human oversight in compliance functions. No framework for what oversight means when AI acts autonomously. SBP is silent on the question.</td>
+          <td>Article 14 requires real time intervention capability including stop mechanism. Human overseers must understand system, detect anomalies, and override decisions. Proportionate to risk.</td>
+          <td>Mandatory human review checkpoints proportionate to decision materiality. Cross functional oversight forums required. Escalation procedures for high impact decisions. Agentic systems require explicit intervention points.</td>
+          <td>Not explicitly mandated. Human in the loop flagged as requiring guidance. SM&CR and Consumer Duty imply oversight but do not define AI specific mechanisms.</td>
+        </tr>
       </tbody>
     </table>
   </div>
 
-  <h2>4. Implications</h2>
-  <p class="placeholder-text">Explain what these findings mean for policy, practice, or research. Who should care, and what should they do differently?</p>
+  <p>The pattern in Pakistan's column tells the story. Across all five dimensions, the position is either "no published guidance" or "implicitly addressed through general requirements not designed for AI." Meanwhile, all three comparator jurisdictions have developed, or are actively developing, explicit frameworks. The EU prescribes detailed technical requirements. Singapore scales governance to risk materiality through supervisory guidance. The UK applies existing accountability mechanisms with emerging AI specific supplementation. Pakistan has done none of these.</p>
 
-  <h2>5. Conclusion</h2>
-  <p class="placeholder-text">Summarise the central insight in 2–3 sentences.</p>
+  <h2>5. Recommendations for SBP</h2>
+  <p>Pakistan should not simply adopt any single international model wholesale. Each framework reflects its jurisdiction's institutional capacity, regulatory philosophy, and market structure. The right approach for Pakistan must account for its own constraints: limited regulatory enforcement infrastructure compared to the EU, a rapidly growing but nascent fintech sector, and the need to attract investment while managing risk.</p>
+
+  <h3>5.1 Adopt a Phased, Principles First Approach</h3>
+  <p>The EU's prescriptive model requires enforcement infrastructure that SBP does not currently have. A full technical compliance regime with conformity assessments, mandatory logging standards, and designated national authorities would strain existing supervisory resources. Singapore's approach is more instructive. Begin with principles, then build implementation tools, then move toward formal guidelines. SBP should issue an initial circular establishing core principles for AI governance in financial services: accountability, transparency, fairness, and human oversight. This creates regulatory expectation without requiring immediate enforcement infrastructure.</p>
+
+  <h3>5.2 Require AI Risk Classification</h3>
+  <p>Financial institutions should be required to classify their AI systems by autonomy level and decision impact. A system that recommends an action for human approval operates on a fundamentally different risk profile than one that executes autonomously. SBP should mandate this distinction. Following MAS's materiality based approach, high materiality systems (those making autonomous decisions affecting customers or regulatory obligations) should face the most stringent governance requirements.</p>
+
+  <h3>5.3 Define Liability Chains</h3>
+  <p>The current ambiguity is untenable. When an agentic compliance system incorrectly freezes a customer's account, someone must be liable. SBP should establish a clear accountability framework: the deploying financial institution bears primary responsibility for AI outcomes, regardless of whether the system was developed in house or by a third party vendor. This mirrors both the EU deployer model and the UK's SM&CR approach. The institution can negotiate liability with its vendor contractually, but the regulatory obligation to the customer and to SBP should be non delegable.</p>
+
+  <h3>5.4 Mandate Minimum Auditability Standards</h3>
+  <p>Any AI system making autonomous compliance decisions should be required to maintain an audit trail: what decision was made, what data informed it, and what model logic produced the output. This does not require the full logging infrastructure of the EU AI Act's Article 12. A minimum viable standard, decision logs with input data and output records, would be a significant improvement over the current state of zero requirements. The standard should be defined in consultation with the fintech industry to ensure technical feasibility.</p>
+
+  <h3>5.5 Establish Human Oversight Minimums</h3>
+  <p>SBP should require that autonomous compliance systems include a mechanism for human review, override, and escalation. The specifics can be proportionate to risk. A fraud detection system operating on low value transactions may require only periodic batch review. A system that files regulatory reports or freezes accounts should require human confirmation before execution. The principle is that no agentic AI system in a compliance function should operate without a defined human oversight protocol.</p>
+
+  <h2>6. Conclusion</h2>
+  <p>Pakistani fintechs are deploying agentic AI in compliance functions today. They are doing so without regulatory guardrails, without mandated explainability, without defined liability, and without required human oversight. This regulatory vacuum is not sustainable.</p>
+
+  <p>The international comparison demonstrates that regulating agentic AI is not a theoretical exercise. The EU, Singapore, and the UK are each addressing it, through legislation, supervisory guidance, and principles based accountability respectively. Pakistan has a window to shape its framework proactively, learning from what works in these jurisdictions while adapting to its own institutional realities. That window will not remain open indefinitely. As agentic systems become more capable and more widely deployed, the cost of regulatory silence increases. SBP should act now, not with perfected legislation, but with clear principles, defined accountability, and a credible roadmap toward comprehensive governance.</p>
 
   <h2>References</h2>
   <div class="references">
     <ol>
-      <!-- REPLACE each item with your actual references -->
-      <!-- For clickable links use: <a href="https://..." target="_blank" rel="noopener">URL</a> -->
-      <li>Author, A. (Year). <em>Title of work</em>. Publisher / Journal.</li>
-      <li>Author, B. (Year). Article title. <em>Journal Name</em>, vol(issue), pages. <a href="https://example.com" target="_blank" rel="noopener">https://example.com</a></li>
-      <li>Organisation (Year). Report title. <a href="https://example.com" target="_blank" rel="noopener">https://example.com</a></li>
+      <li>European Parliament and Council of the European Union (2024). Regulation (EU) 2024/1689 laying down harmonised rules on artificial intelligence (AI Act). <em>Official Journal of the European Union</em>. <a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj" target="_blank" rel="noopener">https://eur-lex.europa.eu/eli/reg/2024/1689/oj</a></li>
+      <li>Monetary Authority of Singapore (2018). Principles to Promote Fairness, Ethics, Accountability and Transparency (FEAT) in the Use of Artificial Intelligence and Data Analytics in Singapore's Financial Sector. <a href="https://www.mas.gov.sg/publications/monographs-or-information-paper/2018/feat" target="_blank" rel="noopener">https://www.mas.gov.sg/publications/monographs-or-information-paper/2018/feat</a></li>
+      <li>Monetary Authority of Singapore (2024). Information Paper on Artificial Intelligence Model Risk Management. <a href="https://www.mas.gov.sg/publications/monographs-or-information-paper/2024/artificial-intelligence-model-risk-management" target="_blank" rel="noopener">https://www.mas.gov.sg/publications/monographs-or-information-paper/2024/artificial-intelligence-model-risk-management</a></li>
+      <li>Monetary Authority of Singapore (2025). Consultation Paper on Guidelines on Artificial Intelligence Risk Management. <a href="https://www.mas.gov.sg/publications/consultations/2025/consultation-paper-on-guidelines-on-artificial-intelligence-risk-management" target="_blank" rel="noopener">https://www.mas.gov.sg/publications/consultations/2025/consultation-paper-on-guidelines-on-artificial-intelligence-risk-management</a></li>
+      <li>Monetary Authority of Singapore. Veritas Initiative. <a href="https://www.mas.gov.sg/schemes-and-initiatives/veritas" target="_blank" rel="noopener">https://www.mas.gov.sg/schemes-and-initiatives/veritas</a></li>
+      <li>Monetary Authority of Singapore. Project Mindforge. <a href="https://www.mas.gov.sg/schemes-and-initiatives/project-mindforge" target="_blank" rel="noopener">https://www.mas.gov.sg/schemes-and-initiatives/project-mindforge</a></li>
+      <li>Bank of England, PRA, and FCA (2022). Discussion Paper DP5/22: Artificial Intelligence and Machine Learning. <a href="https://www.bankofengland.co.uk/prudential-regulation/publication/2022/october/artificial-intelligence" target="_blank" rel="noopener">https://www.bankofengland.co.uk/prudential-regulation/publication/2022/october/artificial-intelligence</a></li>
+      <li>Financial Conduct Authority (2023). Feedback Statement FS23/6: Artificial Intelligence and Machine Learning. <a href="https://www.fca.org.uk/publications/feedback-statements/fs23-6-artifical-intelligence-machine-learning" target="_blank" rel="noopener">https://www.fca.org.uk/publications/feedback-statements/fs23-6-artifical-intelligence-machine-learning</a></li>
+      <li>Financial Conduct Authority (2024). AI Update. <a href="https://www.fca.org.uk/publication/corporate/ai-update.pdf" target="_blank" rel="noopener">https://www.fca.org.uk/publication/corporate/ai-update.pdf</a></li>
+      <li>Financial Conduct Authority (2026). Review of the Long-term Impact of AI on Retail Financial Services (Mills Review). <a href="https://www.fca.org.uk/publications/calls-input/review-long-term-impact-ai-retail-financial-services-mills-review" target="_blank" rel="noopener">https://www.fca.org.uk/publications/calls-input/review-long-term-impact-ai-retail-financial-services-mills-review</a></li>
+      <li>Financial Conduct Authority. Senior Managers and Certification Regime. <a href="https://www.fca.org.uk/firms/senior-managers-certification-regime" target="_blank" rel="noopener">https://www.fca.org.uk/firms/senior-managers-certification-regime</a></li>
+      <li>Bank of England (2024). Artificial Intelligence in UK Financial Services 2024. <a href="https://www.bankofengland.co.uk/report/2024/artificial-intelligence-in-uk-financial-services-2024" target="_blank" rel="noopener">https://www.bankofengland.co.uk/report/2024/artificial-intelligence-in-uk-financial-services-2024</a></li>
+      <li>UK Government (2024). A Pro-innovation Approach to AI Regulation: Government Response. <a href="https://www.gov.uk/government/consultations/ai-regulation-a-pro-innovation-approach-policy-proposals/outcome/a-pro-innovation-approach-to-ai-regulation-government-response" target="_blank" rel="noopener">https://www.gov.uk/government/consultations/ai-regulation-a-pro-innovation-approach-policy-proposals/outcome/a-pro-innovation-approach-to-ai-regulation-government-response</a></li>
+      <li>State Bank of Pakistan. BPRD Circulars Archive. <a href="https://www.sbp.org.pk/bprd/bprd.htm" target="_blank" rel="noopener">https://www.sbp.org.pk/bprd/bprd.htm</a></li>
+      <li>State Bank of Pakistan (2025). Annual Report: Governance of the Financial System. <a href="https://www.sbp.org.pk/reports/annual/Gov-AR/pdf/2025/Gov-AR.pdf" target="_blank" rel="noopener">https://www.sbp.org.pk/reports/annual/Gov-AR/pdf/2025/Gov-AR.pdf</a></li>
+      <li>Securities and Exchange Commission of Pakistan. Official Website. <a href="https://www.secp.gov.pk/" target="_blank" rel="noopener">https://www.secp.gov.pk/</a></li>
+      <li>Ministry of Information Technology and Telecommunication, Government of Pakistan (2025). National Artificial Intelligence Policy. <a href="https://moitt.gov.pk/SiteImage/Misc/files/National%20AI%20Policy.pdf" target="_blank" rel="noopener">https://moitt.gov.pk/SiteImage/Misc/files/National%20AI%20Policy.pdf</a></li>
+      <li>The Future Society (2025). How AI Agents Are Governed Under the EU AI Act. <a href="https://thefuturesociety.org/aiagentsintheeu/" target="_blank" rel="noopener">https://thefuturesociety.org/aiagentsintheeu/</a></li>
     </ol>
   </div>
 
@@ -224,7 +303,7 @@
       <li><a href="https://github.com/fawad-liaqat/Research-Articles">Repository</a></li>
     </ul>
     <hr class="footer-rule">
-    <p class="footer-copy">© 2026 Fawad Liaqat. All rights reserved.</p>
+    <p class="footer-copy">&copy; 2026 Fawad Liaqat. All rights reserved.</p>
   </div>
 </footer>
 
