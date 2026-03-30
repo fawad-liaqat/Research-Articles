@@ -61,6 +61,14 @@
     .references li { font-family: 'Lora', Georgia, serif; font-size: 0.88rem; line-height: 1.72; color: var(--muted); margin-bottom: 0.65rem; font-style: italic; }
     .references a { color: var(--link); word-break: break-all; text-decoration: underline; text-underline-offset: 2px; }
 
+    .req-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0 2rem; font-family: 'Inter', sans-serif; font-size: 0.84rem; }
+    .req-table thead tr { background: var(--table-head-bg); color: var(--table-head-fg); }
+    .req-table th { padding: 0.65rem 0.9rem; text-align: left; font-weight: 600; letter-spacing: 0.02em; }
+    .req-table td { padding: 0.6rem 0.9rem; border-bottom: 1px solid var(--border-light); color: var(--text); vertical-align: top; line-height: 1.55; font-style: normal; }
+    .req-table tbody tr:nth-child(even) { background: var(--table-alt); }
+    .req-table tbody tr:last-child td { border-bottom: none; }
+    @media (max-width: 640px) { .req-table { font-size: 0.78rem; } .req-table th, .req-table td { padding: 0.5rem 0.6rem; } }
+
     .back-wrap { max-width: 740px; margin: 0 auto; padding: 0 2rem 3rem; }
     .back-link { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.8rem; font-weight: 500; color: var(--muted); text-decoration: none; padding: 0.38rem 0.85rem; border: 1px solid var(--border); border-radius: 5px; transition: all 0.15s; }
     .back-link:hover { color: var(--heading); border-color: var(--heading); }
@@ -136,8 +144,8 @@
     user experience: onboarding friction, language barriers, absent offline
     capability, opaque error handling, and a fundamental disconnection
     between the product and the habits of its intended users. The pattern
-    matters for Pakistan because the State Bank of Pakistan entered its own
-    CBDC pilot in September 2025, partnering with Soramitsu to build a
+    matters for Pakistan because the State Bank of Pakistan announced its own
+    CBDC pilot in August 2025, partnering with Soramitsu to build a
     Digital Rupee targeting over 100 million unbanked adults. If SBP treats
     the interface as an afterthought — as Nigeria and the Bahamas did — the
     outcome is predictable.
@@ -252,9 +260,12 @@
     offering identical or superior functionality. A Springer study found
     that 49% of participants stated they would not use the eNaira because
     existing alternatives were sufficient. India's Digital Rupee, by
-    contrast, distributed through Google Pay and PhonePe — apps people
-    already had — and achieved 6 million users with 334% year-over-year
-    circulation growth.
+    contrast, launched through bank apps and subsequently integrated with
+    Google Pay and PhonePe — platforms collectively handling over 85% of
+    India's digital payment volume — achieving 6 million users and 334%
+    year-over-year circulation growth. The design lesson is not which apps
+    were chosen but the deliberate refusal to demand that users adopt a
+    new channel.
   </p>
 
   <h2>The Sand Dollar Audit</h2>
@@ -341,11 +352,47 @@
   <h2>Requirements for the Digital Rupee</h2>
 
   <p>
-    The requirements table derives each specification from a specific
-    failure (eNaira or Sand Dollar) combined with a specific Pakistani
-    constraint. Four of five requirements are rated Critical — meaning that
-    without them, the Digital Rupee will replicate eNaira's outcome.
+    Each requirement below derives from a specific eNaira or Sand Dollar
+    failure mapped directly to a Pakistani constraint. All five are
+    load-bearing — without them, the Digital Rupee replicates eNaira's outcome.
   </p>
+
+  <table class="req-table">
+    <thead>
+      <tr>
+        <th>Requirement</th>
+        <th>Failure It Addresses</th>
+        <th>Pakistani Constraint</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Zero-KYC USSD onboarding via feature phone; daily limit PKR 800–1,500; NADRA escalation incentive-driven</td>
+        <td>eNaira Tier 0 — theoretically KYC-free, but NIMC dependency made it inaccessible in practice</td>
+        <td>39% illiteracy; identity infrastructure unreliable in rural areas; no smartphone required</td>
+      </tr>
+      <tr>
+        <td>Urdu + Punjabi, Sindhi, and Pashto at launch; icon-driven navigation for all critical actions</td>
+        <td>eNaira — English-only, text-heavy interface in a country with 500+ languages</td>
+        <td>~95 million illiterate adults; dominant languages of the excluded are not English or even Urdu</td>
+      </tr>
+      <tr>
+        <td>Agent-loaded offline stored value (2G-capable); PKR 25,000 limit; visual confirmation on reconnection</td>
+        <td>Sand Dollar — offline loading only via ATMs, which are sparse in rural Bahamas</td>
+        <td>36.5% rural internet penetration; frequent power outages; 287,000 active agents as physical infrastructure</td>
+      </tr>
+      <tr>
+        <td>Error messages in user's language; explicit fund-safety confirmation; one-tap retry; no permanent blocks after verification failure</td>
+        <td>eNaira — unexplained transaction failures; permanent system blocks after errors; no retry path</td>
+        <td>91% of excluded adults distrust institutions; a single failed transaction is sufficient cause for permanent abandonment</td>
+      </tr>
+      <tr>
+        <td>Native integration inside JazzCash and Easypaisa; RAAST merchant acceptance; USSD access for non-smartphone users</td>
+        <td>eNaira standalone app; Sand Dollar standalone wallet — both competed with existing channels rather than joining them</td>
+        <td>83 million existing mobile money accounts; 287,000 active agents; product needs one capability mobile money cannot offer</td>
+      </tr>
+    </tbody>
+  </table>
 
   <h3>Onboarding</h3>
 
@@ -399,7 +446,8 @@
     that subsumes all others. The Digital Rupee must not launch as a
     standalone app. It must live inside JazzCash and Easypaisa, whose
     combined 83 million accounts represent the largest existing digital
-    payment user base in Pakistan. RAAST's 838,000 P2M merchants should
+    payment user base in Pakistan. RAAST's merchant network (838,000 P2M
+    registrations as of SBP FY2024 data, a figure growing rapidly) should
     accept Digital Rupee transactions through existing integration. For
     non-smartphone users, access must be through existing USSD short codes.
     And the product must offer at least one capability that existing mobile
@@ -429,11 +477,11 @@
   </p>
 
   <p>
-    The evidence from five global pilots is unambiguous. Privacy design
-    predicts adoption. Embedding in existing apps predicts adoption. Offline
-    capability predicts relevance in low-connectivity markets. Standalone
-    launches with surveillance architectures predict failure. SBP has the
-    data. The choice is a design decision, not a policy mystery.
+    The evidence from documented CBDC deployments is unambiguous. Embedding
+    in existing apps predicts adoption. Offline capability predicts relevance
+    in low-connectivity markets. Opaque onboarding with broken identity
+    verification predicts abandonment. SBP has the data. The choice is a
+    design decision, not a policy mystery.
   </p>
 
   <div class="references">
@@ -442,18 +490,19 @@
       <li>IMF Working Paper WP/23/104, "Nigeria's eNaira, One Year After," Jookyung Ree, May 2023. <a href="https://www.imf.org/en/publications/wp/issues/2023/05/16/nigerias-enaira-one-year-after-533487" target="_blank" rel="noopener">https://www.imf.org/en/publications/wp/issues/2023/05/16/nigerias-enaira-one-year-after-533487</a></li>
       <li>BIS Papers No. 128, "Central Bank Digital Currencies in Africa," 2023. <a href="https://www.bis.org/publ/bppdf/bispap128.pdf" target="_blank" rel="noopener">https://www.bis.org/publ/bppdf/bispap128.pdf</a></li>
       <li>BIS Papers No. 147, "Embracing Diversity, Advancing Together," 2024. <a href="https://www.bis.org/publ/bppdf/bispap147.pdf" target="_blank" rel="noopener">https://www.bis.org/publ/bppdf/bispap147.pdf</a></li>
-      <li>BIS CGIDE Report (othp89). <a href="https://www.bis.org/publ/othp89.pdf" target="_blank" rel="noopener">https://www.bis.org/publ/othp89.pdf</a></li>
+      <li>BIS CGIDE, "Enabling Open Finance Through APIs," Committee on Payments and Market Infrastructures (othp89), 2023. <a href="https://www.bis.org/publ/othp89.pdf" target="_blank" rel="noopener">https://www.bis.org/publ/othp89.pdf</a></li>
       <li>CBN eNaira Regulatory Guidelines. <a href="https://www.cbn.gov.ng/Out/2021/FPRD/eNairaCircularAndGuidelines%20FINAL.pdf" target="_blank" rel="noopener">https://www.cbn.gov.ng/Out/2021/FPRD/eNairaCircularAndGuidelines%20FINAL.pdf</a></li>
       <li>SSRN, "eNaira Adoption: A Text Mining Analysis of User Experience," Obiora et al. <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4543840" target="_blank" rel="noopener">https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4543840</a></li>
       <li>African Journal of Science, Technology, Innovation and Development, Vol 16 No 5, 2024. <a href="https://www.tandfonline.com/doi/full/10.1080/20421338.2024.2353934" target="_blank" rel="noopener">https://www.tandfonline.com/doi/full/10.1080/20421338.2024.2353934</a></li>
       <li>Central Bank of the Bahamas, Sand Dollar documentation. <a href="https://www.sanddollar.bs/about" target="_blank" rel="noopener">https://www.sanddollar.bs/about</a></li>
-      <li>Pakistan Bureau of Statistics, 2023 Census.</li>
-      <li>Karandaaz K-FIS 2024.</li>
-      <li>PTA Annual Report 2024-25.</li>
-      <li>SBP Branchless Banking Data.</li>
-      <li>Springer, eNaira adoption study. <a href="https://link.springer.com/article/10.1007/s42979-024-02882-6" target="_blank" rel="noopener">https://link.springer.com/article/10.1007/s42979-024-02882-6</a></li>
-      <li>CoinDesk, Carnegie Endowment, The Conversation — eNaira coverage (2023-2024).</li>
-      <li>Profit Pakistan Today, "SBP Partners with Soramitsu," August 2025.</li>
+      <li>Pakistan Bureau of Statistics, Population and Housing Census 2023. <a href="https://www.pbs.gov.pk/content/population-census" target="_blank" rel="noopener">https://www.pbs.gov.pk/content/population-census</a></li>
+      <li>Karandaaz Financial Inclusion Survey (K-FIS) 2024. <a href="https://www.karandaaz.com.pk/research/publications/karandaaz-financial-inclusion-survey-k-fis-narrative-report" target="_blank" rel="noopener">https://www.karandaaz.com.pk/research/publications/karandaaz-financial-inclusion-survey-k-fis-narrative-report</a></li>
+      <li>Pakistan Telecommunication Authority, Annual Report 2024–25. <a href="https://www.pta.gov.pk/assets/media/2024-12-16-pta_annual_report.pdf" target="_blank" rel="noopener">https://www.pta.gov.pk/assets/media/2024-12-16-pta_annual_report.pdf</a></li>
+      <li>State Bank of Pakistan, Branchless Banking Newsletter (quarterly). <a href="https://www.sbp.org.pk/publications/BBnewsletter.htm" target="_blank" rel="noopener">https://www.sbp.org.pk/publications/BBnewsletter.htm</a></li>
+      <li>Springer, "Investigating the Adoption of eNaira: An Extension of the Technology Acceptance Model," SN Computer Science, 2024. <a href="https://link.springer.com/article/10.1007/s42979-024-02882-6" target="_blank" rel="noopener">https://link.springer.com/article/10.1007/s42979-024-02882-6</a></li>
+      <li>CoinDesk, "Why Nigerians Aren't Turning to the eNaira Despite Crippling Cash Shortages," February 2023. <a href="https://www.coindesk.com/policy/2023/02/24/why-nigerians-arent-turning-to-the-enaira-despite-crippling-cash-shortages" target="_blank" rel="noopener">https://www.coindesk.com/policy/2023/02/24/why-nigerians-arent-turning-to-the-enaira-despite-crippling-cash-shortages</a></li>
+      <li>The Conversation, "eNaira: Nigeria's Digital Currency Has Had a Slow Start — What's Holding It Back," 2023. <a href="https://theconversation.com/enaira-nigerias-digital-currency-has-had-a-slow-start-whats-holding-it-back-209470" target="_blank" rel="noopener">https://theconversation.com/enaira-nigerias-digital-currency-has-had-a-slow-start-whats-holding-it-back-209470</a></li>
+      <li>Profit by Pakistan Today, "SBP Partners with Soramitsu to Pilot Digital Pakistani Rupee in 2025," August 12, 2025. <a href="https://profit.pakistantoday.com.pk/2025/08/12/sbp-partners-with-soramitsu-to-pilot-digital-pakistani-rupee-in-2025/" target="_blank" rel="noopener">https://profit.pakistantoday.com.pk/2025/08/12/sbp-partners-with-soramitsu-to-pilot-digital-pakistani-rupee-in-2025/</a></li>
     </ol>
   </div>
 
