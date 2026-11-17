@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Behavioral Last Mile, FY25 Edition | Fawad Liaqat</title>
+  <meta name="description" content="FY25 edition (March 2026): why 88% digital transactions by number still leave a cash heavy economy in Pakistan.">
+  <meta name="author" content="Fawad Liaqat">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --heading:       #0d0d0d;
+      --text:          #2a2a2a;
+      --muted:         #606060;
+      --border:        #d0d0d0;
+      --border-light:  #e8e8e8;
+      --bg:            #ffffff;
+      --bg-alt:        #f6f6f6;
+      --bg-dark:       #101010;
+      --link:          #1a50a0;
+      --table-head-bg: #1a1a1a;
+      --table-head-fg: #ffffff;
+      --table-alt:     #f9f9f9;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+    body { font-family: 'Inter', -apple-system, sans-serif; color: var(--text); background: var(--bg); line-height: 1.6; }
+
+    .nav { position: sticky; top: 0; z-index: 200; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border-light); }
+    .nav-inner { max-width: 1080px; margin: 0 auto; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 54px; }
+    .nav-brand { font-weight: 700; font-size: 0.875rem; color: var(--heading); text-decoration: none; }
+    .nav-links { display: flex; gap: 0; list-style: none; }
+    .nav-links a { display: inline-block; padding: 0.3rem 0.85rem; font-size: 0.8rem; font-weight: 500; color: var(--muted); text-decoration: none; border-radius: 5px; transition: all 0.15s; }
+    .nav-links a:hover { color: var(--heading); background: var(--bg-alt); }
+
+    .article-header { padding: 3.5rem 2rem 0; border-bottom: 1px solid var(--border-light); }
+    .header-inner { max-width: 740px; margin: 0 auto; }
+    .article-topic { display: inline-block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; color: var(--muted); border: 1px solid var(--border); padding: 0.22rem 0.7rem; border-radius: 3px; margin-bottom: 1.25rem; }
+    .article-title { font-family: 'Lora', Georgia, serif; font-size: clamp(1.7rem, 4vw, 2.5rem); font-weight: 600; line-height: 1.2; letter-spacing: -0.02em; color: var(--heading); margin-bottom: 1.5rem; }
+    .article-meta { display: flex; flex-wrap: wrap; gap: 0.5rem 2rem; font-size: 0.78rem; color: var(--muted); padding: 1rem 0; border-top: 1px solid var(--border-light); }
+
+    .abstract { max-width: 740px; margin: 1.5rem auto 0; background: var(--bg-alt); border-left: 3px solid var(--heading); padding: 1.6rem 1.75rem; }
+    .abstract-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.65rem; }
+    .abstract p { font-family: 'Lora', Georgia, serif; font-size: 0.93rem; line-height: 1.8; color: var(--muted); font-style: italic; margin-bottom: 0.75rem; }
+    .abstract p:last-child { margin-bottom: 0; }
+    .abstract strong { color: var(--heading); font-style: normal; }
+    .abstract .keywords { font-family: 'Inter', sans-serif; font-size: 0.78rem; color: var(--muted); margin-top: 1rem; font-style: normal; }
+
+    .article-body { max-width: 740px; margin: 0 auto; padding: 3.5rem 2rem 5rem; }
+    .article-body section { margin: 0; }
+    .article-body h2 { font-family: 'Lora', Georgia, serif; font-size: 1.4rem; font-weight: 600; color: var(--heading); margin-top: 3rem; margin-bottom: 0.9rem; padding-bottom: 0.5rem; border-bottom: 1.5px solid var(--border-light); letter-spacing: -0.015em; line-height: 1.3; }
+    .article-body h3 { font-size: 1rem; font-weight: 600; color: var(--heading); margin-top: 2rem; margin-bottom: 0.6rem; }
+    .article-body p { font-family: 'Lora', Georgia, serif; font-size: 1.04rem; line-height: 1.83; color: var(--text); margin-bottom: 1.35rem; }
+    .article-body a { color: var(--link); text-underline-offset: 3px; }
+    .article-body a:hover { opacity: 0.8; }
+    .article-body ul, .article-body ol { font-family: 'Lora', Georgia, serif; font-size: 1.04rem; line-height: 1.8; color: var(--text); padding-left: 1.5rem; margin: 0.75rem 0 1.35rem; }
+    .article-body li { margin-bottom: 0.45rem; }
+    .article-body hr { border: none; border-top: 1px solid var(--border-light); margin: 2.5rem 0; }
+    .article-body strong { font-weight: 600; color: var(--heading); }
+    .article-body em { font-style: italic; }
+
+    .article-body table { width: 100%; border-collapse: collapse; font-size: 0.86rem; line-height: 1.5; margin: 1rem 0 2rem; border: 1px solid var(--border); border-radius: 5px; overflow: hidden; }
+    .article-body thead tr { background: var(--table-head-bg); }
+    .article-body thead th { padding: 0.65rem 0.9rem; text-align: left; font-weight: 600; font-size: 0.75rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--table-head-fg); }
+    .article-body tbody tr:nth-child(even) { background: var(--table-alt); }
+    .article-body tbody td { padding: 0.6rem 0.9rem; border-bottom: 1px solid var(--border-light); color: var(--muted); vertical-align: top; font-family: 'Lora', Georgia, serif; font-size: 0.9rem; }
+    .article-body tbody tr:last-child td { border-bottom: none; }
+
+    .article-body .reference { font-family: 'Lora', Georgia, serif; font-size: 0.88rem; line-height: 1.72; color: var(--muted); margin-bottom: 0.75rem; font-style: italic; }
+    .article-body .reference a { color: var(--link); word-break: break-all; }
+
+    .back-wrap { max-width: 740px; margin: 0 auto; padding: 0 2rem 3rem; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.8rem; font-weight: 500; color: var(--muted); text-decoration: none; padding: 0.38rem 0.85rem; border: 1px solid var(--border); border-radius: 5px; transition: all 0.15s; }
+    .back-link:hover { color: var(--heading); border-color: var(--heading); }
+
+    footer { background: var(--bg-dark); color: rgba(255,255,255,0.45); padding: 2.5rem 2rem; }
+    .footer-inner { max-width: 1080px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1.25rem; }
+    .footer-brand { font-weight: 700; font-size: 0.875rem; color: rgba(255,255,255,0.9); text-decoration: none; }
+    .footer-links { display: flex; gap: 1.75rem; list-style: none; }
+    .footer-links a { font-size: 0.8rem; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.15s; }
+    .footer-links a:hover { color: rgba(255,255,255,0.9); }
+    .footer-rule { width: 100%; border: none; border-top: 1px solid rgba(255,255,255,0.07); margin: 1rem 0 0.75rem; }
+    .footer-copy { width: 100%; font-size: 0.75rem; opacity: 0.28; }
+
+    @media (max-width: 640px) {
+      .article-header { padding: 2.5rem 1.25rem 0; }
+      .article-body { padding: 2.5rem 1.25rem 4rem; }
+      .back-wrap { padding: 0 1.25rem 2.5rem; }
+      .nav-links { display: none; }
+      .article-body table { font-size: 0.78rem; }
+    }
+    .cite { font-size: 0.85em; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/Research-Articles/" class="nav-brand">Fawad Liaqat</a>
+    <ul class="nav-links">
+      <li><a href="/Research-Articles/">All Articles</a></li>
+      <li><a href="https://fawad-liaqat.netlify.app/">Portfolio</a></li>
+      <li><a href="https://github.com/fawad-liaqat">GitHub</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="article-header">
+      <div class="header-inner">
+        <div class="article-topic">Behavioral Economics</div>
+        <h1 class="article-title">The Behavioral Last Mile: Why 88% Digital Transactions Still Leave a Cash Economy (FY25 Edition)</h1>
+        <div class="article-meta">
+          <span>Fawad Liaqat</span>
+          <span>FY25 edition, March 2026</span>
+          <span>~15 min read</span>
+        </div>
+      </div>
+      <div class="abstract">
+        <div class="abstract-label">Abstract</div>
+        <p><strong>Background:</strong> In FY25, 88% of Pakistan's retail payments by number went through digital channels, Raast transactions grew 8.7x in two years to 1.28 billion, and over one million merchants were enabled for QR payments [<a class="cite" href="#ref-1">1, p. 7</a>; <a class="cite" href="#ref-1">1, p. 31</a>; <a class="cite" href="#ref-1">1, p. 24</a>]. Yet only 29% of payment value was digital [<a class="cite" href="#ref-1">1, p. 7</a>], 97.6% of ATM transactions were cash withdrawals (my calculation) [<a class="cite" href="#ref-1">1, p. 26</a>], and 35% of adults were financially included on Karandaaz's measure [<a class="cite" href="#ref-3">3, p. 7</a>].</p>
+        <p><strong>Methods:</strong> A comparative case study using the State Bank's payment statistics for FY25 and the Karandaaz Financial Inclusion Survey 2024, with India's UPI and Kenya's M-Pesa as comparison cases.</p>
+        <p><strong>Results:</strong> Three demand side barriers persist alongside the infrastructure: trust (trust in banks and mobile money is 52% to 63% among excluded adults against over 90% among the included [<a class="cite" href="#ref-3">3, p. 27</a>]), incentives (merchants pay to accept cards; cash costs nothing to accept), and literacy and design (82% of men but 46% of women own a mobile phone [<a class="cite" href="#ref-3">3, p. 28</a>]).</p>
+        <p><strong>Conclusions:</strong> Four interventions are proposed: removing merchant fees on small digital payments, a feature phone route into Raast, paying agents to help customers pay digitally, and Urdu first design standards.</p>
+        <div class="keywords"><strong>Keywords:</strong> digital payments, financial inclusion, behavioral economics, Pakistan, Raast, cash persistence, UPI, M-Pesa</div>
+      </div>
+    </div>
+
+    <div class="article-body">
+      <p><em>This is the FY25 edition of this article, first published in March 2026. <a href="../">Read the current edition</a>, updated with FY26 data and a progress view from FY25 to FY26.</em></p>
+
+      <section>
+        <h2>1. Introduction</h2>
+        <p>In fiscal year 2025, 88% of Pakistan's retail payment transactions went through digital channels by number [<a class="cite" href="#ref-1">1, p. 7</a>]. Raast, the instant payment system whose first phase launched in January 2021 [<a class="cite" href="#ref-8">8</a>], processed 1,276.0 million transactions in FY25, of which 1,266.0 million were person to person payments, up from 147.2 million in FY23 [<a class="cite" href="#ref-1">1, p. 31</a>]. QR enabled merchants passed one million (1,092,044), branchless banking agents reached 731,814, and there were 227,388 POS devices [<a class="cite" href="#ref-1">1, p. 24</a>]. Branchless banking app users reached 79.2 million, up 35% [<a class="cite" href="#ref-1">1, p. 24</a>].</p>
+        <p>Yet behaviour tells a different story. Of 1,039.6 million ATM transactions, 97.6% were cash withdrawals (my calculation) [<a class="cite" href="#ref-1">1, p. 26</a>]. Even people who hold accounts and debit cards convert digital money to cash before spending it. By value, only 29% of retail payments were digital [<a class="cite" href="#ref-1">1, p. 7</a>], and about PKR 432.9 trillion of PKR 611.6 trillion moved over the counter (my calculation) [<a class="cite" href="#ref-1">1, p. 9</a>]. Financial inclusion stood at 35% of adults in 2024, up from 7% in 2014 [<a class="cite" href="#ref-3">3, p. 7</a>].</p>
+        <p>The question is why a country where 88% of retail transactions are digital by number still runs much of its economy in cash. This paper argues that the answer lies in the <strong>behavioral last mile</strong>: the barriers that persist after the infrastructure is in place. It examines three layers, <strong>trust, incentives</strong> and <strong>literacy</strong>, with Pakistani evidence, compares them with India and Kenya, and proposes four interventions.</p>
+      </section>
+      <hr />
+
+      <section>
+        <h2>2. Literature Review</h2>
+        <p>Findex has documented the link between account ownership and the use of digital payments since 2011. Worldwide, 79% of adults had an account in 2024 [<a class="cite" href="#ref-2">2, p. xxi</a>], yet use varies widely across countries with similar infrastructure. India has 89% account ownership but 48% digital payment use [<a class="cite" href="#ref-2">2, p. 297</a>].</p>
+        <p>The Technology Acceptance Model holds that people adopt a system they find useful and easy to use [<a class="cite" href="#ref-10">10</a>]; later work adds trust as a key factor where institutions are not trusted [<a class="cite" href="#ref-11">11</a>]. Prospect theory explains why the familiar option, cash, can feel safer, because losses weigh more than equal gains [<a class="cite" href="#ref-12">12</a>]. Diffusion of innovations stresses compatibility with existing habits and how visible the benefits are [<a class="cite" href="#ref-13">13</a>], and Zucker's work explains why trust in a known person can stand in for trust in an institution [<a class="cite" href="#ref-14">14</a>].</p>
+      </section>
+      <hr />
+
+      <section>
+        <h2>3. Methodology and Data Sources</h2>
+        <p>Pakistan is the main case. Payment figures for FY25 and earlier years are the revised values printed in the State Bank's Payment Systems Review FY 2025-26 [<a class="cite" href="#ref-1">1</a>]. Demand side data on inclusion, trust and phones comes from the Karandaaz Financial Inclusion Survey 2024 narrative report [<a class="cite" href="#ref-3">3</a>]. India and Kenya are comparison cases; their systems are at different ages, so the comparison is about scale and reach, not a controlled experiment. Figures I calculated are marked as such with their inputs.</p>
+      </section>
+      <hr />
+
+      <section>
+        <h2>4. Pakistan's Digital Payment Landscape</h2>
+        <p>Raast grew from 147.2 million transactions worth PKR 3.1 trillion in FY23 to 496.1 million worth PKR 11.6 trillion in FY24 and 1,276.0 million worth PKR 29.6 trillion in FY25 [<a class="cite" href="#ref-1">1, p. 31</a>]. QR enabled merchants rose from 516,317 to 1,092,044 in FY25. Mobile banking users grew from 18.7 million to 24.1 million, and branchless banking app users from 58.7 million to 79.2 million [<a class="cite" href="#ref-1">1, p. 24</a>].</p>
+        <p>The digital share of retail transactions by number climbed from 78% in FY23 to 85% in FY24 and 88% in FY25 (my calculation for FY23 from Table A-4) [<a class="cite" href="#ref-1">1, p. 7</a>; <a class="cite" href="#ref-1">1, p. 26</a>]. Total retail transactions reached 9.1 billion worth PKR 612 trillion, up 38% by number and 11% by value [<a class="cite" href="#ref-1">1, p. 9</a>; <a class="cite" href="#ref-1">1, p. 12</a>].</p>
+        <p>These numbers suggest that infrastructure is not the main bottleneck. But the 88% digital share is by number of transactions, not by value: by value the digital share was 29% [<a class="cite" href="#ref-1">1, p. 7</a>]. Digital channels carry many small transfers and bill payments, while larger payments still move mostly over the counter. Only 4.9 million of Raast's 1,276 million FY25 transactions were person to merchant payments [<a class="cite" href="#ref-1">1, p. 31</a>].</p>
+
+        <p style="text-align: center; font-size: 0.92em; color: #555; margin-top: 30px;"><strong>Table 1. Pakistan, India and Kenya</strong></p>
+        <table>
+          <thead><tr><th>Metric</th><th>Pakistan</th><th>India</th><th>Kenya</th></tr></thead>
+          <tbody>
+            <tr><td>System</td><td>Raast (first phase January 2021)</td><td>UPI</td><td>M-Pesa</td></tr>
+            <tr><td>Annual transactions</td><td>1.28 billion (FY25)</td><td>185.9 billion (FY 2024-25)</td><td>about 37 billion (year to March 2025; my calculation from 46.4 billion in FY26 and 25.1% growth)</td></tr>
+            <tr><td>Adults with an account (Findex 2025, survey year 2024)</td><td>27%</td><td>89%</td><td>90%</td></tr>
+            <tr><td>Adults who made or received a digital payment (same survey)</td><td>25%</td><td>48%</td><td>89%</td></tr>
+            <tr><td>Saved formally (same survey)</td><td>13%</td><td>27%</td><td>54%</td></tr>
+          </tbody>
+        </table>
+        <p style="font-size: 0.85em; color: #555;">Sources: [<a class="cite" href="#ref-8">8</a>]; [<a class="cite" href="#ref-1">1, p. 31</a>]; [<a class="cite" href="#ref-4">4</a>]; [<a class="cite" href="#ref-7">7</a>]; [<a class="cite" href="#ref-2">2, p. 297</a>; <a class="cite" href="#ref-2">2, p. 298</a>].</p>
+      </section>
+      <hr />
+
+      <section>
+        <h2>5. Layer 1: Trust Deficit</h2>
+        <p>The Karandaaz survey for 2024 shows how much trust depends on being inside the system: 63% of financially excluded adults trust state owned banks, 54% private banks and 52% mobile money services, against 93%, 90% and 92% of the financially included [<a class="cite" href="#ref-3">3, p. 27</a>]. Among adults who borrowed, 85% borrowed from family and friends [<a class="cite" href="#ref-3">3, p. 25</a>]. Informal credit runs on relationships built over years; trust theory suggests that trust in a known person can substitute for trust in an institution [<a class="cite" href="#ref-14">14</a>].</p>
+        <p>Kenya's M-Pesa is often described as having grown through shopkeeper agents whom users already knew. Pakistan had 731,814 branchless banking agents in FY25 [<a class="cite" href="#ref-1">1, p. 24</a>], but Raast is reached through apps, not through a person. Whether agents could become the trusted bridge to Raast is an open question.</p>
+      </section>
+      <hr />
+
+      <section>
+        <h2>6. Layer 2: Incentive Misalignment</h2>
+        <p>Even among people who trust the system enough to hold an account, a second barrier appears at the counter. Merchants pay a fee to accept cards, and digital payments leave a record; cash has neither. The 97.6% ATM cash withdrawal share (my calculation) [<a class="cite" href="#ref-1">1, p. 26</a>] shows that people who already bank still choose cash for spending.</p>
+        <p>India removed the merchant discount rate on UPI and RuPay payments from 1 January 2020 [<a class="cite" href="#ref-5">5</a>]. UPI volume rose from about 46.0 billion transactions in FY 2021-22 to 185.9 billion in FY 2024-25 [<a class="cite" href="#ref-4">4</a>], although many policies changed over those years. For Raast, a merchant fee subsidy began only in September 2025, after FY25 had ended [<a class="cite" href="#ref-9">9, p. 58</a>].</p>
+      </section>
+      <hr />
+
+      <section>
+        <h2>7. Layer 3: Literacy Friction</h2>
+        <p>Gender gaps are wide. In the Karandaaz survey, 82% of men and 46% of women own a mobile phone [<a class="cite" href="#ref-3">3, p. 28</a>]; the report prints the same figures for smartphone ownership [<a class="cite" href="#ref-3">3, p. 29</a>]. 56% of men and 14% of women are financially included [<a class="cite" href="#ref-3">3, p. 7</a>]. On the survey's Digital Literacy Index, men score 65 and women 48 [<a class="cite" href="#ref-3">3, p. 30</a>], and 32% of men against 12% of women pass its financial literacy measure [<a class="cite" href="#ref-3">3, p. 11</a>].</p>
+        <p>Raast is reached through bank and wallet apps. For people with a basic phone, low literacy or limited English, that means more steps than cash. India launched UPI123Pay in 2022 so that feature phone users could make UPI payments [<a class="cite" href="#ref-6">6</a>]. I found no equivalent Raast channel for feature phones in FY25.</p>
+      </section>
+      <hr />
+
+      <section>
+        <h2>8. Conclusions and Policy Interventions</h2>
+        <p>Pakistan's cash persistence in FY25 reflects demand side barriers as much as infrastructure: trust, incentives and literacy. These barriers reinforce each other. Someone who does not trust banks has little reason to learn a new app; a merchant who pays to accept digital payments has little reason to promote them; a customer who meets few accepting merchants has little reason to try.</p>
+        <p>Four interventions follow:</p>
+        <ol style="margin: 20px 0 20px 30px; line-height: 1.8">
+          <li><strong>Remove merchant fees on small digital payments.</strong> Precedent: India's zero MDR on UPI and RuPay from 2020 [<a class="cite" href="#ref-5">5</a>].</li>
+          <li><strong>Build feature phone access to Raast via USSD or IVR.</strong> Precedent: UPI123Pay [<a class="cite" href="#ref-6">6</a>].</li>
+          <li><strong>Pay agents for helping customers pay digitally,</strong> not only for cash in and cash out.</li>
+          <li><strong>Set Urdu first design standards</strong> for payment apps, so language is not a barrier, especially for women and rural users.</li>
+        </ol>
+        <p>Infrastructure is necessary but not sufficient. The 88% digital share by number shows the rails work; the 29% share by value, the 97.6% cash withdrawal share and 35% inclusion show how far behaviour still has to move. I would welcome other readings of this data.</p>
+      </section>
+      <hr />
+
+      <section class="references-section" id="sources">
+        <h2>Sources</h2>
+        <p style="font-size: 0.9em; color: #555;">Numbers in brackets point to this list; "p." is the printed page. FY25 figures are the revised FY25 columns of the SBP's FY26 review.</p>
+        <ol style="margin: 16px 0 0 24px; line-height: 1.7; font-size: 0.92em;">
+          <li id="ref-1">State Bank of Pakistan, Digital Financial Services Group. <em>Annual Payment Systems Review FY 2025-26 (provisional figures; FY25 columns revised)</em>. October 2026. <a href="https://www.sbp.org.pk/PS/PDF/Annual-Payment-Systems-Review-FY26.pdf" target="_blank" rel="noopener">https://www.sbp.org.pk/PS/PDF/Annual-Payment-Systems-Review-FY26.pdf</a>. Accessed 17 November 2026. Primary.</li>
+          <li id="ref-2">World Bank. <em>The Global Findex Database 2025 (survey year 2024)</em>. 2025. <a href="https://www.worldbank.org/en/publication/globalfindex" target="_blank" rel="noopener">https://www.worldbank.org/en/publication/globalfindex</a>. Accessed 17 November 2026. Primary.</li>
+          <li id="ref-3">Karandaaz Pakistan (authored by Semiotics Consultants). <em>Karandaaz Financial Inclusion Survey (K-FIS), Narrative Report, survey year 2024 (6,722 adults)</em>. April 2025. <a href="https://www.karandaaz.com.pk/research/publications/karandaaz-financial-inclusion-survey-k-fis-narrative-report" target="_blank" rel="noopener">https://www.karandaaz.com.pk/research/publications/karandaaz-financial-inclusion-survey-k-fis-narrative-report</a>. Accessed 17 November 2026 (local copy of the PDF; web link not opened). Primary.</li>
+          <li id="ref-4">Government of India, Ministry of Finance, via Press Information Bureau. <em>Nearly 55.49 crore users onboarded on UPI as in June 2026 (Lok Sabha written reply, NPCI data)</em>. 20 July 2026. <a href="https://www.pib.gov.in/PressReleasePage.aspx?PRID=2286608&reg=48&lang=2" target="_blank" rel="noopener">https://www.pib.gov.in/PressReleasePage.aspx?PRID=2286608&reg=48&lang=2</a>. Accessed 17 November 2026. Primary.</li>
+          <li id="ref-5">Outlook Business. <em>No MDR charges from Jan 1 on UPI, RuPay transactions</em>. 28 December 2019. <a href="https://www.outlookbusiness.com/talking-money/no-mdr-charges-from-jan-1-on-upi-rupay-transactions-4103" target="_blank" rel="noopener">https://www.outlookbusiness.com/talking-money/no-mdr-charges-from-jan-1-on-upi-rupay-transactions-4103</a>. Accessed 17 November 2026. Secondary.</li>
+          <li id="ref-6">Reserve Bank of India. <em>RBI launches UPI for feature phones (UPI123Pay) and a 24x7 helpline (DigiSaathi)</em>. 8 March 2022. <a href="https://rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=53385" target="_blank" rel="noopener">https://rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=53385</a>. Accessed 16 November 2026. Primary.</li>
+          <li id="ref-7">Tech-ish. <em>Safaricom FY26 M-PESA results explained</em>. 7 May 2026. <a href="https://tech-ish.com/2026/05/07/safaricom-fy26-mpesa-results-explained/" target="_blank" rel="noopener">https://tech-ish.com/2026/05/07/safaricom-fy26-mpesa-results-explained/</a>. Accessed 17 November 2026. Secondary.</li>
+          <li id="ref-8">State Bank of Pakistan. <em>Press release on the launch of the first phase of Raast</em>. 11 January 2021. <a href="https://www.sbp.org.pk/press/2021/Pr-11-Jan-21.pdf" target="_blank" rel="noopener">https://www.sbp.org.pk/press/2021/Pr-11-Jan-21.pdf</a>. Accessed 17 November 2026. Primary.</li>
+          <li id="ref-9">State Bank of Pakistan. <em>Governor's Annual Report 2025-26</em>. 2026. Accessed 17 November 2026 (local copy supplied by the owner; no public link confirmed). Primary.</li>
+          <li id="ref-10">Davis, F. D.. <em>Perceived usefulness, perceived ease of use, and user acceptance of information technology. MIS Quarterly 13(3), 319 to 340</em>. 1989. <a href="https://doi.org/10.2307/249008" target="_blank" rel="noopener">https://doi.org/10.2307/249008</a>. Accessed Not re-read in November 2026. Background literature.</li>
+          <li id="ref-11">Gefen, D., Karahanna, E. and Straub, D. W.. <em>Trust and TAM in online shopping: an integrated model. MIS Quarterly 27(1), 51 to 90</em>. 2003. <a href="https://aisel.aisnet.org/misq/vol27/iss1/4/" target="_blank" rel="noopener">https://aisel.aisnet.org/misq/vol27/iss1/4/</a>. Accessed Not re-read in November 2026. Background literature.</li>
+          <li id="ref-12">Kahneman, D. and Tversky, A.. <em>Prospect theory: an analysis of decision under risk. Econometrica 47(2), 263 to 292</em>. 1979. <a href="https://doi.org/10.2307/1914185" target="_blank" rel="noopener">https://doi.org/10.2307/1914185</a>. Accessed Not re-read in November 2026. Background literature.</li>
+          <li id="ref-13">Rogers, E. M.. <em>Diffusion of Innovations, 5th edition. New York: Free Press</em>. 2003. <a href="https://openlibrary.org/books/OL15577453M/Diffusion_of_innovations" target="_blank" rel="noopener">https://openlibrary.org/books/OL15577453M/Diffusion_of_innovations</a>. Accessed Not re-read in November 2026. Background literature.</li>
+          <li id="ref-14">Zucker, L. G.. <em>Production of trust: institutional sources of economic structure, 1840 to 1920. Research in Organizational Behavior 8, 53 to 111</em>. 1986. Accessed Not re-read in November 2026. Background literature.</li>
+        </ol>
+      </section>
+    </div>
+
+    <div class="back-wrap">
+  <a href="/Research-Articles/" class="back-link">&#8592; Back to all articles</a>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <a href="/Research-Articles/" class="footer-brand">Fawad Liaqat, Research</a>
+    <ul class="footer-links">
+      <li><a href="/Research-Articles/">Articles</a></li>
+      <li><a href="https://fawad-liaqat.netlify.app/">Portfolio</a></li>
+      <li><a href="https://github.com/fawad-liaqat/Research-Articles">Repository</a></li>
+    </ul>
+    <hr class="footer-rule">
+    <p class="footer-copy">&copy; 2026 Fawad Liaqat. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -12,7 +12,7 @@ Each article combines empirical research, real-world context, and practical impl
 
 - **[Tariff Cascades](articles/tariff-cascades/)** (archived, not updated since March 2026): How tariffs propagate through supply chains, amplifying economic friction beyond initial tariff rates.
 
-- **[Behavioral Last-Mile](articles/behavioral-last-mile/)** (updated November 2026): Why Pakistan's payment rails run ahead of its people: access first, then trust, incentives and design.
+- **[Behavioral Last-Mile](articles/behavioral-last-mile/)** (updated November 2026): Why Pakistan's payment rails run ahead of its people: access first, then trust, incentives and design. Includes a progress view from FY25 to FY26; the [FY25 edition](articles/behavioral-last-mile/fy25/) is kept online.
 
 - **[CBDC and Low Literacy](articles/cbdc-low-literacy/)** (updated November 2026): Designing digital currency systems for populations with limited financial literacy or digital access.
 
