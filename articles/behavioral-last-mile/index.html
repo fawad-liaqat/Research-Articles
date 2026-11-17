@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Behavioral Last Mile | Fawad Liaqat</title>
-  <meta name="description" content="Why 88% digital infrastructure produces 60% cash economies. An analysis of behavioral barriers to digital payment adoption in Pakistan.">
+  <meta name="description" content="Why Pakistan's payment rails run ahead of its people: access first, then trust, incentives and design. Updated November 2026 with SBP FY26 and Findex 2025 data.">
   <meta name="author" content="Fawad Liaqat">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -91,6 +91,7 @@
       .nav-links { display: none; }
       .article-body table { font-size: 0.78rem; }
     }
+    .cite { font-size: 0.85em; text-decoration: none; }
   </style>
 </head>
 <body>
@@ -107,915 +108,164 @@
 </nav>
 
 <div class="article-header">
-  <div class="header-inner">
-    <div class="article-topic">Behavioral Economics</div>
-    <h1 class="article-title">The Behavioral Last Mile: Why 88% Digital Infrastructure Produces 60% Cash Economies</h1>
-    <div class="article-meta">
-      <span>Fawad Liaqat</span>
-      <span>March 2026</span>
-      <span>~22 min read</span>
+      <div class="header-inner">
+        <div class="article-topic">Behavioral Economics</div>
+        <h1 class="article-title">The Behavioral Last Mile: Why Pakistan's Payment Rails Run Ahead of Its People</h1>
+        <div class="article-meta">
+          <span>Fawad Liaqat</span>
+          <span>First published March 2026</span>
+          <span>Last updated: November 2026</span>
+          <span>~18 min read</span>
+        </div>
+      </div>
+      <div class="abstract">
+        <div class="abstract-label">Abstract</div>
+        <p><strong>Background:</strong> In FY26 digital channels carried 92% of Pakistan's retail payments by count, and Raast moved 2,755 million transactions, more than twice the year before [<a class="cite" href="#ref-1">1, p. 7</a>; <a class="cite" href="#ref-1">1, p. 31</a>]. By value, though, only 38% of retail payments were digital [<a class="cite" href="#ref-1">1, p. 7</a>], and only 27% of adults had an account in the latest global survey [<a class="cite" href="#ref-2">2, p. 298</a>]. The rails are built. Most people are not on them.</p>
+        <p><strong>Methods:</strong> A comparative case study using the State Bank's Annual Payment Systems Review FY 2025-26, the World Bank's Global Findex 2025, press reports of the Karandaaz Financial Inclusion Survey 2024, and official releases on India's UPI. India and Kenya serve as comparison cases.</p>
+        <p><strong>Results:</strong> The first barrier is access: most adults have no account, and among those who do, about 90% already pay digitally [<a class="cite" href="#ref-2">2, p. 167</a>]. Behind access sit three barriers that shape how much people use the rail once they are on it: trust (9% of excluded adults trust banks [<a class="cite" href="#ref-3">3</a>]), incentives (merchant payments are 6.6% of Raast volume, my calculation from [<a class="cite" href="#ref-1">1, p. 31</a>]), and design and literacy (a 65 point gender gap in phone ownership [<a class="cite" href="#ref-2">2, p. 25</a>]).</p>
+        <p><strong>Conclusions:</strong> Five proposals, ordered access first, then use: target account opening among women and rural adults, publish and review merchant fees on small payments, build a basic phone route into Raast, pay agents for helping customers pay digitally, and set Urdu first design standards. These are proposals to test, not proven remedies.</p>
+        <div class="keywords"><strong>Keywords:</strong> digital payments, financial inclusion, behavioral economics, Pakistan, Raast, cash persistence, UPI, M-Pesa</div>
+      </div>
     </div>
-  </div>
 
-  <div class="abstract">
-    <div class="abstract-label">Abstract</div>
-    <p><strong>Background:</strong> Pakistan&#39;s digital payment infrastructure has achieved remarkable scale: 88% of retail transactions flow through digital channels by volume, Raast P2P transactions grew 8.7x in three years to 1.28 billion, and over one million merchants accept QR payments. Yet over 60% of economic activity remains cash-based, 98% of ATM transactions are cash withdrawals, and only 35% of adults are financially included. This paradox reveals a fundamental gap between supply-side infrastructure deployment and demand-side behavioral adoption.</p>
-    <p><strong>Methods:</strong> This study employs comparative case study methodology using publicly available quantitative data from the State Bank of Pakistan Annual Payment Systems Review FY25 and Karandaaz Financial Inclusion Survey 2024. Pakistan serves as the primary case, with India&#39;s UPI system and Kenya&#39;s M-Pesa analyzed at equivalent infrastructure deployment stages (year 5 of system launch) to isolate behavioral variables explaining divergent adoption outcomes.</p>
-    <p><strong>Results:</strong> The analysis identifies three compounding demand-side barriers that persist despite infrastructure deployment: trust deficit (only 9% of excluded adults trust banks, 8% trust mobile money), incentive misalignment (merchants face 1.5&#8211;2.5% discount fees that favor cash payment acceptance), and literacy friction (digital literacy lags smartphone penetration, particularly among women at 46% phone ownership vs. 82% for men, and in rural areas). These barriers compound multiplicatively rather than additively.</p>
-    <p><strong>Conclusions:</strong> Five specific, precedent-backed interventions targeting behavioral barriers are proposed: eliminating merchant discount rates for transactions below PKR 5,000, redesigning payment systems for feature phone access via USSD/IVR, deploying trust intermediaries (agents) with aligned incentives, creating tax incentives for documented digital spending, and mandating Urdu-first interface design standards for financial applications.</p>
-    <div class="keywords"><strong>Keywords:</strong> digital payments, financial inclusion, behavioral economics, Pakistan, Raast, cash persistence, UPI, M-Pesa</div>
-  </div>
-</div>
+    <div class="article-body">
+      <p><em>Update note, November 2026:</em> this article was first published in March 2026 on FY25 data. It now uses the State Bank's FY26 review and Findex 2025. The earlier version's headline claim that "60% of the economy is cash" had no source and has been removed, and its argument has shifted from behaviour first to access first. Earlier text remains in the repository history.</p>
 
-<div class="article-body">
-<section>
+      <section>
         <h2>1. Introduction</h2>
-
-        <p>
-          In fiscal year 2025, 88% of Pakistan's retail payment transactions
-          flowed through digital channels by volume (<a
-            href="https://www.sbp.org.pk/PS/PDF/Annual-Payment-Systems-Review-FY25.pdf"
-            target="_blank"
-            >State Bank of Pakistan, 2025</a
-          >). Raast, the country's instant payment system launched in January
-          2021, processed 1.28 billion peer-to-peer transactions, a 157%
-          increase over the previous year and an 8.7x increase from 147 million
-          in FY23 (<a
-            href="https://www.sbp.org.pk/PS/PDF/Annual-Payment-Systems-Review-FY25.pdf"
-            target="_blank"
-            >State Bank of Pakistan, 2025</a
-          >). Over one million merchants now accept QR code payments. Mobile
-          banking app transactions reached 6.2 billion, growing 52% year over
-          year. By any infrastructure metric, Pakistan's digital payment
-          ecosystem is scaling rapidly. The branchless banking agent network has
-          expanded to 731,814 agents. POS terminals exceed 195,000 units
-          deployed across merchants. Branchless banking mobile app users reached
-          79.2 million, representing a 35% increase from the previous year.
-        </p>
-
-        <p>
-          Yet the behavioral reality tells a fundamentally different story. Over
-          60% of economic activity remains cash-based, representing a dominant
-          economic transaction mode despite years of digital infrastructure
-          investment. Of the 20,341 ATMs operating across the country, 98% of
-          transactions are cash withdrawals (<a
-            href="https://www.sbp.org.pk/PS/PDF/Annual-Payment-Systems-Review-FY25.pdf"
-            target="_blank"
-            >State Bank of Pakistan, 2025</a
-          >). This statistic is particularly revealing: even individuals who
-          have overcome institutional distrust sufficiently to maintain bank
-          accounts and possess debit cards still choose to convert their digital
-          money to physical cash before engaging in economic activity. Financial
-          inclusion stands at 35% of adults, up from 8% in 2013 but still among
-          the lowest in South Asia (<a
-            href="https://portal.karandaaz.com.pk"
-            target="_blank"
-            >Karandaaz, 2025</a
-          >). An estimated 54 million bank deposit accounts hold balances below
-          PKR 5,000, suggesting they are functionally dormant and represent
-          passive rather than active financial participation.
-        </p>
-
-        <p>
-          This paper addresses the fundamental gap between these two realities.
-          The core research question is direct:
-          <em
-            >why does a country with 88% digital transaction volume by channel
-            share still operate as a predominantly cash economy?</em
-          >
-          The answer, this paper argues, lies not in infrastructure deficiency;
-          the infrastructure exists, is deployed, and processes substantial
-          transaction volume but in what we term the
-          <strong>"behavioral last mile,"</strong> the compounding demand-side
-          barriers that persist after infrastructure is in place and
-          operational.
-        </p>
-
-        <p>
-          Most academic and policy literature on digital payment adoption
-          focuses on the supply side: building payment rails, deploying
-          terminals, licensing wallets, establishing regulatory frameworks
-          (Demirguc-Kunt et al., 2022). The demand side; the behavioral,
-          institutional, and structural reasons people choose not to use
-          infrastructure that exists receives far less systematic analysis in
-          the literature. Pakistan is the ideal case study because the paradox
-          is quantified with precision, the data is publicly available from
-          credible regulatory and research sources, and the tension between
-          infrastructure success and behavioral stasis is acute and measurable.
-        </p>
-
-        <p>
-          The analysis is structured around three compounding layers of the
-          behavioral last mile:
-          <strong>trust deficit, incentive misalignment,</strong> and
-          <strong>literacy friction.</strong> Each layer is examined with
-          Pakistan-specific evidence and compared against India (UPI) and Kenya
-          (M-Pesa) at equivalent infrastructure stages. The paper concludes with
-          five specific interventions derived from the comparative analysis,
-          each with implementation guidance and precedent from comparable
-          markets.
-        </p>
+        <p>Pakistan's retail payments reached 14.3 billion transactions worth PKR 673 trillion in FY26 (July 2025 to June 2026). Digital channels carried more than 92% of them by count, up from 88% in FY25 and 85% in FY24 [<a class="cite" href="#ref-1">1, p. 7</a>]. Raast, the State Bank's instant payment system, launched its first phase in January 2021 [<a class="cite" href="#ref-11">11</a>]. In FY26 it moved 2,755.2 million transactions worth PKR 80.1 trillion, against 1,276.0 million in FY25 [<a class="cite" href="#ref-1">1, p. 31</a>]. QR enabled merchants rose from 1.1 million to 3.8 million in a year under a subsidy within the Prime Minister's Cashless Pakistan Initiative [<a class="cite" href="#ref-1">1, p. 7</a>].</p>
+        <p>The other side of the picture is just as clear. By value, the digital share was 38% [<a class="cite" href="#ref-1">1, p. 7</a>]. About PKR 415.7 trillion of PKR 672.7 trillion still moved over the counter at branches and agents, roughly 62% (my calculation) [<a class="cite" href="#ref-1">1, p. 9</a>]. Of 1,091 million ATM transactions, 1,064 million were cash withdrawals, or 97.6% (my calculation) [<a class="cite" href="#ref-1">1, p. 26</a>]. And only 27% of adults have an account; 25% made or received a digital payment [<a class="cite" href="#ref-2">2, p. 298</a>]. Pakistan's own survey puts inclusion higher, at 35% in 2024 [<a class="cite" href="#ref-3">3</a>]. The two surveys use different samples and definitions; I use Findex for comparisons across countries.</p>
+        <p>The question is why a country where nine in ten retail payments are digital by count still runs much of its economy in cash. The first version of this article answered with behaviour: trust, incentives and literacy among people who could use the system but do not. The newer data points to a prior step. Findex reports that about 90% of Pakistani account owners already make or receive digital payments, on a base of very few account owners [<a class="cite" href="#ref-2">2, p. 167</a>]. So the first barrier is access. Behaviour matters once people are on the rail. I call the whole set of barriers the behavioral last mile.</p>
       </section>
-
       <hr />
 
       <section>
         <h2>2. Literature Review</h2>
-
-        <p>
-          The literature on digital payment adoption in developing economies
-          clusters around two broad themes: infrastructure deployment as a
-          driver of financial inclusion, and behavioral barriers to adoption.
-          The gap lies in their intersection; what happens when infrastructure
-          is deployed at scale but adoption stalls at inadequate levels.
-        </p>
-
-        <p>
-          On the supply side, the World Bank's
-          <a
-            href="https://www.worldbank.org/en/publication/globalfindex"
-            target="_blank"
-            >Global Findex database</a
-          >
-          has documented the link between account ownership and infrastructure
-          availability across six survey waves since 2011 (Demirguc-Kunt et al.,
-          2022). The consensus finding is robust and consistent across contexts:
-          infrastructure availability is necessary but not sufficient for
-          meaningful adoption. Account ownership reached 79% globally by 2025,
-          yet usage patterns vary enormously across comparable economies with
-          similar infrastructure levels. This variance points to demand-side
-          rather than supply-side explanations for adoption divergence.
-        </p>
-
-        <p>
-          The Technology Acceptance Model (TAM), introduced by
-          <a
-            href="https://misq.umn.edu/misq/article-abstract/13/3/319/191/Perceived-Usefulness-Perceived-Ease-of-Use-and"
-            target="_blank"
-            >Davis (1989)</a
-          >, provides the foundational theoretical lens for understanding
-          digital service adoption. TAM posits that adoption depends on two
-          primary factors: <em>perceived usefulness</em> (belief that the system
-          enhances job or life performance) and
-          <em>perceived ease of use</em> (belief that the system is
-          user-friendly). Subsequent extensions incorporate trust as a critical
-          mediating variable, particularly relevant in contexts where
-          institutional credibility is low (<a
-            href="https://aisel.aisnet.org/misq/vol27/iss1/4/"
-            target="_blank"
-            >Gefen et al., 2003</a
-          >). In Pakistan's context, trust is not merely a mediating variable;
-          it is a primary structural barrier to adoption.
-        </p>
-
-        <p>
-          <a
-            href="https://www.econometricsociety.org/publications/econometrica/1979/03/01/prospect-theory-analysis-decision-under-risk"
-            target="_blank"
-            >Kahneman and Tversky's (1979) prospect theory</a
-          >
-          provides the lens for understanding why cash persistence persists
-          despite digital infrastructure. Prospect theory demonstrates that
-          individuals weight losses more heavily than equivalent gains—a loss of
-          cash (handing money to a merchant) feels more significant than the
-          gain of convenience (digital transaction). This loss aversion bias
-          explains why many individuals, even when digital infrastructure is
-          available, continue to default to the cognitive and behavioral
-          patterns that feel less risky.
-        </p>
-
-        <p>
-          <a
-            href="https://openlibrary.org/books/OL15577453M/Diffusion_of_innovations"
-            target="_blank"
-            >Rogers's (2003) diffusion of innovations framework</a
-          >
-          explains why technology adoption is not automatic upon deployment. The
-          diffusion process depends on five factors: relative advantage,
-          compatibility, complexity, trialability, and observability. In
-          Pakistan's payment ecosystem, digital systems score well on relative
-          advantage (speed, security) and trialability (low cost to experiment),
-          but poorly on compatibility (conflicting with existing cash-based
-          workflows) and observability (users cannot easily see transaction
-          status or validate that digital payment actually occurred without
-          digital confirmation literacy).
-        </p>
+        <p>Findex has tracked account ownership since 2011. Worldwide, 79% of adults had an account in 2024, up from 74% in 2021 [<a class="cite" href="#ref-2">2, p. xxi</a>]. Access and use are not the same thing: India has 89% account ownership but 48% digital payment use [<a class="cite" href="#ref-2">2, p. 297</a>].</p>
+        <p>The Technology Acceptance Model holds that people adopt a system they find useful and easy to use [<a class="cite" href="#ref-12">12</a>]. Later work adds trust as a key factor where institutions are not trusted [<a class="cite" href="#ref-13">13</a>]. Prospect theory explains why a familiar option such as cash can feel safer than a new one, because losses weigh more than equal gains [<a class="cite" href="#ref-14">14</a>]. Diffusion of innovations stresses compatibility with existing habits and how visible the benefits are [<a class="cite" href="#ref-15">15</a>]. Zucker's work on institutional trust explains why trust in a known person can stand in for trust in an institution [<a class="cite" href="#ref-16">16</a>]. These are lenses, not evidence about Pakistan.</p>
       </section>
-
       <hr />
 
       <section>
         <h2>3. Methodology and Data Sources</h2>
-
-        <p>
-          This study employs comparative case study methodology to isolate
-          behavioral variables from infrastructure variables. Pakistan is the
-          primary case, examined through quantitative data from two
-          authoritative sources:
-        </p>
-
-        <ul style="margin: 20px 0 20px 30px; line-height: 1.8">
-          <li>
-            <strong>State Bank of Pakistan (2025):</strong>
-            <a
-              href="https://www.sbp.org.pk/PS/PDF/Annual-Payment-Systems-Review-FY25.pdf"
-              target="_blank"
-              >Annual Payment Systems Review FY25</a
-            >
-            (verified data on transaction volumes, merchant networks, agent
-            counts, and channel shares)
-          </li>
-          <li>
-            <strong>Karandaaz Pakistan (2025):</strong>
-            <a href="https://portal.karandaaz.com.pk" target="_blank"
-              >Pakistan Financial Inclusion Survey (K-FIS) 2024</a
-            >
-            (demand-side survey data on trust, literacy, financial inclusion,
-            and demographic patterns)
-          </li>
-        </ul>
-
-        <p>
-          Comparison cases are analyzed at equivalent infrastructure stages.
-          India's Unified Payment Interface (UPI) launched in April 2016; by
-          April 2021 (year 5), it processed 8.7 billion transactions and reached
-          62% digital payment adoption among urban populations (<a
-            href="https://www.npci.org.in/what-we-do/upi/upi-ecosystem-statistics"
-            target="_blank"
-            >NPCI, 2025</a
-          >). Kenya's M-Pesa launched in March 2007; by March 2012 (year 5), it
-          reached 42% adult mobile money adoption and had 40,000+ agents (<a
-            href="https://www.centralbank.go.ke/uploads/550643262_2012%20Annual%20Report.pdf"
-            target="_blank"
-            >Central Bank of Kenya, 2012</a
-          >;
-          <a
-            href="https://www.aeaweb.org/articles?id=10.1257/aer.104.1.183"
-            target="_blank"
-            >Jack & Suri, 2014</a
-          >).
-        </p>
-
-        <p>
-          Pakistan's Raast launched in January 2021; by January 2026 (year 5),
-          it processed 1.28 billion transactions with 88% digital channel share
-          by volume, yet financial inclusion remains at 35%, the lowest of the
-          three cases at equivalent stages. This comparison isolates behavioral
-          adoption as the dependent variable while holding infrastructure
-          deployment constant.
-        </p>
-
-        <p>
-          All quantitative claims in this paper are cross-referenced against
-          original source documents. No data has been estimated, inferred, or
-          extrapolated. All figures are derived from official regulatory
-          publications.
-        </p>
+        <p>Pakistan is the main case. Payment data comes from the State Bank's Annual Payment Systems Review FY 2025-26, whose FY26 figures are provisional [<a class="cite" href="#ref-1">1</a>]. Account and usage data come from Findex 2025 [<a class="cite" href="#ref-2">2</a>]. Trust and gender figures from the Karandaaz survey are taken from two press reports, because I did not read the survey report itself [<a class="cite" href="#ref-3">3</a>; <a class="cite" href="#ref-4">4</a>].</p>
+        <p>India and Kenya are comparison cases. Their systems are at different ages and their fiscal years differ from Pakistan's, so the comparison is about scale and reach, not a controlled experiment. Figures I calculated are marked "my calculation" with their inputs. Page numbers are the printed pages of each document.</p>
       </section>
-
       <hr />
 
       <section>
         <h2>4. Pakistan's Digital Payment Landscape</h2>
+        <p>Raast grew from 147.2 million transactions worth PKR 3.1 trillion in FY23 to 2,755.2 million worth PKR 80.1 trillion in FY26 [<a class="cite" href="#ref-1">1, p. 31</a>]. Person to person payments were 2,537.2 million of the FY26 total, and person to merchant payments rose from 4.9 million to 182.5 million [<a class="cite" href="#ref-1">1, p. 31</a>]. By June 2026 there were 49.2 million registered Raast P2P IDs and 3.6 million merchants on Raast's merchant alias [<a class="cite" href="#ref-1">1, p. 11</a>].</p>
+        <p>Around Raast, the network grew too. Branchless banking agents rose from 731,814 to 837,244; POS devices from 227,388 to 337,791, largely through Soft POS; mobile banking users from 24.1 million to 30.4 million; and branchless banking app users from 79.2 million to 99.1 million [<a class="cite" href="#ref-1">1, p. 15</a>; <a class="cite" href="#ref-1">1, p. 24</a>]. Mobile phone channels together carried 11.1 billion transactions, up 79% [<a class="cite" href="#ref-1">1, p. 7</a>].</p>
+        <p>Count and value tell different stories. Mobile phone channels carried 78% of retail transactions by count but 23% of value, which the State Bank attributes to their low value, high frequency nature [<a class="cite" href="#ref-1">1, p. 16</a>]. Digital payments carry many small transactions. Larger payments still move mostly over the counter.</p>
+        <p>Merchant use is thin. Account based merchant payments were 13.0% of retail payments [<a class="cite" href="#ref-1">1, p. 19</a>], and person to merchant payments were 6.6% of Raast volume (my calculation) [<a class="cite" href="#ref-1">1, p. 31</a>]. The State Bank reports 297 million QR and till payments against 3.8 million QR merchants [<a class="cite" href="#ref-1">1, p. 10</a>], about 77 per merchant per year (my calculation). Many merchants joined partway through the year, so the rate for active merchants is higher.</p>
 
-        <p>
-          Pakistan's payment infrastructure has transformed dramatically in five
-          years. Raast, launched in January 2021 as the country's first instant
-          payment system, processed 1,276 million peer-to-peer transactions
-          worth PKR 29.6 trillion in FY25, compared to 147.2 million
-          transactions worth PKR 3.1 trillion in FY23 (<a
-            href="https://www.sbp.org.pk/PS/PDF/Annual-Payment-Systems-Review-FY25.pdf"
-            target="_blank"
-            >State Bank of Pakistan, 2025</a
-          >). This represents 8.7x growth in transaction volume over two years.
-          The branchless banking agent network expanded to 731,814 agents,
-          providing physical access points for account holders throughout the
-          country. POS terminals reached 195,849 across 159,284 merchants, a 56%
-          increase from the prior year. QR-enabled merchants doubled from
-          516,317 to 1,092,004. Mobile banking app users grew from 18.7 million
-          to 24.1 million. Branchless banking mobile app users reached 79.2
-          million, up from 58.7 million, representing 35% growth.
-        </p>
-
-        <p>
-          The digital share of retail transactions climbed steadily from 78% in
-          FY23 to 85% in FY24 to 88% in FY25 by transaction volume (<a
-            href="https://www.sbp.org.pk/PS/PDF/Annual-Payment-Systems-Review-FY25.pdf"
-            target="_blank"
-            >State Bank of Pakistan, 2025</a
-          >). Total retail payment transactions reached 9.1 billion annually,
-          valued at PKR 612 trillion cumulatively. Mobile banking applications
-          alone processed 6.2 billion transactions, growing 52% year over year,
-          representing the fastest-growing transaction channel.
-        </p>
-
-        <p>
-          These numbers unambiguously establish that infrastructure is not the
-          bottleneck in Pakistan's payment ecosystem. The rails exist. The
-          merchants are onboarded. The apps are downloaded and actively used.
-          The question is therefore not why infrastructure is absent but why
-          this infrastructure produces a cash-dominant economy rather than a
-          digitally transacting one.
-        </p>
-
-        <p>
-          The answer begins with a critical distinction that headline numbers
-          obscure: the 88% digital share is by transaction volume, not by
-          transaction value. By value, the digital share is approximately 29%
-          (<a
-            href="https://www.sbp.org.pk/psd/pdf/PS-Review-Q2FY25.pdf"
-            target="_blank"
-            >State Bank of Pakistan Q2 FY25 quarterly data</a
-          >). High-volume, low-value digital transactions (peer-to-peer
-          transfers, airtime top-ups, utility bill payments) inflate the volume
-          share while cash continues to dominate high-value economic activity
-          (retail commerce, wholesale trade, real estate transactions, informal
-          market transactions). The 98% ATM cash withdrawal rate confirms this
-          pattern: people use digital channels for transfers and bill payments
-          but withdraw cash for actual spending. This reveals that digital
-          infrastructure carries small-value, low-friction transactions while
-          cash carries the economically significant transactions.
-        </p>
-
-        <p
-          style="
-            text-align: center;
-            font-size: 0.92em;
-            color: #555;
-            margin-top: 30px;
-          "
-        >
-          <strong
-            >Table 1. Infrastructure Comparison at Year 5 of System
-            Launch</strong
-          >
-        </p>
-
+        <p style="text-align: center; font-size: 0.92em; color: #555; margin-top: 30px;"><strong>Table 1. Access and use in Pakistan, India and Kenya, Findex 2025 (survey year 2024), share of adults</strong></p>
         <table>
           <thead>
-            <tr>
-              <th>Metric</th>
-              <th>Pakistan (Year 5)</th>
-              <th>India (Year 5)</th>
-              <th>Kenya (Year 5)</th>
-            </tr>
+            <tr><th>Indicator</th><th>Pakistan</th><th>India</th><th>Kenya</th></tr>
           </thead>
           <tbody>
-            <tr>
-              <td>System Launch</td>
-              <td>Jan 2021 (Raast)</td>
-              <td>Apr 2016 (UPI)</td>
-              <td>Mar 2007 (M-Pesa)</td>
-            </tr>
-            <tr>
-              <td>Adult Financial Inclusion</td>
-              <td>35%</td>
-              <td>77.5%</td>
-              <td>82%</td>
-            </tr>
-            <tr>
-              <td>Account Ownership</td>
-              <td>35%</td>
-              <td>77.5%</td>
-              <td>82%</td>
-            </tr>
-            <tr>
-              <td>Digital Payment Adoption</td>
-              <td>30%</td>
-              <td>35%</td>
-              <td>76%</td>
-            </tr>
-            <tr>
-              <td>Mobile Money/Payment Account</td>
-              <td>30%</td>
-              <td>35%</td>
-              <td>73%</td>
-            </tr>
-            <tr>
-              <td>Trust in Financial Institutions</td>
-              <td>9% (excluded)</td>
-              <td>Higher baseline</td>
-              <td>Community-based</td>
-            </tr>
-            <tr>
-              <td>Retail Digital Transaction Share</td>
-              <td>88% (volume)</td>
-              <td>84.8% (volume)</td>
-              <td>Merchant-driven</td>
-            </tr>
-            <tr>
-              <td>Formal Savings Rate</td>
-              <td>Not available</td>
-              <td>12%</td>
-              <td>27%</td>
-            </tr>
-            <tr>
-              <td>Agent/Access Network</td>
-              <td>731,814</td>
-              <td>Banking system</td>
-              <td>40,000+ agents</td>
-            </tr>
+            <tr><td>Has an account</td><td>27%</td><td>89%</td><td>90%</td></tr>
+            <tr><td>Made or received a digital payment</td><td>25%</td><td>48%</td><td>89%</td></tr>
+            <tr><td>Saved formally</td><td>13%</td><td>27%</td><td>54%</td></tr>
+            <tr><td>Owns a mobile phone</td><td>63%</td><td>66%</td><td>93%</td></tr>
+          </tbody>
+        </table>
+        <p style="font-size: 0.85em; color: #555;">Source: World Bank, Global Findex Database 2025, Table B.1 [<a class="cite" href="#ref-2">2, p. 297</a>; <a class="cite" href="#ref-2">2, p. 298</a>].</p>
+
+        <p style="text-align: center; font-size: 0.92em; color: #555; margin-top: 30px;"><strong>Table 2. Scale of each payment system, latest year available</strong></p>
+        <table>
+          <thead>
+            <tr><th>Metric</th><th>Pakistan (Raast)</th><th>India (UPI)</th><th>Kenya (M-Pesa)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Annual transactions</td><td>2.76 billion (FY26, July to June)</td><td>241.6 billion (FY 2025-26, April to March)</td><td>46.4 billion (year to March 2026)</td></tr>
+            <tr><td>Source</td><td>[<a class="cite" href="#ref-1">1, p. 31</a>]</td><td>[<a class="cite" href="#ref-6">6</a>]</td><td>[<a class="cite" href="#ref-10">10</a>], press report</td></tr>
           </tbody>
         </table>
       </section>
-
       <hr />
 
       <section>
-        <h2>5. Layer 1: Trust Deficit</h2>
-
-        <p>
-          The Karandaaz K-FIS 2024 provides the most granular trust data
-          available for Pakistan's financial services sector. Among adults
-          excluded from the formal financial system, only 9% trust banks and 8%
-          trust mobile money providers (<a
-            href="https://portal.karandaaz.com.pk"
-            target="_blank"
-            >Karandaaz, 2025</a
-          >). Only 36% of all adults report comfort using any financial service.
-          These figures are not marginal variations in a generally trusting
-          population; they describe a population-level trust deficit affecting
-          approximately two-thirds of the adult population.
-        </p>
-
-        <p>
-          The roots of this distrust are structural and historically grounded.
-          Pakistan's banking sector has historically served an urban, affluent
-          minority. Branch networks concentrate in cities and metropolitan
-          areas, leaving rural areas underserved. Account opening procedures
-          require documentation (national identity cards, proof of address, tax
-          identification) that many informal workers and rural populations lack.
-          The 2008 banking crisis and periodic currency controls reinforced the
-          perception that formal financial institutions are unreliable
-          custodians of money. For the 85% of excluded adults who rely on family
-          and friends for credit (<a
-            href="https://portal.karandaaz.com.pk"
-            target="_blank"
-            >Karandaaz, 2025</a
-          >), the informal system is not a fallback option—it is the primary
-          system, and it functions on trust relationships built through repeated
-          interaction and social obligation that formal institutions cannot
-          replicate in short timeframes.
-        </p>
-
-        <p>
-          Cash transactions offer anonymity and immediacy. For the estimated 40%
-          of Pakistan's GDP that operates in the informal economy, digital
-          transactions create a permanent record trail that many small business
-          owners perceive as tax exposure risk. This perception is not
-          irrational behavior or unfounded fear; it is a rational response to an
-          incentive structure where formalization carries direct costs
-          (documentation burdens, taxation obligations, compliance requirements)
-          without proportionate benefits for small operators. Formalizing means
-          higher tax liability without corresponding increase in customer
-          demand, quality of service, or market opportunity.
-        </p>
-
-        <p>
-          The comparison with Kenya is instructive and illuminating. M-Pesa's
-          adoption in Kenya overcame significant institutional distrust through
-          a specific mechanism: the agent network. M-Pesa agents were existing
-          shopkeepers embedded in local trust networks (<a
-            href="https://www.aeaweb.org/articles?id=10.1257/aer.104.1.183"
-            target="_blank"
-            >Jack & Suri, 2014</a
-          >), individuals who had already established community trust through
-          years of business operation. Users did not need to trust Safaricom
-          (the telecom provider) or the banking system; they trusted the person
-          behind the counter whom they had known for years. By 2012, five years
-          after launch, Kenya had developed over 40,000 M-Pesa agents, and 42%
-          of adults held mobile money accounts (<a
-            href="https://www.worldbank.org/en/publication/globalfindex/download-data"
-            target="_blank"
-            >World Bank Findex, 2011</a
-          >). Trust was not built through institution-building but through
-          leveraging existing social institutions.
-        </p>
-
-        <p>
-          Pakistan's branchless banking agent network is numerically larger than
-          Kenya's (731,814 agents by FY25 vs. Kenya's peak of 40,000), but it
-          serves a population roughly four times Kenya's size, giving
-          substantially lower per-capita agent density. More importantly, the
-          agent network primarily facilitates cash-in/cash-out transactions
-          (converting digital money back to physical cash), not digital payment
-          facilitation. Agents are access points for the cash economy, not
-          bridges to the digital one. Raast, meanwhile, is entirely app-based.
-          It requires a smartphone, an internet connection, and a bank
-          account;all of which presuppose a level of institutional engagement
-          and technological comfort that the trust-deficit population does not
-          possess.
-        </p>
+        <h2>5. Layer 0: Access</h2>
+        <p>Before trust, incentives or design can matter, a person needs an account and a way to reach it. Only 27% of Pakistani adults have one [<a class="cite" href="#ref-2">2, p. 298</a>]. The gender gap in account ownership is 30 percentage points, four or more times the global gap [<a class="cite" href="#ref-2">2, p. 98</a>]. The Karandaaz survey reports 56% of men and 14% of women financially included [<a class="cite" href="#ref-3">3</a>; <a class="cite" href="#ref-4">4</a>].</p>
+        <p>Phones are part of access. Pakistan has a 65 point gap between men and women in mobile phone ownership [<a class="cite" href="#ref-2">2, p. 25</a>]. Among Pakistani women without a phone, 40% name family disapproval as a reason; no men do [<a class="cite" href="#ref-2">2, p. 32</a>]. These are not problems a better app can fix on its own.</p>
+        <p>This is where India's experience is a caution rather than a model. India reached 89% account ownership, but only 48% of adults pay digitally [<a class="cite" href="#ref-2">2, p. 297</a>]. Pakistan has the opposite pattern: few accounts, but most account owners use them for digital payments [<a class="cite" href="#ref-2">2, p. 167</a>].</p>
       </section>
-
       <hr />
 
       <section>
-        <h2>6. Layer 2: Incentive Misalignment</h2>
-
-        <p>
-          Even among individuals who have overcome the trust barrier
-          sufficiently to maintain bank accounts and smartphone access, a second
-          barrier emerges: merchants face economic disincentives to accept
-          digital payments. Pakistan's payment ecosystem imposes a Merchant
-          Discount Rate (MDR); a fee charged to the merchant for accepting
-          digital payments—that ranges from 1.5% to 2.5% depending on
-          transaction channel, merchant category, and payment instrument. This
-          means that a shopkeeper accepting a digital payment of PKR 1,000
-          receives only PKR 975–985, while a cash transaction carries zero fee.
-          Over a year of thousands of transactions, this differential compounds
-          into substantial lost revenue.
-        </p>
-
-        <p>
-          For small merchants (the backbone of Pakistan's retail economy), this
-          fee structure creates a structural barrier to digital payment
-          acceptance. A shopkeeper with monthly sales of PKR 2 million paying 2%
-          MDR incurs annual costs of PKR 480,000 (approximately USD 1,700)
-          simply to accept digital payments. This cost is not offset by
-          equivalent benefits: digital payment acceptance does not increase
-          customer demand, does not command price premiums, and does not reduce
-          operational costs for small businesses that lack the scale for POS
-          efficiency. The merchant therefore rationally defaults to cash and
-          relies on customers to bring cash to the transaction.
-        </p>
-
-        <p>
-          India's
-          <a
-            href="https://www.rbi.org.in/commonman/English/scripts/Notification.aspx"
-            target="_blank"
-            >Reserve Bank of India implemented zero MDR for UPI and RuPay debit
-            card transactions in December 2019</a
-          >, effective January 1, 2020. The policy applied zero fees to
-          merchants accepting RuPay and UPI payments, eliminating the cost
-          barrier entirely. The results were immediate: UPI transactions jumped
-          from 8.7 billion in 2019 to 228.3 billion in 2025, a 26-fold increase
-          (<a
-            href="https://www.npci.org.in/what-we-do/upi/upi-ecosystem-statistics"
-            target="_blank"
-            >NPCI, 2025</a
-          >). Pakistan's Raast operates under the standard MDR framework. No
-          comparable zero-fee policy has been implemented for Raast merchants.
-        </p>
-
-        <p>
-          This incentive structure cascades through the payment ecosystem.
-          Merchants who do not accept digital payments—the majority of
-          Pakistan's informal retail sector—have no incentive to educate
-          customers about digital payment options. Customers who find that most
-          merchants only accept cash have no incentive to attempt digital
-          payment. The network effect that enabled India's dramatic UPI scaling
-          does not emerge in Pakistan because the merchant incentive structure
-          is fundamentally misaligned with digital adoption.
-        </p>
+        <h2>6. Layer 1: Trust</h2>
+        <p>In the Karandaaz survey for 2024, as reported in the press, only 9% of excluded adults said they trust banks and 8% trust mobile money providers. Just 36% of adults feel comfortable using any financial service, and 85% rely on informal sources, mainly family and friends, for credit [<a class="cite" href="#ref-3">3</a>].</p>
+        <p>Informal credit runs on relationships built over years. Trust theory suggests that trust in a known person can substitute for trust in an institution [<a class="cite" href="#ref-16">16</a>]. Kenya's M-Pesa is often described as having grown this way, through shopkeepers who acted as agents [<a class="cite" href="#ref-17">17</a>]. I have not re-checked the history of Kenya's agent network against a primary source for this update, so I treat it as context, not evidence.</p>
+        <p>Pakistan has 837,244 branchless banking agents [<a class="cite" href="#ref-1">1, p. 24</a>]. Of the PKR 3.7 trillion they handled in FY26 [<a class="cite" href="#ref-1">1, p. 26</a>], about PKR 1.0 trillion was cash deposits and withdrawals [<a class="cite" href="#ref-1">1, p. 11</a>], roughly a quarter (my calculation). Whether agents could become the trusted bridge to Raast, which is reached through apps, is an open question.</p>
       </section>
-
       <hr />
 
       <section>
-        <h2>7. Layer 3: Literacy Friction</h2>
-
-        <p>
-          The third compounding barrier is digital and financial literacy
-          friction. Pakistan's smartphone penetration (45% of adults) outpaces
-          digital payment adoption (30%), indicating that device availability is
-          not the binding constraint. However, gender and rural disparities are
-          acute. Among women, smartphone ownership is only 46%, compared to 82%
-          for men (<a href="https://portal.karandaaz.com.pk" target="_blank"
-            >Karandaaz, 2025</a
-          >). In rural areas, smartphone penetration drops below 35%. Digital
-          literacy (the ability to navigate digital payment applications,
-          understand security practices, validate transaction confirmation) lags
-          far behind device ownership.
-        </p>
-
-        <p>
-          Most digital payment applications in Pakistan are designed in English,
-          despite English literacy in rural areas being below 15%. Urdu language
-          support is available in many applications but relegated to secondary
-          status in user interface design. For users who have not interacted
-          with digital systems regularly, the cognitive load of navigation
-          compounds with language barriers to create friction that cash
-          transactions do not require. Cash requires only the ability to count
-          currency and recognize denominations—skills that are
-          context-independent and acquired early in childhood.
-        </p>
-
-        <p>
-          The agent network in Pakistan is underdeveloped for digital payment
-          education. Unlike Kenya's M-Pesa agents, who actively facilitate
-          transactions and explain the system to users, Pakistan's branchless
-          banking agents are primarily cash-handling points. They are not
-          incentivized or trained to educate customers about digital payment
-          functionality. The result is that despite 731,814 agent touchpoints,
-          the literacy transfer mechanism that was critical to M-Pesa adoption
-          is absent.
-        </p>
-
-        <p>
-          Feature phone users (individuals with devices but without smartphones)
-          are excluded entirely from digital payment participation in Pakistan.
-          Raast and most digital payment systems require either a smartphone app
-          or internet-enabled device.
-          <a
-            href="https://www.npci.org.in/what-we-do/upi/upi-ecosystem-statistics"
-            target="_blank"
-            >India's UPI ecosystem includes USSD-based payment options</a
-          >
-          that allow feature phone users to participate in digital payments
-          through simple text-based interface commands. Pakistan has not
-          implemented equivalent feature-phone access mechanisms, effectively
-          creating a digital divide between smartphone owners and the broader
-          population.
-        </p>
+        <h2>7. Layer 2: Incentives</h2>
+        <p>Merchants who accept cards pay a merchant discount rate, and digital payments leave a record. Cash has neither. The first version of this article quoted an MDR range of 1.5% to 2.5% and a worked cost example. I could not find a published source for that range, so both are removed. What the data does show is that incentives move merchants: QR merchants more than tripled within a year once a subsidy arrived [<a class="cite" href="#ref-1">1, p. 7</a>], and Raast merchant payments rose from 4.9 million to 182.5 million [<a class="cite" href="#ref-1">1, p. 31</a>]. Use per merchant is still low (Section 4).</p>
+        <p>India made UPI and RuPay payments free of merchant discount rate from 1 January 2020 [<a class="cite" href="#ref-8">8</a>]. The first version said this applied below Rs 2,000 from 2019; that was wrong. UPI volume rose from about 46.0 billion transactions in FY 2021-22 to 241.6 billion in FY 2025-26 [<a class="cite" href="#ref-6">6</a>], and merchant payments are now 63% of UPI volume [<a class="cite" href="#ref-7">7</a>]. Many policies changed over those years, so this does not isolate the effect of zero MDR.</p>
       </section>
-
       <hr />
 
       <section>
-        <h2>8. Conclusions and Policy Interventions</h2>
+        <h2>8. Layer 3: Design and Literacy</h2>
+        <p>Pakistan's 2023 census puts literacy at 68.00% for men and 52.84% for women, and 41.67% for rural women [<a class="cite" href="#ref-5">5</a>]. In the Karandaaz survey, self rated digital ability scored 65 for men and 48 for women [<a class="cite" href="#ref-4">4</a>]. Findex reports difficulty reading or typing as a common reason for not owning a phone in South Asia [<a class="cite" href="#ref-2">2, p. 32</a>].</p>
+        <p>Raast is reached through bank and wallet apps. For people with a basic phone, low literacy or limited English, that means more steps than cash. This is a hypothesis; I have not measured it. Pakistan does have 46.1 million registered call centre and IVR banking users [<a class="cite" href="#ref-1">1, p. 9</a>], so voice channels are familiar to banks. India launched UPI123Pay in 2022 so that feature phone users could make UPI payments [<a class="cite" href="#ref-9">9</a>].</p>
+        <p>Literacy is one enabler among several. The family disapproval finding in Section 5 shows that some barriers sit outside the person's own skills.</p>
+      </section>
+      <hr />
 
-        <p>
-          This analysis identifies that Pakistan's cash persistence is not
-          attributable to infrastructure deficiency but to three compounding
-          demand-side barriers: trust deficit, incentive misalignment, and
-          literacy friction. These barriers are not independent variables; they
-          compound multiplicatively. An individual who distrusts banks has no
-          incentive to overcome literacy friction to use digital payments. A
-          merchant who perceives digital payment fees erodes profitability has
-          no incentive to promote digital payment adoption to customers. A
-          customer who finds few merchants accept digital payments has no
-          incentive to invest in digital literacy.
-        </p>
-
-        <p>
-          The evidence from comparative cases—India's zero MDR policy and
-          Kenya's agent-based trust architecture demonstrates that targeted
-          behavioral policy interventions can accelerate adoption dramatically
-          without requiring additional infrastructure investment. Both
-          interventions worked within existing infrastructure, modifying
-          incentive structures or leveraging social trust mechanisms to remove
-          behavioral barriers.
-        </p>
-
-        <p>
-          Five specific interventions are proposed for Pakistan, each with
-          precedent from comparable markets:
-        </p>
-
+      <section>
+        <h2>9. Conclusions and Proposals</h2>
+        <p>Pakistan's payment rail is growing fast and is not the bottleneck. The binding constraint is access: most adults have no account, and the gap between men and women is wide. Trust, incentives and design then decide how much people use the rail once they are on it. These layers interact, but I have no data to show that they "multiply", as the first version claimed.</p>
+        <p>Five proposals follow, ordered access first, then use. Each is a proposal to test, not a proven remedy.</p>
         <ol style="margin: 20px 0 20px 30px; line-height: 1.8">
-          <li>
-            <strong
-              >Eliminate merchant discount rates for transactions below PKR
-              5,000.</strong
-            >
-            Precedent: India's zero MDR policy. Implementation: State Bank of
-            Pakistan policy mandate requiring acquirers to subsidize MDR for
-            small-value transactions, with government fiscal compensation if
-            necessary. Expected outcome: Dramatically increase merchant
-            incentive to accept digital payments for daily commerce
-            transactions.
-          </li>
-
-          <li>
-            <strong
-              >Redesign Raast and payment system architecture to support feature
-              phone access via USSD/IVR.</strong
-            >
-            Precedent: UPI USSD implementation in India. Implementation: Develop
-            text-based command interface for feature phone users (approximately
-            40% of population remains feature-phone dependent). Expected
-            outcome: Extend digital payment participation to individuals without
-            smartphone access, reducing digital divide.
-          </li>
-
-          <li>
-            <strong
-              >Deploy trust intermediaries with aligned incentives for digital
-              facilitation.</strong
-            >
-            Precedent: M-Pesa agent network architecture. Implementation:
-            Restructure branchless banking agent incentive models to compensate
-            agents for digital payment facilitation (transaction-based
-            commissions for merchant and customer digital enrollments, not just
-            cash-handling). Expected outcome: Convert access network into
-            adoption network by creating economic incentive for digital
-            education and transaction execution.
-          </li>
-
-          <li>
-            <strong
-              >Create tax incentives for documented digital spending.</strong
-            >
-            Precedent: Brazil's Pix design elements, Pakistan's existing
-            CNIC-linked formal sector incentives. Implementation: Allow
-            individual filers to claim 1–2% tax deduction on documented digital
-            spending, reframing formalization from cost to benefit. Expected
-            outcome: Reduce tax evasion concern and reframe digital
-            participation as economically advantageous for small business
-            owners.
-          </li>
-
-          <li>
-            <strong
-              >Mandate Urdu-first interface design standards for all financial
-              applications.</strong
-            >
-            Precedent: European Union digital accessibility standards, India's
-            regional language emphasis in fintech applications. Implementation:
-            SBP regulatory requirement for all licensed payment applications to
-            provide Urdu as primary language option in user interface design.
-            Expected outcome: Reduce literacy friction, particularly for women
-            and rural populations, by removing language as barrier to system
-            navigation.
-          </li>
+          <li><strong>Target account opening among women and rural adults.</strong> Use the agent network and biometric account opening. The 2026 Eid cattle market drive opened about 12,500 accounts alongside QR acceptance [<a class="cite" href="#ref-1">1, p. 21</a>].</li>
+          <li><strong>Publish and review merchant fees on small digital payments.</strong> Precedent: India's zero MDR on UPI and RuPay from 2020 [<a class="cite" href="#ref-8">8</a>].</li>
+          <li><strong>Build a basic phone route into Raast via USSD or IVR.</strong> Precedent: UPI123Pay [<a class="cite" href="#ref-9">9</a>]. Only 46% of women own a phone in the Karandaaz survey, against 82% of men [<a class="cite" href="#ref-3">3</a>].</li>
+          <li><strong>Pay agents for helping customers make digital payments,</strong> not only for cash in and cash out. No verified precedent is cited here.</li>
+          <li><strong>Set Urdu first and voice first design standards</strong> for Raast enabled apps. No verified precedent is cited here.</li>
         </ol>
-
-        <p>
-          These interventions are not mutually exclusive. Maximum impact would
-          result from coordinated implementation of all five, addressing the
-          three demand-side barriers simultaneously. None require new
-          infrastructure investment. All can be implemented within existing
-          regulatory frameworks. All have demonstrated effectiveness in
-          comparable emerging market contexts.
-        </p>
-
-        <p>
-          The central insight of this analysis is straightforward but
-          consequential: infrastructure deployment is necessary but insufficient
-          for digital payment adoption at scale. The 88% digital transaction
-          share by volume proves infrastructure competence. The 35% financial
-          inclusion and 60% cash economy dominance prove that behavioral
-          barriers are the binding constraints. Policy design must shift from
-          supply-side infrastructure expansion to demand-side barrier
-          elimination. The tools exist, the evidence is clear, and the precedent
-          from comparable markets is available. Implementation requires only
-          deliberate policy attention to behavioral economics alongside
-          infrastructure engineering.
-        </p>
+        <p>The first version proposed a tax deduction for documented digital spending, citing Brazil's Pix and EU accessibility rules as precedents. I could not support either precedent, so that proposal is withdrawn until it can be.</p>
+        <p>I would welcome other readings of this data, especially from people who work with merchants or agents.</p>
       </section>
-
       <hr />
 
-      <section class="references-section">
-        <h2>References</h2>
-
-        <div class="reference">
-          <a
-            href="https://www.centralbank.go.ke/uploads/550643262_2012%20Annual%20Report.pdf"
-            target="_blank"
-            >Central Bank of Kenya. (2012). Annual Report 2012.</a
-          >
-          Nairobi: Central Bank of Kenya.
-        </div>
-
-        <div class="reference">
-          <a
-            href="https://misq.umn.edu/misq/article-abstract/13/3/319/191/Perceived-Usefulness-Perceived-Ease-of-Use-and"
-            target="_blank"
-            >Davis, F. D. (1989). Perceived usefulness, perceived ease of use,
-            and user acceptance of information technology.</a
-          >
-          <em>MIS Quarterly</em>, 13(3), 319–340.
-          <span class="doi">https://doi.org/10.2307/249008</span>
-        </div>
-
-        <div class="reference">
-          <a
-            href="https://documents.worldbank.org/en/publication/documents-reports/documentdetail/099818107072234182"
-            target="_blank"
-            >Demirguc-Kunt, A., Klapper, L., Singer, D., & Ansar, S. (2022). The
-            Global Findex Database 2021: Financial Inclusion, Digital Payments,
-            and Resilience in the Age of COVID-19.</a
-          >
-          Washington, DC: World Bank.
-          <span class="doi">https://doi.org/10.1596/978-1-4648-1897-4</span>
-        </div>
-
-        <div class="reference">
-          <a href="https://aisel.aisnet.org/misq/vol27/iss1/4/" target="_blank"
-            >Gefen, D., Karahanna, E., & Straub, D. W. (2003). Trust and TAM in
-            online shopping: An integrated model.</a
-          >
-          <em>MIS Quarterly</em>, 27(1), 51–90.
-          <span class="doi">https://doi.org/10.2307/30036519</span>
-        </div>
-
-        <div class="reference">
-          <a
-            href="https://www.aeaweb.org/articles?id=10.1257/aer.104.1.183"
-            target="_blank"
-            >Jack, W., & Suri, T. (2014). Risk sharing and transactions costs:
-            Evidence from Kenya's mobile money revolution.</a
-          >
-          <em>American Economic Review</em>, 104(1), 183–223.
-          <span class="doi">https://doi.org/10.1257/aer.104.1.183</span>
-        </div>
-
-        <div class="reference">
-          <a
-            href="https://www.econometricsociety.org/publications/econometrica/1979/03/01/prospect-theory-analysis-decision-under-risk"
-            target="_blank"
-            >Kahneman, D., & Tversky, A. (1979). Prospect theory: An analysis of
-            decision under risk.</a
-          >
-          <em>Econometrica</em>, 47(2), 263–292.
-          <span class="doi">https://doi.org/10.2307/1914185</span>
-        </div>
-
-        <div class="reference">
-          <a href="https://portal.karandaaz.com.pk" target="_blank"
-            >Karandaaz Pakistan. (2025). Pakistan Financial Inclusion Survey
-            (K-FIS) 2024.</a
-          >
-          Islamabad: Karandaaz Pakistan.
-        </div>
-
-        <div class="reference">
-          <a
-            href="https://www.npci.org.in/what-we-do/upi/upi-ecosystem-statistics"
-            target="_blank"
-            >National Payments Corporation of India. (2025). UPI Ecosystem
-            Statistics: December 2025.</a
-          >
-          Mumbai: NPCI.
-        </div>
-
-        <div class="reference">
-          <a
-            href="https://www.rbi.org.in/commonman/English/scripts/Notification.aspx"
-            target="_blank"
-            >Reserve Bank of India. (2019). Notification on Charges and MDR for
-            Digital Payments.</a
-          >
-          Mumbai: RBI.
-        </div>
-
-        <div class="reference">
-          <a
-            href="https://openlibrary.org/books/OL15577453M/Diffusion_of_innovations"
-            target="_blank"
-            >Rogers, E. M. (2003). <em>Diffusion of Innovations</em> (5th
-            ed.).</a
-          >
-          New York: Free Press.
-        </div>
-
-        <div class="reference">
-          <a
-            href="https://www.sbp.org.pk/PS/PDF/Annual-Payment-Systems-Review-FY25.pdf"
-            target="_blank"
-            >State Bank of Pakistan. (2025). Annual Payment Systems Review
-            FY25.</a
-          >
-          Karachi: SBP.
-        </div>
-
-        <div class="reference">
-          <a
-            href="https://www.sbp.org.pk/psd/pdf/PS-Review-Q2FY25.pdf"
-            target="_blank"
-            >State Bank of Pakistan. (2025). Quarterly Payment Systems Review Q2
-            FY25.</a
-          >
-          Karachi: SBP.
-        </div>
-
-        <div class="reference">
-          <a
-            href="https://www.worldbank.org/en/publication/globalfindex/download-data"
-            target="_blank"
-            >World Bank. (2011). Global Findex Database 2011: Measuring
-            Financial Inclusion around the World.</a
-          >
-          Washington, DC: World Bank.
-        </div>
-
-        <div class="reference">
-          <a
-            href="https://www.worldbank.org/en/publication/globalfindex"
-            target="_blank"
-            >World Bank. (2025). Global Findex Database 2025.</a
-          >
-          Washington, DC: World Bank.
-        </div>
-
-        <div class="reference">
-          Zucker, L. G. (1986). Production of trust: Institutional sources of
-          economic structure, 1840–1920.
-          <em>Research in Organizational Behavior</em>, 8, 53–111.
-        </div>
+      <section class="references-section" id="sources">
+        <h2>Sources</h2>
+        <p style="font-size: 0.9em; color: #555;">Numbers in brackets in the text point to this list; "p." is the printed page. Labels: Primary means the publisher's own document. Secondary means a press or third party report of someone else's data. Background literature is cited for ideas, not data. Last updated: November 2026.</p>
+        <ol style="margin: 16px 0 0 24px; line-height: 1.7; font-size: 0.92em;">
+          <li id="ref-1">State Bank of Pakistan, Digital Financial Services Group. <em>Annual Payment Systems Review FY 2025-26 (provisional figures)</em>. October 2026. <a href="https://www.sbp.org.pk/PS/PDF/Annual-Payment-Systems-Review-FY26.pdf" target="_blank" rel="noopener">https://www.sbp.org.pk/PS/PDF/Annual-Payment-Systems-Review-FY26.pdf</a>. Accessed 17 November 2026. Primary.</li>
+          <li id="ref-2">World Bank. <em>The Global Findex Database 2025: Connectivity and Financial Inclusion in the Digital Economy (survey year 2024)</em>. 2025. <a href="https://www.worldbank.org/en/publication/globalfindex" target="_blank" rel="noopener">https://www.worldbank.org/en/publication/globalfindex</a>. Accessed 17 November 2026. Primary.</li>
+          <li id="ref-3">Mettis Global. <em>Karandaaz releases K-FIS 2024 on financial inclusion trends</em>. 18 June 2025. <a href="https://mettisglobal.news/Karandaaz-releases-KFIS-2024-on-financial-inclusion-trends-53170" target="_blank" rel="noopener">https://mettisglobal.news/Karandaaz-releases-KFIS-2024-on-financial-inclusion-trends-53170</a>. Accessed 17 November 2026. Secondary: press report of the Karandaaz survey.</li>
+          <li id="ref-4">Business Recorder (Ali Akbar Ghanghro, Karandaaz Pakistan). <em>Bridging the financial gap: insights from Karandaaz Financial Inclusion Survey (K-FIS), part I</em>. 5 July 2025. <a href="https://www.brecorder.com/news/40371177/bridging-the-financial-gap-insights-from-karandaaz-financial-inclusion-survey-k-fisi" target="_blank" rel="noopener">https://www.brecorder.com/news/40371177/bridging-the-financial-gap-insights-from-karandaaz-financial-inclusion-survey-k-fisi</a>. Accessed 17 November 2026. Secondary.</li>
+          <li id="ref-5">Pakistan Bureau of Statistics. <em>Census 2023, Table 12: literacy rate, enrolment and out of school population by sex and rural/urban (national)</em>. 2024. <a href="https://www.pbs.gov.pk/sites/default/files/population/2023/tables/table_12_national.pdf" target="_blank" rel="noopener">https://www.pbs.gov.pk/sites/default/files/population/2023/tables/table_12_national.pdf</a>. Accessed 17 November 2026 (read by the series research pass). Primary.</li>
+          <li id="ref-6">Government of India, Ministry of Finance, via Press Information Bureau. <em>Nearly 55.49 crore users onboarded on UPI as in June 2026 (Lok Sabha written reply, NPCI data)</em>. 20 July 2026. <a href="https://www.pib.gov.in/PressReleasePage.aspx?PRID=2286608&reg=48&lang=2" target="_blank" rel="noopener">https://www.pib.gov.in/PressReleasePage.aspx?PRID=2286608&reg=48&lang=2</a>. Accessed 17 November 2026. Primary.</li>
+          <li id="ref-7">Government of India, Ministry of Finance, via Press Information Bureau. <em>UPI completes 10 years of digital payments revolution</em>. 24 August 2026. <a href="https://www.pib.gov.in/PressReleasePage.aspx?PRID=2302657&reg=48&lang=2" target="_blank" rel="noopener">https://www.pib.gov.in/PressReleasePage.aspx?PRID=2302657&reg=48&lang=2</a>. Accessed 17 November 2026 (read by the series research pass). Primary.</li>
+          <li id="ref-8">Outlook Business. <em>No MDR charges from Jan 1 on UPI, RuPay transactions</em>. 28 December 2019. <a href="https://www.outlookbusiness.com/talking-money/no-mdr-charges-from-jan-1-on-upi-rupay-transactions-4103" target="_blank" rel="noopener">https://www.outlookbusiness.com/talking-money/no-mdr-charges-from-jan-1-on-upi-rupay-transactions-4103</a>. Accessed 17 November 2026. Secondary.</li>
+          <li id="ref-9">Reserve Bank of India. <em>RBI launches UPI for feature phones (UPI123Pay) and a 24x7 helpline (DigiSaathi)</em>. 8 March 2022. <a href="https://rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=53385" target="_blank" rel="noopener">https://rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=53385</a>. Accessed 16 November 2026 (read by the series research pass). Primary.</li>
+          <li id="ref-10">Tech-ish. <em>Safaricom FY26 M-PESA results explained</em>. 7 May 2026. <a href="https://tech-ish.com/2026/05/07/safaricom-fy26-mpesa-results-explained/" target="_blank" rel="noopener">https://tech-ish.com/2026/05/07/safaricom-fy26-mpesa-results-explained/</a>. Accessed 17 November 2026. Secondary: Safaricom's own report not read.</li>
+          <li id="ref-11">State Bank of Pakistan. <em>Press release on the launch of the first phase of Raast</em>. 11 January 2021. <a href="https://www.sbp.org.pk/press/2021/Pr-11-Jan-21.pdf" target="_blank" rel="noopener">https://www.sbp.org.pk/press/2021/Pr-11-Jan-21.pdf</a>. Accessed 17 November 2026. Primary.</li>
+          <li id="ref-12">Davis, F. D.. <em>Perceived usefulness, perceived ease of use, and user acceptance of information technology. MIS Quarterly 13(3), 319 to 340</em>. 1989. <a href="https://doi.org/10.2307/249008" target="_blank" rel="noopener">https://doi.org/10.2307/249008</a>. Accessed Not re-read in November 2026. Background literature.</li>
+          <li id="ref-13">Gefen, D., Karahanna, E. and Straub, D. W.. <em>Trust and TAM in online shopping: an integrated model. MIS Quarterly 27(1), 51 to 90</em>. 2003. <a href="https://aisel.aisnet.org/misq/vol27/iss1/4/" target="_blank" rel="noopener">https://aisel.aisnet.org/misq/vol27/iss1/4/</a>. Accessed Not re-read in November 2026. Background literature.</li>
+          <li id="ref-14">Kahneman, D. and Tversky, A.. <em>Prospect theory: an analysis of decision under risk. Econometrica 47(2), 263 to 292</em>. 1979. <a href="https://doi.org/10.2307/1914185" target="_blank" rel="noopener">https://doi.org/10.2307/1914185</a>. Accessed Not re-read in November 2026. Background literature.</li>
+          <li id="ref-15">Rogers, E. M.. <em>Diffusion of Innovations, 5th edition. New York: Free Press</em>. 2003. <a href="https://openlibrary.org/books/OL15577453M/Diffusion_of_innovations" target="_blank" rel="noopener">https://openlibrary.org/books/OL15577453M/Diffusion_of_innovations</a>. Accessed Not re-read in November 2026. Background literature.</li>
+          <li id="ref-16">Zucker, L. G.. <em>Production of trust: institutional sources of economic structure, 1840 to 1920. Research in Organizational Behavior 8, 53 to 111</em>. 1986. Accessed Not re-read in November 2026. Background literature.</li>
+          <li id="ref-17">Jack, W. and Suri, T.. <em>Risk sharing and transactions costs: evidence from Kenya's mobile money revolution. American Economic Review 104(1), 183 to 223</em>. 2014. <a href="https://www.aeaweb.org/articles?id=10.1257/aer.104.1.183" target="_blank" rel="noopener">https://www.aeaweb.org/articles?id=10.1257/aer.104.1.183</a>. Accessed Not re-read in November 2026. Background literature.</li>
+        </ol>
       </section>
-</div>
+    </div>
 
-<div class="back-wrap">
+    <div class="back-wrap">
   <a href="/Research-Articles/" class="back-link">&#8592; Back to all articles</a>
 </div>
 
 <footer>
   <div class="footer-inner">
-    <a href="/Research-Articles/" class="footer-brand">Fawad Liaqat &mdash; Research</a>
+    <a href="/Research-Articles/" class="footer-brand">Fawad Liaqat, Research</a>
     <ul class="footer-links">
       <li><a href="/Research-Articles/">Articles</a></li>
       <li><a href="https://fawad-liaqat.netlify.app/">Portfolio</a></li>

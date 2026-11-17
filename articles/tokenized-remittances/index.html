@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tokenized Remittances: A Feasibility Framework for Pakistani Diaspora Investment | Fawad Liaqat</title>
-  <meta name="description" content="Regulatory, market, and technical analysis of tokenized remittance investment products for Pakistani diaspora capital. SECP sandbox pathway identified as viable route.">
+  <meta name="description" content="Regulatory, sizing and technical analysis of tokenized remittance investment products for Pakistani diaspora capital. Updated November 2026 with FY26 remittances and the Virtual Assets Act 2026.">
   <meta name="author" content="Fawad Liaqat">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -81,6 +81,7 @@
       .back-wrap { padding: 0 1.25rem 2.5rem; }
       .nav-links { display: none; }
     }
+    .cite { font-size: 0.85em; text-decoration: none; }
   </style>
 </head>
 <body>
@@ -102,121 +103,67 @@
     <h1 class="article-title">Tokenized Remittances: A Feasibility Framework for Pakistani Diaspora Investment</h1>
     <div class="article-meta">
       <span>Fawad Liaqat</span>
-      <span>March 2026</span>
-      <span>18 min read</span>
+      <span>First published March 2026</span>
+      <span>Last updated: November 2026</span>
+      <span>16 min read</span>
     </div>
   </div>
-
   <div class="abstract">
     <div class="abstract-label">Abstract</div>
-    <p>Pakistan receives over $35 billion annually in remittances, overwhelmingly consumed rather than invested. Asset tokenization enables fractional ownership and cross-border investment in Singapore, Dubai, and Switzerland. This analysis asks whether tokenization can redirect a fraction of Pakistani diaspora remittance flows into productive investment capital — and whether current SBP and SECP regulations permit it. Through regulatory mapping of the SBP Foreign Exchange Manual, SECP sandbox framework, and the Pakistan Virtual Assets Act 2026, combined with international precedent analysis from MAS, DFSA, and FINMA, we find that a compliant tokenized remittance investment product is not feasible under current regulations. Three specific regulatory blockers are identified. However, the SECP sandbox pathway offers a viable testing ground, and a phased implementation timeline is proposed. Market sizing across three scenarios suggests addressable volumes of $350 million to $3.5 billion annually, depending on regulatory clarity and product accessibility.</p>
+    <p>Pakistan received a record US$41.6 billion in workers' remittances in FY26, up 8.6% from US$38.3 billion in FY25 [<a class="cite" href="#ref-1">1</a>]. This analysis asks whether tokenization could channel a small share of those flows into regulated investment, and whether current SBP, SECP and PVARA rules allow it. Since this article was first written, the Virtual Assets Act 2026 has passed [<a class="cite" href="#ref-7">7</a>] and the SBP has allowed banks to serve licensed virtual asset service providers [<a class="cite" href="#ref-9">9</a>]. Even so, a tokenized remittance investment product does not appear feasible today: remittances must pass through authorized dealers, tokenized assets are not a recognised non resident investment category, and I found no framework for stablecoins. A sandbox pilot that uses existing foreign currency accounts, not stablecoins, is the most realistic first step. A simple sensitivity table shows what different redirection rates would mean in dollars; these are not forecasts.</p>
   </div>
 </div>
 
 <div class="article-body">
+  <p><em>Update note, November 2026:</em> first published March 2026. This version corrects the FY25 remittance total (US$38.3 billion, not US$34.9 billion), moves to FY26 data, updates the virtual assets law, and removes a contradiction: the first version said stablecoins could not legally operate and then proposed a pilot settled in USDC and USDT. The market scenarios have been cut back to arithmetic that can be checked. Earlier text remains in the repository history.</p>
 
   <h2>1. Introduction</h2>
-  <p>Pakistan received $34.9 billion in remittances in FY2025. Saudi Arabia led with $9.34 billion, followed by the United Arab Emirates at $7.83 billion, United Kingdom at $5.99 billion, and the United States at $3.72 billion. These flows are overwhelmingly consumed — food, housing, education — rather than invested. Meanwhile, asset tokenization is enabling fractional ownership globally. Singapore's Monetary Authority launched Project Guardian. Dubai completed its first tokenized property transaction in 2025. Switzerland's DLT Act created the world's most mature framework for tokenized securities.</p>
-
-  <p>The question is straightforward: can tokenization redirect even a small fraction of Pakistan's remittance flows into productive investment capital? And can this be done within the constraints of Pakistan's regulatory framework? This article examines feasibility across three dimensions: regulatory viability through analysis of the SBP Foreign Exchange Manual, SECP sandbox framework, and Pakistan Virtual Assets Act 2026; market sizing using three scenarios anchored in precedent data; and technical architecture design for a compliant product. The conclusion is honest: the product is not feasible today under current regulations. But the path to feasibility is identifiable and narrower than it appears.</p>
+  <p>Workers' remittances reached US$41.6 billion in FY26 (July 2025 to June 2026) [<a class="cite" href="#ref-1">1</a>]. In June 2026 the largest sources were Saudi Arabia, the UAE, the UK and the USA [<a class="cite" href="#ref-1">1</a>]. I do not have a sourced breakdown of how recipients use this money, so this article does not claim that remittances are "overwhelmingly consumed", as the first version did.</p>
+  <p>Asset tokenization is being tested elsewhere: Singapore through Project Guardian [<a class="cite" href="#ref-10">10</a>; not re-checked], Dubai through its crypto token framework [<a class="cite" href="#ref-11">11</a>; not re-checked], and Switzerland through its DLT laws [<a class="cite" href="#ref-12">12</a>; <a class="cite" href="#ref-13">13</a>; not re-checked]. The question is whether tokenization could channel a small share of Pakistan's remittances into productive investment, within Pakistan's rules. This article looks at the rules, at simple sizing arithmetic, and at a compliant technical design. The answer today is no, but the path is identifiable.</p>
 
   <h2>2. Regulatory Landscape</h2>
+  <h3>2.1 SBP Foreign Exchange Manual</h3>
+  <p>The Foreign Exchange Manual sets permitted foreign exchange operations [<a class="cite" href="#ref-2">2</a>; not re-checked]. Inward remittances are processed through authorized dealers such as banks. I found no provision for an intermediary platform to take remittance funds before conversion to rupees. This is the most binding constraint.</p>
+  <p>Non residents can invest in government securities, sukuk and listed equities, and the Roshan Digital Account lets them hold foreign currency [<a class="cite" href="#ref-2">2</a>; not re-checked]. Tokenized assets are not recognised as an investment category under the manual as I read it.</p>
+  <p>Naya Pakistan Certificates, offered through Roshan Digital Accounts since 2020, show that diaspora demand for regulated Pakistani investment exists [<a class="cite" href="#ref-3">3</a>; not re-checked]. The first version quoted US$3.1 billion from about 500,000 accounts by the end of 2023; I have not re-checked those figures and do not use them in the sizing below. NPCs are government backed and SBP regulated, not run by an intermediary, which matters legally.</p>
 
-  <h3>2.1 SBP Foreign Exchange Manual Constraints</h3>
-  <p>The Foreign Exchange Manual is the authoritative source for permissible foreign exchange operations. Chapter 19 requires all inward remittances to be processed through authorized dealers — commercial banks, development finance institutions, and microfinance banks. No provision exists for intermediary platforms to intercept remittance flows before PKR conversion. This is the most binding constraint for any tokenized remittance product.</p>
+  <h3>2.2 SECP sandbox, the Virtual Assets Act 2026 and the SBP's 2026 circular</h3>
+  <p>The SECP runs a regulatory sandbox [<a class="cite" href="#ref-4">4</a>; not re-checked], and its second cohort in 2025 included real estate tokenization [<a class="cite" href="#ref-5">5</a>; not re-checked]. The SECP has also published a position paper on digital asset trading platforms [<a class="cite" href="#ref-6">6</a>; not re-checked].</p>
+  <p>The Pakistan Virtual Assets Regulatory Authority (PVARA) was first set up under a 2025 presidential ordinance. Parliament passed the Virtual Assets Act 2026 on 6 March 2026, giving PVARA powers over licensing of virtual asset service providers, market surveillance and anti money laundering compliance, with coordination with the SBP and SECP [<a class="cite" href="#ref-7">7</a>]. PVARA's mandate also covers supervising exchanges and consumer protection [<a class="cite" href="#ref-8">8</a>]. In April 2026 the SBP issued a circular that replaces its 2018 ban: banks may now open accounts for PVARA licensed providers and their customers, with client money held in segregated, rupee denominated, non remunerative accounts [<a class="cite" href="#ref-9">9</a>].</p>
+  <p>Stablecoins are a separate question. The reports I read on the Act and on the SBP circular do not describe any framework for stablecoins [<a class="cite" href="#ref-7">7</a>; <a class="cite" href="#ref-9">9</a>]. The first version called this "regulatory limbo" and said stablecoins "cannot legally operate". I can only say that I found no rule authorising them. Either way, a pilot should not depend on them.</p>
 
-  <p>Chapter 20 governs capital account operations for non-residents. Non-residents can invest in government securities, including Pakistan Investment Bonds and Treasury Bills, sukuk (Islamic bonds), and listed equities on the Pakistan Stock Exchange. However, tokenized assets are not recognized as an investment category under the existing framework. Chapter 1 permits foreign currency accounts under the Roshan Digital Account scheme, allowing USD holding before conversion — but this does not extend to diversion toward unregulated investment products or third-party intermediaries.</p>
+  <h3>2.3 International precedents</h3>
+  <p><strong>Singapore:</strong> MAS's Project Guardian tests tokenization with industry under supervision [<a class="cite" href="#ref-10">10</a>; not re-checked]. The lesson is controlled experiments with clear metrics before commercial launch. The first version also cited a 2026 tokenized bills pilot and a fund that "reached $1.2 billion within six months (Q2 to Q3 2026)". The second claim described events after the article was written and has no source, so both are removed.</p>
+  <p><strong>Dubai:</strong> the DFSA updated its crypto token framework in January 2026 [<a class="cite" href="#ref-11">11</a>; not re-checked]. The lesson is to regulate digital assets inside the existing regime rather than in a parallel one.</p>
+  <p><strong>Switzerland:</strong> Swiss law treats many asset tokens under existing securities law, with DLT specific amendments [<a class="cite" href="#ref-12">12</a>; <a class="cite" href="#ref-13">13</a>; not re-checked]. The lesson is technology neutral regulation. The first version called this "the most mature framework globally"; I cannot support that ranking.</p>
 
-  <p>The critical precedent is Naya Pakistan Certificates, launched in 2020 via Roshan Digital Account. NPCs attracted approximately $3.1 billion in gross inflows from roughly 500,000 accounts by the end of 2023, proving that diaspora investment demand exists. However, NPCs succeeded because they were government-backed and SBP-regulated — not intermediary-led platforms. This distinction is legally material.</p>
-
-  <h3>2.2 SECP Sandbox and Pakistan Virtual Assets Act 2026</h3>
-  <p>The Securities and Exchange Commission of Pakistan Regulatory Sandbox, launched in 2019, has approved real estate tokenization in its second cohort (2025). The Pakistan Virtual Assets Ordinance 2025 established the Pakistan Virtual Asset Regulatory Authority as an autonomous federal regulator, and the Virtual Assets Act 2026 passed both chambers of parliament in March 2026. These developments represent genuine regulatory modernization.</p>
-
-  <p>However, a critical gap remains: no stablecoin-specific framework exists. The SBP has not authorized stablecoin operations, driven by legitimate capital flight concerns under the International Monetary Fund programme. The Virtual Assets Act creates licensing for exchanges, custody providers, broker-dealers, and derivatives platforms — but stablecoins, which are how Pakistan's crypto economy actually functions, remain in regulatory limbo. This creates a circular problem: tokenized remittance products require stable-value tokens for settlement, but stablecoins cannot legally operate.</p>
-
-  <p>The SECP sandbox pathway is the most viable route for a pilot product. An application would require detailed product description, comprehensive risk assessment, compliance plan, technology audit, and consumer protection measures. The SECP has demonstrated willingness to test novel structures — real estate tokenization approval proves this. Sandbox approvals typically provide 12-18 months of supervised operation before commercial licensure.</p>
-
-  <h3>2.3 International Precedents and Regulatory Frameworks</h3>
-  <p><strong>Singapore — MAS Project Guardian:</strong> The Monetary Authority of Singapore represents the gold standard for supervised tokenization experimentation. The November 2025 Operational Guide for Tokenized Funds provides detailed governance, net asset value calculation, and compliance frameworks. In 2026, MAS launched a pilot for tokenized government bills settled via wholesale central bank digital currency with DBS Bank, JPMorgan Chase, and Standard Chartered. Key lesson: MAS allowed controlled experimentation before commercial deployment, with clear success metrics and regulatory feedback loops.</p>
-
-  <p><strong>Dubai — DFSA Crypto Token Framework:</strong> The updated Crypto Token framework (January 2026) transfers suitability assessment responsibility to authorized firms rather than imposing blanket restrictions. Dubai completed its first tokenized property transaction in 2025, demonstrating practical implementation. The Dubai Financial Services Authority applies identical regulatory standards to digital assets and traditional financial services. Key lesson: integrated regulation rather than parallel regimes, with clear institutional accountability.</p>
-
-  <p><strong>Switzerland — FINMA DLT Act:</strong> Switzerland provides the most mature framework globally. FINMA classifies tokens as payment tokens, utility tokens, or asset tokens, with asset tokens regulated under existing securities law. BX Digital received a FINMA license as a DLT trading venue in 2025. Key lesson: technology-neutral regulation — existing laws adapted for blockchain rather than creating parallel frameworks. This reduces compliance complexity and regulatory uncertainty.</p>
-
-  <h2>3. Market Sizing and Demand Analysis</h2>
-
-  <h3>3.1 Remittance Flow Data and Geographic Distribution</h3>
-  <p>Pakistan's FY2025 remittances reached $34.9 billion, representing a 6.2 percent increase from FY2024. The five largest corridors account for approximately 78 percent of total inflows: Saudi Arabia ($9.34 billion), United Arab Emirates ($7.83 billion), United Kingdom ($5.99 billion), United States ($3.72 billion), and Qatar (estimated $1.5 billion from broader GCC category). These corridors are characterized by concentrated diaspora populations with relatively stable employment in professional services, healthcare, and skilled trades.</p>
-
-  <p>Cost comparison analysis demonstrates significant fee savings through alternative channels. Mobile wallet providers average 2.16 percent all-in cost versus 11.32 percent for traditional banks, suggesting potential savings of $370-385 million annually if 10 percent of flows migrated. However, fee savings alone do not predict investment behavior — remittance recipients optimize for speed and reliability rather than cost minimization, as demonstrated by continued banking channel usage despite higher fees.</p>
-
-  <h3>3.2 Three Scenario Analysis</h3>
-  <p class="table-caption">Table 1: Market Sizing — Three Scenarios for Tokenized Remittance Investment Product</p>
+  <h2>3. Sizing: What Different Redirection Rates Would Mean</h2>
+  <p>No published survey measures Pakistani diaspora appetite for tokenized products. So instead of scenarios with borrowed anchors, Table 1 shows plain arithmetic: what share of FY26 remittances would equal a given dollar amount. These are not forecasts.</p>
+  <p class="table-caption">Table 1: Redirection rate against annual volume, base US$41.6 billion (FY26). My calculation from [<a class="cite" href="#ref-1">1</a>].</p>
   <div class="table-wrap">
     <table>
-      <thead>
-        <tr>
-          <th>Scenario</th>
-          <th>Redirection Rate</th>
-          <th>Rationale</th>
-          <th>Precedent Anchor</th>
-          <th>Annual Volume</th>
-        </tr>
-      </thead>
+      <thead><tr><th>Share of FY26 remittances</th><th>Annual volume</th></tr></thead>
       <tbody>
-        <tr><td>Conservative</td><td>1–2%</td><td>Sophisticated diaspora investors only; targeting high-net-worth segment</td><td>NPC uptake: $3.1B over 3 years from 500K accounts</td><td>$350M–$700M</td></tr>
-        <tr><td>Moderate</td><td>3–5%</td><td>Fractional ownership + mobile distribution; early adopter segment</td><td>IFAD diaspora investment benchmarks; fintech adoption rates</td><td>$1.05B–$1.75B</td></tr>
-        <tr><td>Optimistic</td><td>7–10%</td><td>Multiple products + banking partnerships + regulatory clarity achieved</td><td>Singapore tokenized fund growth; DeFi adoption in emerging markets</td><td>$2.45B–$3.5B</td></tr>
+        <tr><td>0.5%</td><td>US$0.21 billion</td></tr>
+        <tr><td>1%</td><td>US$0.42 billion</td></tr>
+        <tr><td>2%</td><td>US$0.83 billion</td></tr>
+        <tr><td>3%</td><td>US$1.25 billion</td></tr>
+        <tr><td>5%</td><td>US$2.08 billion</td></tr>
+        <tr><td>10%</td><td>US$4.16 billion</td></tr>
       </tbody>
     </table>
   </div>
-
-  <p>Conservative scenario assumes targeting of sophisticated investors already holding foreign currency accounts and familiar with securities investing. Precedent is drawn from Naya Pakistan Certificate uptake, which reached $3.1 billion over three years despite limited marketing — approximately 500,000 active accounts. If a tokenized product captures one-third of NPC peak annual inflow ($1.03 billion) at a conservative penetration rate, this yields $350-700 million.</p>
-
-  <p>Moderate scenario incorporates fractional ownership advantage and mobile-first distribution. Anchor data from International Fund for Agricultural Development shows that diaspora remittance-senders will allocate 3-5 percent of annual remittance flows to investment products if (a) fractional entry points exist (under $100 per unit), (b) regulatory safety is visible, and (c) returns exceed Pakistani deposit rates (currently 17-19 percent). This scenario reflects early-adopter behavior.</p>
-
-  <p>Optimistic scenario assumes regulatory clarification, banking partnership distribution, and emergence of multiple asset classes. Singapore's tokenized fund pilot reached $1.2 billion in committed capital within six months of launch (Q2-Q3 2026). Applying 60 percent of that growth rate to Pakistan's $35 billion remittance base yields $2.45-3.5 billion in annual redirection.</p>
-
-  <h3>3.3 Sensitivity Analysis</h3>
-  <p class="table-caption">Table 2: Sensitivity Analysis — Redirection Rate vs. Annual Addressable Volume</p>
-  <div class="table-wrap">
-    <table>
-      <thead>
-        <tr>
-          <th>Redirection Rate</th>
-          <th>Annual Volume (from $35B Base)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>0.5%</td><td>$175M</td></tr>
-        <tr><td>1.0%</td><td>$350M</td></tr>
-        <tr><td>2.0%</td><td>$700M</td></tr>
-        <tr><td>3.0%</td><td>$1.05B</td></tr>
-        <tr><td>5.0%</td><td>$1.75B</td></tr>
-        <tr><td>7.0%</td><td>$2.45B</td></tr>
-        <tr><td>10.0%</td><td>$3.5B</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <p>Key data gap acknowledgment: No published survey data exists on Pakistani diaspora investment preferences for tokenized products. Scenario assumptions are anchored in Naya Pakistan Certificate historical uptake, International Fund for Agricultural Development diaspora investment benchmarks, and international tokenization adoption rates in Singapore, Dubai, and Switzerland. These are directional estimates intended to establish feasibility bounds, not precise forecasts. Additional primary research would be required to validate scenario assumptions before product development.</p>
+  <p><strong>What was removed, and why.</strong> The first version's scenarios did not reconcile. The five largest corridors were said to be 78% of inflows, but its own corridor figures summed to about 81% of the total it used. A conservative case of US$350 to 700 million was tied to "one third of NPC peak annual inflow (US$1.03 billion)", but one third of that is about US$340 million and US$1.03 billion was an average, not a peak. A 3 to 5% moderate case cited IFAD benchmarks I could not find. An optimistic case applied "60 percent of" a Singapore growth figure that had no source. A fee saving of US$370 to 385 million did not follow from the stated cost gap. And the corridor totals came from a press report that put FY25 remittances at US$34.9 billion, when the SBP's figure is US$38.3 billion [<a class="cite" href="#ref-1">1</a>]. All of these are withdrawn. Remittance cost data by corridor is available from the World Bank [<a class="cite" href="#ref-14">14</a>] and could anchor a better analysis.</p>
 
   <h2>4. Technical Architecture</h2>
-
-  <h3>4.1 System Design Overview</h3>
-  <p>The proposed architecture addresses the regulatory constraints identified above while maintaining operational efficiency and compliance auditability. Architecture design prioritizes regulatory surveillance capability, investor identity verification at protocol level, and institutional custody integration.</p>
-
-  <p><strong>Blockchain Layer:</strong> A permissioned or hybrid blockchain (Hyperledger Besu or Polygon with permissioning modules) is most credible given the SECP's likely requirement for transaction auditability and KYC enforcement at the protocol level. A public permissionless blockchain like Ethereum would not satisfy regulatory requirements for investor identification, transaction monitoring, and intervention capability. Permissioned architecture enables regulators to audit full transaction history and intervene if necessary.</p>
-
-  <p><strong>Token Standard:</strong> ERC-1400 (security token standard with transfer restrictions) or ERC-3643/T-REX (identity-verified transfer standard) are appropriate for this use case. Plain ERC-20 tokens are insufficient because they lack built-in transfer restrictions, investor whitelisting, and compliance hooks required for regulated securities. ERC-1400 supports forced transfers (required for regulatory intervention in case of fraud), document management, and partition-based ownership structures.</p>
-
-  <p><strong>KYC/AML Integration:</strong> Integration with NADRA VERISYS API for identity verification of Pakistani nationals. Enhanced due diligence for non-resident investors per Financial Action Task Force standards. On-chain identity attestation linked to smart contract whitelisting ensures only verified investors can transact. Compliance-as-code architecture enforces regulatory rules at the smart contract level rather than relying on operational controls alone.</p>
-
-  <p><strong>Custody and Settlement:</strong> A SECP-licensed custodian holds underlying assets — real estate titles, sukuk certificates, fund units. Token ownership maps to beneficial ownership recorded in the custodian's books. Legal ownership structure follows existing Pakistani trust law framework. This hybrid architecture maintains compliance with banking regulation while enabling fractionalization benefits.</p>
-
-  <p><strong>Fiat On/Off-Ramp Constraint:</strong> This represents the most binding technical constraint. The on-ramp requires a licensed authorized dealer to accept remittance funds and convert to investment token units. The off-ramp requires PKR conversion through authorized channels per SBP Foreign Exchange Manual Chapter 19. Both require explicit SBP authorization that does not currently exist. This is the primary blocker for any real-world implementation today.</p>
-
-  <p class="table-caption">Figure 1: Tokenized Remittance Investment Product — Technical System Architecture</p>
+  <h3>4.1 System design overview</h3>
+  <p>The design below responds to the constraints in Section 2. It puts regulator visibility, investor identity checks at the protocol level and licensed custody first.</p>
+  <p><strong>Blockchain layer:</strong> a permissioned or hybrid chain (for example Hyperledger Besu, or Polygon with permissioning) is more likely to satisfy a regulator than a public chain, because it allows identity checks, monitoring and intervention.</p>
+  <p><strong>Token standard:</strong> ERC-1400 or ERC-3643 (T-REX) support transfer restrictions, investor allow lists and forced transfers for regulatory intervention. Plain ERC-20 does not.</p>
+  <p><strong>KYC and AML:</strong> identity checks through NADRA for Pakistani nationals, enhanced due diligence for non residents in line with FATF standards, and on chain identity attestation tied to the allow list.</p>
+  <p><strong>Custody and settlement:</strong> a licensed custodian holds the underlying assets (property titles, sukuk, fund units). Tokens map to beneficial ownership in the custodian's books.</p>
+  <p><strong>Fiat on and off ramp:</strong> the binding constraint. An authorized dealer must accept funds and convert them, and the exit must also go through authorized channels [<a class="cite" href="#ref-2">2</a>; not re-checked]. Both would need explicit SBP permission that I found no evidence of.</p>
+  <p class="table-caption">Figure 1: Tokenized remittance investment product, technical system architecture (author's design)</p>
   <div style="margin: 0.5rem 0 2.5rem; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
     <svg id="fig1" viewBox="0 0 1000 640" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; display:block;">
       <defs>
@@ -236,7 +183,7 @@
         <marker id="f1-ah-reg" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><polygon points="0 0, 10 3, 0 6" fill="#43A047"/></marker>
       </defs>
       <rect width="1000" height="640" fill="white"/>
-      <text x="500" y="30" class="title-text" text-anchor="middle">Tokenized Remittance Investment Product — System Architecture</text>
+      <text x="500" y="30" class="title-text" text-anchor="middle">Tokenized Remittance Investment Product: System Architecture</text>
 
       <!-- PRIMARY FLOW -->
       <rect x="40" y="100" width="120" height="90" class="box-main" rx="6"/>
@@ -334,31 +281,24 @@
     </svg>
   </div>
 
-  <h3>4.2 Eligible Asset Classes</h3>
-  <p>Four asset classes emerge as most viable for initial tokenization. Real estate — fractional ownership of commercial property in Pakistan or diaspora-accessible jurisdictions — has the strongest regulatory precedent given the SECP's 2025 sandbox approval of real estate tokenization. Infrastructure assets, including toll roads and power generation facilities, represent the second-most viable category given their long-term cash flow stability. Sukuk and other Islamic bonds provide familiarity advantage and alignment with diaspora religious preferences. Managed funds — multi-asset portfolios managed by Pakistani or licensed international managers — offer diversification and reduce single-asset concentration risk.</p>
+  <h3>4.2 Eligible asset classes</h3>
+  <p>Four asset classes look most suitable for a first product. Real estate has the clearest local precedent, given the SECP sandbox's 2025 real estate tokenization approval [<a class="cite" href="#ref-5">5</a>; not re-checked]. Infrastructure assets offer long term cash flows. Sukuk fit the preferences of many diaspora investors. Managed funds spread risk across assets.</p>
 
-  <p>Real estate tokenization in premium markets (Dubai, Singapore, London) offers particular appeal to diaspora investors seeking portfolio diversification beyond Pakistan while maintaining cultural/geographic proximity. A pilot could target UAE commercial property, benefiting from DFSA regulatory clarity and existing diaspora real estate demand.</p>
+  <h2>5. Feasibility and a Possible Path</h2>
+  <h3>5.1 Feasibility as of November 2026</h3>
+  <p>Is a tokenized remittance investment product feasible today? Not as far as I can find. Three blockers remain: (1) remittances must go through authorized dealers, with no provision for an intermediary platform [<a class="cite" href="#ref-2">2</a>; not re-checked]; (2) I found no framework for stablecoins under the Virtual Assets Act or the SBP's 2026 circular [<a class="cite" href="#ref-7">7</a>; <a class="cite" href="#ref-9">9</a>]; (3) tokenized assets are not a recognised non resident investment category [<a class="cite" href="#ref-2">2</a>; not re-checked].</p>
+  <p>What has changed since March 2026 is that the legal base for virtual asset providers now exists, and banks may serve licensed providers [<a class="cite" href="#ref-7">7</a>; <a class="cite" href="#ref-9">9</a>]. That makes a supervised pilot more plausible than before. The first version said the IMF programme constraint "expires in 2027"; I have not verified that, so it is removed.</p>
 
-  <h2>5. Feasibility Assessment and Regulatory Timeline</h2>
+  <h3>5.2 What would need to change</h3>
+  <p>Four policy steps would be needed: (1) an SBP route for licensed firms to receive remittance funds for investment, with lock in periods and conversion caps; (2) a decision by the SBP and PVARA on whether, and how, stable value tokens may be used; (3) an SECP sandbox approval for a pilot; (4) recognition of tokenized securities as an eligible non resident investment.</p>
+  <p>The sandbox is the easiest entry point. A pilot should start with funds already held in Roshan Digital Accounts, invest in government backed assets such as sukuk, and convert to rupees only through authorized channels. It should not use USDC, USDT or any other stablecoin unless and until a rule allows it. The first version proposed holding USDC and USDT in escrow, which contradicted its own reading of the rules; that proposal is withdrawn.</p>
 
-  <h3>5.1 Current Feasibility</h3>
-  <p>Is a tokenized remittance investment product feasible today? The answer is no. Three specific regulatory blockers prevent implementation: (1) SBP Foreign Exchange Manual Chapter 19 requires all remittances through authorized dealers with no provision for intermediary diversion; (2) no stablecoin framework exists despite the Virtual Assets Act 2026, driven by SBP capital flight concerns under the IMF programme; (3) tokenized assets are not recognized as an investment category under Foreign Exchange Manual Chapter 20, creating legal uncertainty about non-resident eligibility.</p>
-
-  <p>These blockers are not insurmountable but require coordinated policy action. The International Monetary Fund programme constraint is temporary — it expires in 2027. The stablecoin framework is under development at PVARA. The investment category gap is a documentation issue rather than a conceptual obstacle.</p>
-
-  <h3>5.2 Regulatory Pathway to Feasibility</h3>
-  <p>What would enable implementation? Four policy actions are required: (1) SBP circular authorizing licensed fintechs as authorized dealers for tokenized investment products, with strict remittance-to-investment conversion rules and lock-up periods; (2) PVARA stablecoin regulations establishing operational frameworks pending SBP coordination; (3) SECP sandbox approval for a tokenized remittance investment pilot with 12-18 month testing period; (4) amendment to Foreign Exchange Manual Chapter 20 recognizing tokenized securities as eligible non-resident investment instruments.</p>
-
-  <p>SECP sandbox represents the lowest-friction entry point. The SECP has already demonstrated regulatory capability and willingness through real estate tokenization approval. A sandbox application can proceed independently of broader stablecoin framework questions by using regulated stablecoins (USDC, USDT) held in escrow by a licensed custodian, converting to PKR only at investor exit.</p>
-
-  <h3>5.3 Implementation Timeline</h3>
-  <p><strong>Phase 1 (2026-2027):</strong> SECP sandbox application and pilot approval. Estimated 6-9 month approval cycle based on real estate tokenization precedent. Product scope limited to two asset classes (real estate and sukuk). Target: 5,000 investor accounts. Regulatory focus: operational controls, custody safeguards, consumer protection.</p>
-
-  <p><strong>Phase 2 (2027-2028):</strong> Pilot execution with continuous regulatory reporting. Quarterly reports to SECP on investor behavior, redemption patterns, custody efficiency, and compliance metrics. Addition of third asset class (managed funds) based on pilot performance. Target: 20,000-50,000 investor accounts.</p>
-
-  <p><strong>Phase 3 (2028-2029):</strong> Regulatory amendments based on pilot data. SBP circular authorizing fintechs as authorized dealers. Foreign Exchange Manual Chapter 20 amendment. Transition from sandbox to commercial licensure. Target: 100,000+ investor accounts; $1.5-2.5 billion annual investment volume.</p>
-
-  <p class="table-caption">Figure 2: Regulatory Implementation Pathway — Three-Phase Architecture (March 2026)</p>
+  <h3>5.3 An illustrative timeline</h3>
+  <p>The phases and account targets below are my assumptions for discussion, not estimates from data.</p>
+  <p><strong>Phase 1:</strong> sandbox application and approval; two asset classes (real estate and sukuk); a small, capped group of investors.</p>
+  <p><strong>Phase 2:</strong> pilot with regular reporting to the SECP and SBP on investor behaviour, redemptions, custody and compliance; a third asset class if results allow.</p>
+  <p><strong>Phase 3:</strong> rule changes based on pilot evidence, then a move from sandbox to licensing.</p>
+  <p class="table-caption">Figure 2: Regulatory pathway in three phases. Drawn in March 2026; the November 2026 changes are described in Sections 2.2 and 5.1, and the figure's stablecoin step is now optional, not required.</p>
   <div style="margin: 0.5rem 0 2.5rem; border: 1px solid var(--border); border-radius: 8px; overflow: auto; background: #f9f9f9; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
     <svg id="fig2" viewBox="0 0 1400 760" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; display:block; min-width: 900px;">
   <title>Regulatory Implementation Pathway for Tokenized Remittance Product</title>
@@ -387,12 +327,12 @@
   <rect width="1400" height="760" fill="#f9f9f9"/>
 
   <!-- DISCLAIMER -->
-  <text x="700" y="22" class="disclaimer" text-anchor="middle">FEASIBILITY STATUS: NOT CURRENTLY AUTHORIZED | SECP Sandbox pathway identified for 6–12 month pilot</text>
+  <text x="700" y="22" class="disclaimer" text-anchor="middle">FEASIBILITY STATUS: NOT CURRENTLY AUTHORIZED | SECP Sandbox pathway identified for 6 to 12 month pilot</text>
 
   <!-- ═════════════════════════════════════════════════════════════ -->
-  <!-- PHASE 1: CURRENT STATE — NOT FEASIBLE                        -->
+  <!-- PHASE 1: CURRENT STATE: NOT FEASIBLE                        -->
   <!-- ═════════════════════════════════════════════════════════════ -->
-  <text x="90" y="50" class="text-phase">PHASE 1: Current State (March 2026) — NOT FEASIBLE</text>
+  <text x="90" y="50" class="text-phase">PHASE 1: State as assessed in March 2026: NOT FEASIBLE</text>
 
   <rect x="90" y="62" width="250" height="96" class="box-blocker" rx="6"/>
   <text x="215" y="94"  class="text-main">SBP Stablecoin</text>
@@ -401,12 +341,12 @@
   <text x="215" y="147" class="text-sub">Capital flight concerns</text>
 
   <text x="370" y="100" class="text-label" style="fill:#555;">Remittance channels must flow through authorized dealers only</text>
-  <text x="370" y="116" class="text-label" style="fill:#555;">(FE Manual Ch.19 — no provision for intermediary diversion)</text>
+  <text x="370" y="116" class="text-label" style="fill:#555;">(FE Manual Ch.19: no provision for intermediary diversion)</text>
 
   <!-- ═════════════════════════════════════════════════════════════ -->
   <!-- PHASE 2: SECP SANDBOX PILOT                                  -->
   <!-- ═════════════════════════════════════════════════════════════ -->
-  <text x="90" y="185" class="text-phase">PHASE 2: SECP Sandbox Pilot (6–12 months) — LIMITED FEASIBILITY</text>
+  <text x="90" y="185" class="text-phase">PHASE 2: SECP Sandbox Pilot (6 to 12 months): LIMITED FEASIBILITY</text>
 
   <!-- Flow boxes: y=198, h=65, vertical center y=230 -->
   <rect x="90"  y="198" width="120" height="65" class="box-sandbox" rx="6"/>
@@ -437,21 +377,21 @@
   <text x="762" y="226" class="text-main">Custodian</text>
   <text x="762" y="244" class="text-main">(Licensed)</text>
 
-  <!-- Sandbox Constraints panel — clearly separated, right of flow -->
+  <!-- Sandbox Constraints panel: clearly separated, right of flow -->
   <rect x="870" y="193" width="490" height="155" class="box-panel" rx="6"/>
   <text x="885" y="212" class="text-hd">Sandbox Constraints:</text>
-  <text x="885" y="230" class="text-label">• 500–1,000 accredited investors only</text>
+  <text x="885" y="230" class="text-label">• 500 to 1,000 accredited investors only</text>
   <text x="885" y="248" class="text-label">• Government-backed assets (sukuk, funds)</text>
-  <text x="885" y="266" class="text-label">• Time-bound: 12–24 months</text>
+  <text x="885" y="266" class="text-label">• Time-bound: 12 to 24 months</text>
   <text x="885" y="284" class="text-label">• Requires SBP Letter of No Objection</text>
   <text x="885" y="302" class="text-label">• Quarterly compliance reporting to SECP</text>
-  <text x="885" y="320" class="text-label">• No stablecoin — USD FCA (RDA) entry only</text>
+  <text x="885" y="320" class="text-label">• No stablecoin: USD FCA (RDA) entry only</text>
   <text x="885" y="338" class="text-label">• Participant cap enforced throughout pilot</text>
 
   <!-- ═════════════════════════════════════════════════════════════ -->
   <!-- PHASE 3: FULL COMMERCIALIZATION                              -->
   <!-- ═════════════════════════════════════════════════════════════ -->
-  <text x="90" y="390" class="text-phase">PHASE 3: Post-Regulatory Approval (24+ months) — FULL COMMERCIALIZATION</text>
+  <text x="90" y="390" class="text-phase">PHASE 3: Post-Regulatory Approval (24+ months): FULL COMMERCIALIZATION</text>
 
   <!-- Flow boxes: y=403, h=65, vertical center y=435 -->
   <rect x="55"  y="403" width="110" height="65" class="box-future" rx="6"/>
@@ -494,7 +434,7 @@
   <text x="933" y="431" class="text-main">PKR</text>
   <text x="933" y="449" class="text-main">Off-Ramp</text>
 
-  <!-- Commercialization Requirements panel — right of last box, no overlap -->
+  <!-- Commercialization Requirements panel: right of last box, no overlap -->
   <rect x="1015" y="398" width="355" height="180" class="box-panel" rx="6"/>
   <text x="1030" y="418" class="text-hd">Commercialization Requirements:</text>
   <text x="1030" y="437" class="text-label">• SBP stablecoin authorization</text>
@@ -512,12 +452,12 @@
   <text x="90" y="605" class="text-phase">REGULATORY FRAMEWORK EVOLUTION</text>
 
   <rect x="55"  y="618" width="290" height="72" class="box-regulatory" rx="6"/>
-  <text x="200" y="641" class="text-main">Phase 1–2: SECP Sandbox</text>
+  <text x="200" y="641" class="text-main">Phase 1 to 2: SECP Sandbox</text>
   <text x="200" y="659" class="text-sub">Limited participants, time-bound,</text>
   <text x="200" y="675" class="text-sub">quarterly reporting</text>
 
   <rect x="383" y="618" width="290" height="72" class="box-regulatory" rx="6"/>
-  <text x="528" y="641" class="text-main">Phase 2–3: FE Manual Amendment</text>
+  <text x="528" y="641" class="text-main">Phase 2 to 3: FE Manual Amendment</text>
   <text x="528" y="659" class="text-sub">SBP approval for FX escrow</text>
   <text x="528" y="675" class="text-sub">and investment safeguards</text>
 
@@ -543,38 +483,29 @@
   </svg>
   </div>
 
-  <p><strong>Comparison with International Timelines:</strong> Singapore took three years from Project Guardian launch (2022) to commercial pilot (2025-2026). Dubai's DFSA framework evolved over four years (2022-2026). Pakistan could follow a similar 3-4 year trajectory if regulatory engagement begins in 2026. This assumes sustained institutional coordination between SECP and SBP.</p>
-
   <h2>6. Conclusion</h2>
+  <p>Remittances are large and growing: US$41.6 billion in FY26 [<a class="cite" href="#ref-1">1</a>]. Even 1% would be about US$0.42 billion a year (Table 1). The legal ground has shifted since March 2026, with a Virtual Assets Act and banking access for licensed providers [<a class="cite" href="#ref-7">7</a>; <a class="cite" href="#ref-9">9</a>]. But the core blockers in the foreign exchange rules remain, and a pilot should be built on foreign currency accounts and government backed assets, not on stablecoins. The next step is evidence: a survey of diaspora investors and a small supervised pilot. I would welcome comments from people who know these rules from the inside.</p>
 
-  <p>The opportunity is real and quantifiable. Pakistan's $35 billion annual remittance flow represents an underutilized capital source for productive investment. Even at a conservative 1-2 percent redirection rate, the addressable market is $350-700 million annually — comparable to Naya Pakistan Certificate's gross inflows during its peak years.</p>
-
-  <p>The regulatory path is narrow but not closed. The SECP has already approved real estate tokenization, demonstrating capability. The Pakistan Virtual Assets Act 2026 creates institutional infrastructure (PVARA) that was absent before. The Roshan Digital Account precedent proves diaspora investors will engage with regulated Pakistani investment products. Pakistan could follow the MAS model: supervised experimentation in a sandbox, data-driven policy refinement, and phased commercial deployment.</p>
-
-  <p>What is missing is political will and institutional coordination between SBP and SECP. The SBP's capital flight concerns are legitimate and must be addressed through product design — custody requirements, lock-up periods, and conversion caps — rather than blanket prohibition. The alternative is continued regulatory ambiguity while $35 billion flows through the economy each year with minimal productive investment capture. The question is not whether tokenized diaspora investment products will exist. It is whether Pakistan will be an early mover or a late adopter — and whether the regulatory framework will be shaped by deliberate design or by default.</p>
-
-  <h2>References</h2>
+  <h2 id="sources">Sources</h2>
+  <p style="font-size: 0.85rem; color: var(--muted);">Numbers in brackets point to this list. "Not re-checked" marks a source read for the March 2026 version and not read again for this update. Last updated: November 2026.</p>
   <div class="references">
     <ol>
-      <li>State Bank of Pakistan. Foreign Exchange Manual. <a href="https://www.sbp.org.pk/fe_manual/index.htm" target="_blank" rel="noopener">https://www.sbp.org.pk/fe_manual/index.htm</a></li>
-      <li>Securities and Exchange Commission of Pakistan. Regulatory Sandbox Framework. <a href="https://www.secp.gov.pk/regulatory-sandbox/" target="_blank" rel="noopener">https://www.secp.gov.pk/regulatory-sandbox/</a></li>
-      <li>Securities and Exchange Commission of Pakistan. Position Paper on Regulation of Digital Asset Trading Platforms. <a href="https://www.secp.gov.pk/document/position-paper-regulation-of-digital-asset-trading-platforms/" target="_blank" rel="noopener">https://www.secp.gov.pk/document/position-paper-regulation-of-digital-asset-trading-platforms/</a></li>
-      <li>Monetary Authority of Singapore. Project Guardian: Initiative on tokenized deposits and payments. <a href="https://www.mas.gov.sg/schemes-and-initiatives/project-guardian" target="_blank" rel="noopener">https://www.mas.gov.sg/schemes-and-initiatives/project-guardian</a></li>
-      <li>Dubai Financial Services Authority. DFSA Crypto Token Framework Update (January 2026). <a href="https://www.dfsa.ae/news/dfsa-implements-major-updates-crypto-token-regulatory-framework-enhancing-market-integrity-and-supporting-innovation-difc" target="_blank" rel="noopener">https://www.dfsa.ae/news/dfsa-implements-major-updates-crypto-token-regulatory-framework-enhancing-market-integrity-and-supporting-innovation-difc</a></li>
-      <li>Swiss Financial Market Supervisory Authority (FINMA). DLT and Blockchain Framework. <a href="https://www.finma.ch/" target="_blank" rel="noopener">https://www.finma.ch/</a></li>
-      <li>State Bank of Pakistan. Remittances Data — Monthly Reports. <a href="https://www.sbp.org.pk/ecodata/homeremit.pdf" target="_blank" rel="noopener">https://www.sbp.org.pk/ecodata/homeremit.pdf</a></li>
-      <li>State Bank of Pakistan. Policy Rate and Monetary Policy Decisions. <a href="https://www.sbp.org.pk/m_policy/index.asp" target="_blank" rel="noopener">https://www.sbp.org.pk/m_policy/index.asp</a></li>
-      <li>Pakistan Telecommunication Authority / PVARA. Pakistan Virtual Assets Act 2026 — Full Text and Implementation Framework. <a href="https://fafen.org/pvar-ordinance-is-crypto-now-legal-in-pakistan/" target="_blank" rel="noopener">https://fafen.org/pvar-ordinance-is-crypto-now-legal-in-pakistan/</a></li>
-      <li>World Bank. Remittance Prices Worldwide Database. <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener">https://remittanceprices.worldbank.org/</a></li>
-      <li>State Bank of Pakistan. Press Release on Virtual Assets Framework (May 2025). <a href="https://www.sbp.org.pk/press/2025/Pr-30-May-2025.pdf" target="_blank" rel="noopener">https://www.sbp.org.pk/press/2025/Pr-30-May-2025.pdf</a></li>
-      <li>State Bank of Pakistan. Naya Pakistan Certificates — Frequently Asked Questions and Updated Terms. <a href="https://www.sbp.org.pk/NPC-/FAQs.html" target="_blank" rel="noopener">https://www.sbp.org.pk/NPC-/FAQs.html</a></li>
-      <li>Securities and Exchange Commission of Pakistan. Second Cohort Regulatory Sandbox Approvals (2025). <a href="https://www.secp.gov.pk/media-center/press-releases/secp-approves-various-technology-driven-solutions-under-2nd-cohort-of-regulatory-sandbox/" target="_blank" rel="noopener">https://www.secp.gov.pk/media-center/press-releases/secp-approves-various-technology-driven-solutions-under-2nd-cohort-of-regulatory-sandbox/</a></li>
-      <li>State Bank of Pakistan. Foreign Exchange Market Developments. <a href="https://www.sbp.org.pk/dfmd/fem.asp" target="_blank" rel="noopener">https://www.sbp.org.pk/dfmd/fem.asp</a></li>
-      <li>Swiss State Secretariat for International Finance. DLT and Blockchain Framework. <a href="https://www.sif.admin.ch/en/dlt-blockchain-en" target="_blank" rel="noopener">https://www.sif.admin.ch/en/dlt-blockchain-en</a></li>
-      <li>The Express Tribune. Pakistan's Remittances Cross $34.9 Billion for FY2025, Setting New Record. <a href="https://tribune.com.pk/story/2550398/remittances-cross-349b-for-fy2025" target="_blank" rel="noopener">https://tribune.com.pk/story/2550398/remittances-cross-349b-for-fy2025</a></li>
+      <li id="ref-1">State Bank of Pakistan. <em>Press release on workers' remittances, June 2026 and FY26</em>. 9 July 2026. <a href="https://www.sbp.org.pk/assets/documents/press-release/PR-09-July-2026.pdf" target="_blank" rel="noopener">https://www.sbp.org.pk/assets/documents/press-release/PR-09-July-2026.pdf</a>. Accessed 17 November 2026. Primary.</li>
+      <li id="ref-2">State Bank of Pakistan. <em>Foreign Exchange Manual</em>. Current edition (undated page). <a href="https://www.sbp.org.pk/fe_manual/index.htm" target="_blank" rel="noopener">https://www.sbp.org.pk/fe_manual/index.htm</a>. Accessed Read for the March 2026 version; not re-read in November 2026. Primary, not re-checked.</li>
+      <li id="ref-3">State Bank of Pakistan. <em>Naya Pakistan Certificates: frequently asked questions</em>. Undated page. <a href="https://www.sbp.org.pk/NPC-/FAQs.html" target="_blank" rel="noopener">https://www.sbp.org.pk/NPC-/FAQs.html</a>. Accessed Read for the March 2026 version; not re-read in November 2026. Primary, not re-checked.</li>
+      <li id="ref-4">Securities and Exchange Commission of Pakistan. <em>Regulatory sandbox</em>. Undated page. <a href="https://www.secp.gov.pk/regulatory-sandbox/" target="_blank" rel="noopener">https://www.secp.gov.pk/regulatory-sandbox/</a>. Accessed Read for the March 2026 version; not re-read in November 2026. Primary, not re-checked.</li>
+      <li id="ref-5">Securities and Exchange Commission of Pakistan. <em>SECP approves various technology driven solutions under 2nd cohort of regulatory sandbox (press release)</em>. 2025. <a href="https://www.secp.gov.pk/media-center/press-releases/secp-approves-various-technology-driven-solutions-under-2nd-cohort-of-regulatory-sandbox/" target="_blank" rel="noopener">https://www.secp.gov.pk/media-center/press-releases/secp-approves-various-technology-driven-solutions-under-2nd-cohort-of-regulatory-sandbox/</a>. Accessed Read for the March 2026 version; not re-read in November 2026. Primary, not re-checked.</li>
+      <li id="ref-6">Securities and Exchange Commission of Pakistan. <em>Position paper on regulation of digital asset trading platforms</em>. Undated. <a href="https://www.secp.gov.pk/document/position-paper-regulation-of-digital-asset-trading-platforms/" target="_blank" rel="noopener">https://www.secp.gov.pk/document/position-paper-regulation-of-digital-asset-trading-platforms/</a>. Accessed Read for the March 2026 version; not re-read in November 2026. Primary, not re-checked.</li>
+      <li id="ref-7">Arab News Pakistan. <em>Pakistan passes Virtual Assets Act 2026, empowers regulator to combat money laundering</em>. 6 March 2026. <a href="https://www.arabnews.pk/pakistan/pakistan-passes-virtual-assets-act-2026-empowers-regulator-to-combat-money-laundering-2635493" target="_blank" rel="noopener">https://www.arabnews.pk/pakistan/pakistan-passes-virtual-assets-act-2026-empowers-regulator-to-combat-money-laundering-2635493</a>. Accessed 17 November 2026. Secondary.</li>
+      <li id="ref-8">The News on Sunday (Naveed Rafaqat Ahmad). <em>A year for digitalisation</em>. 4 January 2026. <a href="https://www.thenews.pk/tns/detail/1390389-a-year-for-digitalisation" target="_blank" rel="noopener">https://www.thenews.pk/tns/detail/1390389-a-year-for-digitalisation</a>. Accessed 17 November 2026. Secondary.</li>
+      <li id="ref-9">The Express Tribune. <em>SBP replaces 2018 crypto ban with new VASP rules</em>. 16 April 2026. <a href="https://tribune.com.pk/story/2603003/sbp-replaces-2018-crypto-ban-with-new-vasp-rules" target="_blank" rel="noopener">https://tribune.com.pk/story/2603003/sbp-replaces-2018-crypto-ban-with-new-vasp-rules</a>. Accessed 17 November 2026. Secondary (the SBP circular itself was not read).</li>
+      <li id="ref-10">Monetary Authority of Singapore. <em>Project Guardian</em>. Undated page. <a href="https://www.mas.gov.sg/schemes-and-initiatives/project-guardian" target="_blank" rel="noopener">https://www.mas.gov.sg/schemes-and-initiatives/project-guardian</a>. Accessed Read for the March 2026 version; not re-read in November 2026. Primary, not re-checked.</li>
+      <li id="ref-11">Dubai Financial Services Authority. <em>DFSA implements major updates to crypto token regulatory framework</em>. January 2026. <a href="https://www.dfsa.ae/news/dfsa-implements-major-updates-crypto-token-regulatory-framework-enhancing-market-integrity-and-supporting-innovation-difc" target="_blank" rel="noopener">https://www.dfsa.ae/news/dfsa-implements-major-updates-crypto-token-regulatory-framework-enhancing-market-integrity-and-supporting-innovation-difc</a>. Accessed Read for the March 2026 version; not re-read in November 2026. Primary, not re-checked.</li>
+      <li id="ref-12">Swiss Financial Market Supervisory Authority (FINMA). <em>FINMA home page (DLT and blockchain material)</em>. Undated. <a href="https://www.finma.ch/" target="_blank" rel="noopener">https://www.finma.ch/</a>. Accessed Read for the March 2026 version; not re-read in November 2026. Primary, not re-checked.</li>
+      <li id="ref-13">Swiss State Secretariat for International Finance. <em>DLT and blockchain</em>. Undated page. <a href="https://www.sif.admin.ch/en/dlt-blockchain-en" target="_blank" rel="noopener">https://www.sif.admin.ch/en/dlt-blockchain-en</a>. Accessed Read for the March 2026 version; not re-read in November 2026. Primary, not re-checked.</li>
+      <li id="ref-14">World Bank. <em>Remittance Prices Worldwide</em>. Database, updated quarterly. <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener">https://remittanceprices.worldbank.org/</a>. Accessed Read for the March 2026 version; not re-read in November 2026. Primary, not re-checked.</li>
     </ol>
   </div>
-
 </div>
 
 <div class="back-wrap">
@@ -583,7 +514,7 @@
 
 <footer>
   <div class="footer-inner">
-    <a href="/Research-Articles/" class="footer-brand">Fawad Liaqat — Research</a>
+    <a href="/Research-Articles/" class="footer-brand">Fawad Liaqat, Research</a>
     <ul class="footer-links">
       <li><a href="/Research-Articles/">Articles</a></li>
       <li><a href="https://fawad-liaqat.netlify.app/">Portfolio</a></li>
