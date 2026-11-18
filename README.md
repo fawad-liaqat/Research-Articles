@@ -4,21 +4,17 @@ Welcome to my research repository. These articles explore critical intersections
 
 ## Research Focus
 
-My work aims to help people understand better. The articles here distill research and analysis into accessible insights on topics that matter: how tariffs create cascading economic effects, why last-mile adoption stumbles despite technological readiness, how digital currencies can serve populations beyond the traditional banking system, what compliance gaps exist in agentic AI systems, and how tokenized systems might reshape remittance flows.
+My work aims to help people understand better. The articles here distill research and analysis into accessible insights on topics that matter: why adoption stalls at the last mile even when the payment rails are ready, how digital currencies can serve people outside the banking system, and what compliance gaps exist in agentic AI systems.
 
-Each article combines empirical research, real-world context, and practical implications. The goal is clarity: cutting through noise to surface what actually matters.
+Each article combines empirical research, real world context, and practical implications. The goal is clarity: cutting through noise to surface what actually matters.
 
 ## Articles
-
-- **[Tariff Cascades and Fintech Infrastructure](articles/tariff-cascades/)** (archived, not updated since March 2026): How tariffs propagate through supply chains, amplifying economic friction beyond initial tariff rates.
 
 - **[The Behavioral Last Mile: Why Pakistan's Payment Rails Run Ahead of Its People](articles/behavioral-last-mile/)** (updated November 2026): Why Pakistan's payment rails run ahead of its people: access first, then trust, incentives and design. Includes a progress view from FY25 to FY26; the [FY25 edition](articles/behavioral-last-mile/fy25/) is kept online.
 
 - **[Why CBDCs Fail at the Interface](articles/cbdc-low-literacy/)** (updated November 2026): Designing digital currency systems for populations with limited financial literacy or digital access.
 
 - **[Agentic AI in Financial Compliance: Mapping the Regulatory Gap in Pakistan](articles/agentic-ai-compliance/)** (updated November 2026): Regulatory and operational challenges in deploying autonomous AI systems at scale.
-
-- **[Tokenized Remittances: A Feasibility Framework for Pakistani Diaspora Investment](articles/tokenized-remittances/)** (updated November 2026): Whether tokenization could channel part of Pakistan's remittances into regulated investment, and what the rules allow today.
 
 ## Quick Links
 
@@ -27,6 +23,6 @@ Each article combines empirical research, real-world context, and practical impl
 
 ---
 
-Each updated article ends with a numbered Sources list (publisher, title, date, link, access date).
+Each article ends with a numbered Sources list: publisher, title and link, labelled Primary or Secondary.
 
 *Last updated: November 2026*
