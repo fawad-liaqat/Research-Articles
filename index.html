@@ -429,6 +429,14 @@
       :root[data-theme] .footer-links a { color: rgba(238,243,250,0.6); }
       :root[data-theme] .footer-links a:hover { color: #ffffff; }
       :root[data-theme] .footer-copy { opacity: 0.6; }
+  
+    /* Phones: keep a compact Portfolio link and the toggle in the top bar. */
+    @media (max-width: 640px) {
+      :root[data-theme] .nav-links { display: flex; }
+      :root[data-theme] .nav-links li:not(.nav-portfolio) { display: none; }
+      :root[data-theme] .nav-links .nav-portfolio a { padding: 0.35rem 0.6rem; font-size: 0.85rem; }
+      :root[data-theme] .nav-inner { padding: 0 1.25rem; }
+    }
   </style>
   </head>
   <body>
@@ -440,7 +448,7 @@
         </a>
         <ul class="nav-links">
           <li><a href="/Research-Articles/">Articles</a></li>
-          <li><a href="https://fawad-liaqat.netlify.app/">Portfolio</a></li>
+          <li class="nav-portfolio"><a href="https://fawad-liaqat.netlify.app/">Portfolio</a></li>
           <li>
             <a href="https://github.com/fawad-liaqat/Research-Articles"
               >GitHub</a
