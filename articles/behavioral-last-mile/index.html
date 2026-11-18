@@ -92,6 +92,9 @@
       .article-body table { font-size: 0.78rem; }
     }
     .cite { font-size: 0.85em; text-decoration: none; }
+    /* Phones: wide tables scroll inside their own box; long links wrap. */
+    @media (max-width: 640px) { table { display: block; max-width: 100%; overflow-x: auto; } }
+    .references-section li, .references li, .references-section a, .references a, .sources-list li, .sources-list a, li a { overflow-wrap: anywhere; }
   </style>
 </head>
 <body>
@@ -129,13 +132,13 @@
     </div>
 
     <div class="article-body">
-      <p><em>Update note, November 2026:</em> this article was first published in March 2026 on FY25 data. It now uses the State Bank's FY26 review and Findex 2025. The earlier version's headline claim that "60% of the economy is cash" had no source and has been removed, and its argument has shifted from behaviour first to access first. The <a href="fy25/">FY25 edition</a> remains online, and Section 5 shows the progress from FY25 to FY26.</p>
+      <p><em>Updated November 2026 with SBP FY26 data and new sources.</em> The <a href="fy25/">FY25 edition</a> remains online, and Section 5 shows the progress from FY25 to FY26.</p>
 
       <section>
         <h2>1. Introduction</h2>
         <p>Pakistan's retail payments reached 14.3 billion transactions worth PKR 673 trillion in FY26 (July 2025 to June 2026). Digital channels carried more than 92% of them by count, up from 88% in FY25 and 85% in FY24 [<a class="cite" href="#ref-1">1, p. 7</a>]. Raast, the State Bank's instant payment system, launched its first phase in January 2021 [<a class="cite" href="#ref-12">12</a>]. In FY26 it moved 2,755.2 million transactions worth PKR 80.1 trillion, against 1,276.0 million in FY25 [<a class="cite" href="#ref-1">1, p. 31</a>]. QR enabled merchants rose from 1.1 million to 3.8 million in a year under a subsidy within the Prime Minister's Cashless Pakistan Initiative [<a class="cite" href="#ref-1">1, p. 7</a>]. The subsidy ran from 1 September 2025 to 30 June 2026 [<a class="cite" href="#ref-4">4, p. 58</a>]. On 13 November 2026 the government said it would continue subsidising merchant fees on Raast QR payments; the terms were not published [<a class="cite" href="#ref-5">5</a>].</p>
         <p>The other side of the picture is just as clear. By value, the digital share was 38% [<a class="cite" href="#ref-1">1, p. 7</a>]. About PKR 415.7 trillion of PKR 672.7 trillion still moved over the counter at branches and agents, roughly 62% (my calculation) [<a class="cite" href="#ref-1">1, p. 9</a>]. Of 1,091 million ATM transactions, 1,064 million were cash withdrawals, or 97.6% (my calculation) [<a class="cite" href="#ref-1">1, p. 26</a>]. And only 27% of adults have an account; 25% made or received a digital payment [<a class="cite" href="#ref-2">2, p. 298</a>]. Pakistan's own survey puts inclusion higher, at 35% in 2024 [<a class="cite" href="#ref-3">3, p. 7</a>]. The two surveys use different samples and definitions; I use Findex for comparisons across countries.</p>
-        <p>The question is why a country where nine in ten retail payments are digital by count still runs much of its economy in cash. The first version of this article answered with behaviour: trust, incentives and literacy among people who could use the system but do not. The newer data points to a prior step. Findex reports that about 90% of Pakistani account owners already make or receive digital payments, on a base of very few account owners [<a class="cite" href="#ref-2">2, p. 167</a>]. So the first barrier is access. Behaviour matters once people are on the rail. I call the whole set of barriers the behavioral last mile.</p>
+        <p>The question is why a country where nine in ten retail payments are digital by count still runs much of its economy in cash. The newer data points to a prior step. Findex reports that about 90% of Pakistani account owners already make or receive digital payments, on a base of very few account owners [<a class="cite" href="#ref-2">2, p. 167</a>]. So the first barrier is access. Behaviour matters once people are on the rail. I call the whole set of barriers the behavioral last mile.</p>
       </section>
       <hr />
 
@@ -148,7 +151,7 @@
 
       <section>
         <h2>3. Methodology and Data Sources</h2>
-        <p>Pakistan is the main case. Payment data comes from the State Bank's Annual Payment Systems Review FY 2025-26, whose FY26 figures are provisional [<a class="cite" href="#ref-1">1</a>]. Account and usage data come from Findex 2025 [<a class="cite" href="#ref-2">2</a>]. Trust, gender and literacy figures for Pakistan come from the Karandaaz Financial Inclusion Survey 2024 narrative report [<a class="cite" href="#ref-3">3</a>]. The first November update cited press reports of that survey; where they differed from the report, the report is used.</p>
+        <p>Pakistan is the main case. Payment data comes from the State Bank's Annual Payment Systems Review FY 2025-26, whose FY26 figures are provisional [<a class="cite" href="#ref-1">1</a>]. Account and usage data come from Findex 2025 [<a class="cite" href="#ref-2">2</a>]. Trust, gender and literacy figures for Pakistan come from the Karandaaz Financial Inclusion Survey 2024 narrative report [<a class="cite" href="#ref-3">3</a>].</p>
         <p>India and Kenya are comparison cases. Their systems are at different ages and their fiscal years differ from Pakistan's, so the comparison is about scale and reach, not a controlled experiment. Figures I calculated are marked "my calculation" with their inputs. Page numbers are the printed pages of each document.</p>
       </section>
       <hr />
@@ -222,7 +225,7 @@
 
       <section>
         <h2>7. Layer 1: Trust</h2>
-        <p>In the Karandaaz survey for 2024, trust is lower outside the system: 63% of financially excluded adults trust state owned banks, 54% private banks and 52% mobile money services, against 93%, 90% and 92% of the financially included [<a class="cite" href="#ref-3">3, p. 27</a>]. Among adults who borrowed, 85% borrowed from family and friends [<a class="cite" href="#ref-3">3, p. 25</a>]. The first November update quoted press figures (9% and 8% trust, 36% comfort) that do not appear in the survey report; they are withdrawn.</p>
+        <p>In the Karandaaz survey for 2024, trust is lower outside the system: 63% of financially excluded adults trust state owned banks, 54% private banks and 52% mobile money services, against 93%, 90% and 92% of the financially included [<a class="cite" href="#ref-3">3, p. 27</a>]. Among adults who borrowed, 85% borrowed from family and friends [<a class="cite" href="#ref-3">3, p. 25</a>].</p>
         <p>Informal credit runs on relationships built over years. Trust theory suggests that trust in a known person can substitute for trust in an institution [<a class="cite" href="#ref-17">17</a>]. Kenya's M-Pesa is often described as having grown this way, through shopkeepers who acted as agents [<a class="cite" href="#ref-18">18</a>]. I have not re-checked the history of Kenya's agent network against a primary source for this update, so I treat it as context, not evidence.</p>
         <p>Pakistan has 837,244 branchless banking agents [<a class="cite" href="#ref-1">1, p. 24</a>]. Of the PKR 3.7 trillion they handled in FY26 [<a class="cite" href="#ref-1">1, p. 26</a>], about PKR 1.0 trillion was cash deposits and withdrawals [<a class="cite" href="#ref-1">1, p. 11</a>], roughly a quarter (my calculation). Whether agents could become the trusted bridge to Raast, which is reached through apps, is an open question.</p>
       </section>
@@ -230,8 +233,8 @@
 
       <section>
         <h2>8. Layer 2: Incentives</h2>
-        <p>Merchants who accept cards pay a merchant discount rate, and digital payments leave a record. Cash has neither. The first version of this article quoted an MDR range of 1.5% to 2.5% and a worked cost example. I could not find a published source for that range, so both are removed. What the data does show is that incentives move merchants: QR merchants more than tripled within a year once a subsidy arrived [<a class="cite" href="#ref-1">1, p. 7</a>], a subsidy of 0.5% of value or PKR 100 per payment, whichever is lower, shared equally between the merchant's and the customer's financial institutions [<a class="cite" href="#ref-4">4, p. 58</a>], and Raast merchant payments rose from 4.9 million to 182.5 million [<a class="cite" href="#ref-1">1, p. 31</a>]. Use per merchant is still low (Section 4).</p>
-        <p>India made UPI and RuPay payments free of merchant discount rate from 1 January 2020 [<a class="cite" href="#ref-9">9</a>]. The first version said this applied below Rs 2,000 from 2019; that was wrong. UPI volume rose from about 46.0 billion transactions in FY 2021-22 to 241.6 billion in FY 2025-26 [<a class="cite" href="#ref-7">7</a>], and merchant payments are now 63% of UPI volume [<a class="cite" href="#ref-8">8</a>]. Many policies changed over those years, so this does not isolate the effect of zero MDR.</p>
+        <p>Merchants who accept cards pay a merchant discount rate, and digital payments leave a record. Cash has neither. I found no published range for merchant fees on digital payments in Pakistan. What the data does show is that incentives move merchants: QR merchants more than tripled within a year once a subsidy arrived [<a class="cite" href="#ref-1">1, p. 7</a>], a subsidy of 0.5% of value or PKR 100 per payment, whichever is lower, shared equally between the merchant's and the customer's financial institutions [<a class="cite" href="#ref-4">4, p. 58</a>], and Raast merchant payments rose from 4.9 million to 182.5 million [<a class="cite" href="#ref-1">1, p. 31</a>]. Use per merchant is still low (Section 4).</p>
+        <p>India made UPI and RuPay payments free of merchant discount rate from 1 January 2020 [<a class="cite" href="#ref-9">9</a>]. UPI volume rose from about 46.0 billion transactions in FY 2021-22 to 241.6 billion in FY 2025-26 [<a class="cite" href="#ref-7">7</a>], and merchant payments are now 63% of UPI volume [<a class="cite" href="#ref-8">8</a>]. Many policies changed over those years, so this does not isolate the effect of zero MDR.</p>
       </section>
       <hr />
 
@@ -245,7 +248,7 @@
 
       <section>
         <h2>10. Conclusions and Proposals</h2>
-        <p>Pakistan's payment rail is growing fast and is not the bottleneck. The binding constraint is access: most adults have no account, and the gap between men and women is wide. Trust, incentives and design then decide how much people use the rail once they are on it. These layers interact, but I have no data to show that they "multiply", as the first version claimed.</p>
+        <p>Pakistan's payment rail is growing fast and is not the bottleneck. The binding constraint is access: most adults have no account, and the gap between men and women is wide. Trust, incentives and design then decide how much people use the rail once they are on it. These layers interact, though the data here cannot show by how much.</p>
         <p>Five proposals follow, ordered access first, then use. Each is a proposal to test, not a proven remedy.</p>
         <ol style="margin: 20px 0 20px 30px; line-height: 1.8">
           <li><strong>Target account opening among women and rural adults.</strong> Use the agent network and biometric account opening. The 2026 Eid cattle market drive opened about 12,500 accounts alongside QR acceptance [<a class="cite" href="#ref-1">1, p. 21</a>].</li>
@@ -254,7 +257,6 @@
           <li><strong>Pay agents for helping customers make digital payments,</strong> not only for cash in and cash out. No verified precedent is cited here.</li>
           <li><strong>Set Urdu first and voice first design standards</strong> for Raast enabled apps. No verified precedent is cited here.</li>
         </ol>
-        <p>The first version proposed a tax deduction for documented digital spending, citing Brazil's Pix and EU accessibility rules as precedents. I could not support either precedent, so that proposal is withdrawn until it can be.</p>
         <p>I would welcome other readings of this data, especially from people who work with merchants or agents.</p>
       </section>
       <hr />

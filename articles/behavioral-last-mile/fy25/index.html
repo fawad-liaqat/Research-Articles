@@ -92,6 +92,9 @@
       .article-body table { font-size: 0.78rem; }
     }
     .cite { font-size: 0.85em; text-decoration: none; }
+    /* Phones: wide tables scroll inside their own box; long links wrap. */
+    @media (max-width: 640px) { table { display: block; max-width: 100%; overflow-x: auto; } }
+    .references-section li, .references li, .references-section a, .references a, .sources-list li, .sources-list a, li a { overflow-wrap: anywhere; }
   </style>
 </head>
 <body>
